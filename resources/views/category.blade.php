@@ -38,13 +38,13 @@
                                     <div class="products-list__item">
                                         <div class="post-card post-card--layout--grid post-card--size--nl text-center">
                                             <div class="post-card__image">
-                                                <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory['Name']))}}">
+                                                <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{$subCategory['Id']}}">
                                                     <img src="{{$subCategory['Image_URL__c']}}" alt="{{$subCategory['Name']}}">
                                                 </a>
                                             </div>
                                             <div class="post-card__info">
                                                 <div class="post-card__name text-center">
-                                                    <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory['Name']))}}">{{$subCategory['Name']}}</a>
+                                                    <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{$subCategory['Id']}}">{{$subCategory['Name']}}</a>
                                                 </div>
                                             </div>
                                         </div>

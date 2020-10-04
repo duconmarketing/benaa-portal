@@ -12,11 +12,15 @@
                 </div>
                 <p style="color:#687188;">Drop us your Number and our Team will call you for the Order <br/>
                     ... ضع رقمك وسنتواصل معك في أقرب وقت</p>
-                <form method="post" class="widget-newsletter__form" id="fast-track-form" action="{{Config::get('benaa.fast_track_action')}}">
+                <form method="post" class="widget-newsletter__form" id="fast-track-form" action="{{URL('/fast-track-submit')}}">
+                    @csrf
                     <div class="form-group">
-                        <input name="phone" id="phone" required="" type="text" class="form-control" placeholder="Enter Your Phone Number">
+                        <input name="name" id="name" required="" type="text" class="form-control" placeholder="Enter Your Name" autocomplete="off">
                     </div>
-                    <span id="phone-info" class="invalid-feedback"></span>
+                    <div class="form-group">
+                        <input name="phone" id="phone" required="" type="text" class="form-control" placeholder="Enter Your Phone Number" autocomplete="off">
+                        <span id="phone-info" class="invalid-feedback"></span>
+                    </div>                    
                     <div class="form-group">
                         <button class="btn btn-primary btn-lg btn-block" title="Subscribe" type="submit">Contact</button>
                     </div>

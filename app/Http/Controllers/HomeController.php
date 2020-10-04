@@ -43,4 +43,15 @@ class HomeController extends Controller {
         }        
         return view('search-suggestions', ['result' => array_slice($response['data'], 0, 5), 'category' => $CategoryName, 'subCategory' => $subCategoryName,]);
     }
+
+    public function fastTrackSubmit(Request $request){
+        $data = array('lead' => array(
+            'firstName' => $request->name,
+            'mobilephone' => $request->phone,
+            'email' => ''
+        ));
+        $response = Http::withBody(json_encode($data), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/createlead');
+        $result = $response->json();        
+        return $result['message'];
+    }
 }

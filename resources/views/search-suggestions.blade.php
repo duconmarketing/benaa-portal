@@ -16,7 +16,7 @@
                         <!-- <a class="suggestions__item-name" href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{strtolower(str_replace(' ', '-', $row['Name']))}}">
                             {{$row['Name']}}
                         </a> -->
-                        <a class="suggestions__item-name" href="{{URL::to('/')}}/product/cat/subcat/{{urlencode(str_replace('%', '$', $category . '#' . $subCategory. '#'. $row['Name']))}}">
+                        <a class="suggestions__item-name" href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}">
                             {{$row['Name']}}
                         </a>
                         <div class="suggestions__item-meta">SKU: 83690/32</div>

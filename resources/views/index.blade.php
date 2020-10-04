@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'Largest Supplier of Power Tools | Building Materials Online in UAE')
 
 @section('content')
 
@@ -93,7 +93,7 @@
                     <div class="block-features__subtitle">Only secure payments</div>
                 </div>
             </div>
-            <div class="block-features__divider"></div>
+            <!-- <div class="block-features__divider"></div>
             <div class="block-features__item">
                 <div class="block-features__icon">
                     <svg width="48px" height="48px">
@@ -104,7 +104,7 @@
                     <div class="block-features__title">Hot Offers</div>
                     <div class="block-features__subtitle">Credit limit options</div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

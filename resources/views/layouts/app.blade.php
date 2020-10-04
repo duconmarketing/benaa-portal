@@ -28,6 +28,10 @@
             background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
             background-clip: text;
             -webkit-background-clip: text;
+            font-size: 35px;
+            }
+            .social-links__link--type--instagram{
+                background: transparent;
             }
             </style>
     </head>
@@ -652,7 +656,7 @@
                 url: '{{URL("fast-track")}}',
                 success: function(data) {
                     modal.find('.modal-content').html(data);
-                    if ( window.location.pathname == '/' || window.location.pathname == '/benaa-portal/' ){
+                    if ( window.location.pathname == '/' || window.location.pathname == '/benaa-new/' ){
                         modal.modal('show');
                     }
                     modal.find('.quickview__close').on('click', function() {
@@ -666,23 +670,20 @@
             event.preventDefault();
             var ph=$('#phone').val();
             if(!(ph)) {
-                $("#phone-info").html("Please enter mobile number");
-                console.log(13);
+                $("#phone-info").html("Please enter Phone Number").show();
                 return false;
             } else if(isNaN(ph)) {
-                $("#phone-info").html("Please enter digits only");
-                console.log(12);
+                $("#phone-info").html("Please type only Numbers").show();
                 return false;
             } else if(ph.length < 9) {
-                $("#phone-info").html("Invalid mobile number");
-                console.log(11);
+                $("#phone-info").html("Invalid mobile number").show();
                 return false;
             } else if(phone_validate(ph)) {
-                console.log(10);
                 $("#phone-info").html("");
                 $.post($(this).attr('action'), $(this).serialize(), function (res) {
+                    console.log(res);
                 });
-                $('#quickview-modal').hide();
+                modal.modal('hide');
             }
         });
 

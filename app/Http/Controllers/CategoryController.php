@@ -47,7 +47,7 @@ class CategoryController extends Controller {
     }
     
     public function showSubcategoryProducts(Request $request, $category, $subCategory) {
-        $subcategoryString = $category .'#'. $subCategory;
+        $subcategoryString = $subCategory;
         $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/fetchProducts', [
                     'subcategoryId' => $subcategoryString
         ]);
@@ -68,6 +68,7 @@ class CategoryController extends Controller {
         // $productString = $category . '#'. $subCategory .'#'. $product;
         // dd(str_replace('-',' ', $category. ' '. $subCategory.' '. $product));
         $productString = $product;
+        // die($productString);            
         $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/productDetail', [
                     'pricebookEntryId' => $productString,
         ]);

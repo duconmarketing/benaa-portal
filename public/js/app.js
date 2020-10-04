@@ -66210,7 +66210,7 @@ var Category = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "category-card__image"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "product/" + category.Name.replace(/ /g, "-").toLowerCase()
+          href: "product/" + category.Id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: category.Image_URL__c,
           alt: ""
@@ -66222,7 +66222,7 @@ var Category = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "category-card__name"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "product/" + category.Name.replace(/ /g, "-").toLowerCase(),
+          href: "product/" + category.Id,
           style: {
             textTransform: 'capitalize'
           }
@@ -66233,7 +66233,7 @@ var Category = /*#__PURE__*/function (_React$Component) {
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "category-card__all"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "product/" + category.Name.replace(/ /g, "-").toLowerCase()
+          href: "product/" + category.Id
         }, "Show All")))));
       });
     }
@@ -66727,7 +66727,7 @@ var SubCategoryHome = /*#__PURE__*/function (_React$Component) {
           },
           key: subCat.Id
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "product/" + categories.Name.replace(/ /g, "-").toLowerCase() + "/" + subCat.Name.replace(/ /g, "-").toLowerCase()
+          href: "product/" + categories.Name.replace(/ /g, "-").toLowerCase() + "/" + subCat.Id
         }, subCat.Name.toLowerCase()));
       }) : null;
     }
@@ -66758,8 +66758,8 @@ var SubCategoryHome = /*#__PURE__*/function (_React$Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp7.4\htdocs\benaa-portal\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp7.4\htdocs\benaa-portal\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp7.4\htdocs\benaa-new\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp7.4\htdocs\benaa-new\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
