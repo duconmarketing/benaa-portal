@@ -32,17 +32,17 @@
             <div class="col-12 col-lg-12">
                 <div class="block">
                     <div class="products-view">
-                        <div class="products-view__list products-list" data-layout="grid-3-sidebar" data-mobile-grid-columns="2" data-with-features="false">
+                        <div class="products-view__list products-list" data-layout="grid-4-full" data-mobile-grid-columns="2" data-with-features="false">
                             <div class="products-list__body">
                                 @foreach($results as $subCategory)
                                     <div class="products-list__item">
-                                        <div class="post-card post-card--layout--grid post-card--size--nl text-center">
+                                        <div class="product-card product-card--hidden-actions text-center">
                                             <div class="post-card__image">
                                                 <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{$subCategory['Id']}}">
                                                     <img src="{{$subCategory['Image_URL__c']}}" alt="{{$subCategory['Name']}}">
                                                 </a>
                                             </div>
-                                            <div class="post-card__info">
+                                            <div class="post-card__info mt-2 mb-2">
                                                 <div class="post-card__name text-center">
                                                     <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{$subCategory['Id']}}">{{$subCategory['Name']}}</a>
                                                 </div>

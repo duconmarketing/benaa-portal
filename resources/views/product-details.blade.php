@@ -73,8 +73,7 @@
                     </div>
                     <h1 class="product__name">{{$details['Name']}}</h1>                    
                     <div class="product__description">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ornare, mi in ornare elementum, libero nibh
-                        lacinia urna, quis convallis lorem erat at purus. Maecenas eu varius nisi.
+                        {{$details['Product2']['Website_Description__c']}}
                     </div>
                     <ul class="product__features">
                         <li>Speed: 750 RPM</li>
@@ -85,8 +84,8 @@
                     </ul>
                     <ul class="product__meta">
                         <li class="product__meta-availability">Availability: <span class="text-success">In Stock</span></li>
-                        <li>Brand: <a href="">Wakita</a></li>
-                        <li>SKU: 83690/32</li>
+                        <li>Brand: <a href="#">{{$details['Product2']['Brand_Name__c']}}</a></li>
+                        <li>SKU: {{$details['Product2']['SKU__c']}}</li>
                     </ul>
                 </div>
                 <!-- .product__info / end -->
