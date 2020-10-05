@@ -19,12 +19,14 @@
                         <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-right-6x9')}}"></use>
                         </svg>
                     </li>
-                    <li class="breadcrumb-item">
-                        <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $details['Product2']['Portal_Category__r']['Name']))}}/{{$details['Product2']['Portal_Subcategory__r']['Id']}}">{{$details['Product2']['Portal_Subcategory__r']['Name']}}</a>
-                        <svg class="breadcrumb-arrow" width="6px" height="9px">
-                        <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-right-6x9')}}"></use>
-                        </svg>
-                    </li>
+                    @if(isset($details['Product2']['Portal_Subcategory__r']['Name']))
+                        <li class="breadcrumb-item">
+                            <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $details['Product2']['Portal_Category__r']['Name']))}}/{{$details['Product2']['Portal_Subcategory__r']['Id']}}">{{$details['Product2']['Portal_Subcategory__r']['Name']}}</a>
+                            <svg class="breadcrumb-arrow" width="6px" height="9px">
+                            <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-right-6x9')}}"></use>
+                            </svg>
+                        </li>
+                    @endif
                     <li class="breadcrumb-item active" aria-current="page">{{$details['Name']}}</li>
                 </ol>
             </nav>
@@ -109,7 +111,7 @@
                                         <input type="hidden" name="name" value="{{$details['Name']}}" />
                                         <input type="hidden" name="price" value="{{$details['UnitPrice']}}" />
                                         <input type="hidden" name="image" value="{{$details['Product2']['Default_Image_URL__c']}}" />
-                                        <input type="hidden" name="link" value="{{URL::to('/')}}/product/{{$details['Product2']['Portal_Category__c']}}/{{$details['Product2']['Portal_Subcategory__c']}}/{{$details['Id']}}" />
+                                        <input type="hidden" name="link" value="{{URL::to('/')}}/product/{{$details['Product2']['Portal_Category__c']}}/{{$details['Product2']['Portal_Subcategory__c'] ?? 'subcat'}}/{{$details['Id']}}" />
                                         <div class="input-number__add"></div>
                                         <div class="input-number__sub"></div>
                                     </div>

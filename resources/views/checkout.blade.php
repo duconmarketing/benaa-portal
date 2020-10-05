@@ -11,21 +11,18 @@
                     <li class="breadcrumb-item">
                         <a href="index.html">Home</a>
                         <svg class="breadcrumb-arrow" width="6px" height="9px">
-                            <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
+                            <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-right-6x9')}}"></use>
                         </svg>
                     </li>
-                    <li class="breadcrumb-item">
-                        <a href="">Breadcrumb</a>
-                        <svg class="breadcrumb-arrow" width="6px" height="9px">
-                            <use xlink:href="images/sprite.svg#arrow-rounded-right-6x9"></use>
-                        </svg>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                    <li class="breadcrumb-item active" aria-current="page">Checkout</li>                    
                 </ol>
             </nav>
         </div>
         <div class="page-header__title">
             <h1>Checkout</h1>
+            @if(Session::has('msg'))
+                <span class="alert {{ Session::get('msg-class', 'alert-info') }}">{{Session::get('msg') }}</span>
+            @endif
         </div>
     </div>
     </div>

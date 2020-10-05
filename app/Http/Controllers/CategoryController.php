@@ -157,12 +157,10 @@ class CategoryController extends Controller {
             ]);
 
         if($request->btnSubmit  == 'quote'){
-            $pdf = PDF::loadView('getquote', ['details' => $request]);
-            return $pdf->download('getQuote.pdf');
-            return redirect()->back();
-        }
+            // $pdf = PDF::loadView('getquote', ['details' => $request]);
+            // return $pdf->download('getQuote.pdf');
+            // return redirect()->back();
 
-        if($request->btnSubmit  == 'submit'){            
             $leadInfo = array(
                 "firstName" => $request->firstname,
                 "lastName" => $request->lastname,
@@ -190,10 +188,58 @@ class CategoryController extends Controller {
 
             $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/placeorder');
             $result = $response->json();
+            session(['requestId' => $result['data']]);
+
+            $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/getquote',[
+                'requestId' => $result['data'],
+            ]);
+            $resultQuote = $response->json();            
+            if($resultQuote['success'] == true){
+                \Session::flash('msg','Please check your email for the quotation...');
+                \Session::flash('msg-class','alert-success');
+            }
+            return redirect()->back();
+        }
+
+        if($request->btnSubmit  == 'submit'){            
+            $leadInfo = array(
+                "firstName" => $request->firstname,
+                "lastName" => $request->lastname,
+                "mobilephone" => $request->phone,
+                "email" => $request->email,
+                "company" => $request->company
+            );
+            if(session('requestId') !== NULL){
+                $statusKey = "id";
+                $statusValue = session('requestId');
+            }else{
+                $statusKey = "status__c";
+                $statusValue = 'Submitted';
+            }
+            $orderInfo = array(
+                $statusKey => $statusValue,
+                "Shipping_City__c" => $request->region,
+                "Shipping_Cost__c" => session('shippingCharge'),
+                "Shipping_Country__c" => $request->country,
+                "Shipping_Street__c" => $request->street,
+                "P_O_Box__c" => $request->postcode,
+                "Payment_Mode__c" => 'Cash on Delivery'
+            );
+
+            foreach(\Cart::content() as $row){
+                $temp["pricebookEntryId"] = $row->id;
+                $temp["quantity"] = $row->qty;
+                $info["entries"][] = $temp;
+            }
+            $info['leadInfo'] = $leadInfo;
+            $info['orderInfo'] = $orderInfo;
+            $postArray['checkoutInfo'] = $info;
+
+            $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/placeorder');
+            $result = $response->json();
             if($result['success'] == true){
                 session()->flush();
-                return view('orderComplete');                
-                // return redirect('')->with('success', 'Order Submitted Successfully');
+                return redirect('order-complete');                
             }
             return json_encode($result['message']);
         }
