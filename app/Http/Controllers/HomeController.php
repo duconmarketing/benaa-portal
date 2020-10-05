@@ -46,7 +46,7 @@ class HomeController extends Controller {
 
     public function fastTrackSubmit(Request $request){
         $data = array('lead' => array(
-            'firstName' => $request->name,
+            'lastName' => $request->name,
             'mobilephone' => $request->phone,
             'email' => ''
         ));

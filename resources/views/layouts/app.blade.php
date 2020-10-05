@@ -629,9 +629,9 @@
                     if(i%2 == 0){
                         menuString += '<div class="col-4"> <ul class="megamenu__links megamenu__links--level--0">';
                     }                    
-                    menuString += '<li class="megamenu__item  megamenu__item--with-submenu ">';
+                    menuString += '<li class="megamenu__item">';
                     // menuString += '<a style="text-transform: capitalize;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;" href="{{URL::to('/')}}/product/' + categories[i].Name.replace(/ /g,"-").toLowerCase() +'">' + categories[i].Name.toLowerCase() +'</a>';
-					menuString += '<a style="text-transform: capitalize;" href="{{URL::to('/')}}/product/' + categories[i].Name.replace(/ /g,"-").toLowerCase() +'">' + categories[i].Name.toLowerCase() +'</a>';
+					menuString += '<a style="text-transform: capitalize;" href="{{URL::to('/')}}/product/' + categories[i].Id +'">' + categories[i].Name.toLowerCase() +'</a>';
 					menuString += '<ul class="megamenu__links megamenu__links--level--1">';
 					// menuString += '<li class="megamenu__item"><a href="">Engravers</a></li>';
                     menuString += '</ul></li>';
@@ -639,7 +639,7 @@
                         menuString += '</ul></div>';
                     }
                     mobileMenuString += '<li class="mobile-links__item" data-collapse-item><div class="mobile-links__item-title">';
-                    mobileMenuString += '<a href="{{URL::to('/')}}/product/' + categories[i].Name.replace(/ /g,"-").toLowerCase() +'" class="mobile-links__item-link">' + categories[i].Name.toLowerCase() + '</a></div></li>'
+                    mobileMenuString += '<a href="{{URL::to('/')}}/product/' + categories[i].Id +'" class="mobile-links__item-link">' + categories[i].Name.toLowerCase() + '</a></div></li>'
 
                 }
                 menuString += '</ul></div>';

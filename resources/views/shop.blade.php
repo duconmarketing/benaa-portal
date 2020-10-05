@@ -29,18 +29,18 @@
         <div class="col-12 col-lg-12">
             <div class="block">
                 <div class="products-view">
-                    <div class="products-view__list products-list" data-layout="grid-3-sidebar" data-mobile-grid-columns="2" data-with-features="false">
+                    <div class="products-view__list products-list" data-layout="grid-4-full" data-mobile-grid-columns="2" data-with-features="false">
                         <div class="products-list__body">
                             @foreach($categories as $category)
                                 <div class="products-list__item">
-                                    <div class="post-card post-card--layout--grid post-card--size--nl text-center">
-                                        <div class="post-card__image">
-                                            <a href="{{URL::to('/')}}/product/{{$category['Id']}}">
-                                                <img src="{{$category['Image_URL__c']}}" alt="{{$category['Name']}}">
+                                    <div class="product-card product-card--hidden-actions text-center">
+                                        <div class="product-card__image product-image">
+                                            <a class="product-image__body" href="{{URL::to('/')}}/product/{{$category['Id']}}">
+                                                <img src="{{$category['Image_URL__c']}}" alt="{{$category['Name']}}" class="product-image__img">
                                             </a>
                                         </div>
-                                        <div class="post-card__info">
-                                            <div class="post-card__name text-center">
+                                        <div class="product-card__info">
+                                            <div class="product-card__name text-center">
                                                 <a href="{{URL::to('/')}}/product/{{$category['Id']}}">{{$category['Name']}}</a>
                                             </div>
                                         </div>
