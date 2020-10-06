@@ -45,13 +45,8 @@ class HomeController extends Controller {
     }
 
     public function fastTrackSubmit(Request $request){
-        $data = array('lead' => array(
-            'lastName' => $request->name,
-            'mobilephone' => $request->phone,
-            'email' => ''
-        ));
-        $response = Http::withBody(json_encode($data), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/createlead');
+        $response = Http::asForm()->post(config('benaa.fast_track_action'), $request->all());
         $result = $response->json();        
-        return $result['message'];
+        return $result;
     }
 }

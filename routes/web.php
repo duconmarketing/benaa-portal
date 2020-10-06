@@ -33,4 +33,5 @@ Route::view('fast-track', 'fast-track');
 Route::view('order-complete', 'orderComplete');
 Route::get('ajax-search', 'HomeController@ajaxSearch');
 Route::post('fast-track-submit', 'HomeController@fastTrackSubmit');
+Route::view('catalog', 'catalog');
 // Route::post('api/updateshipping', 'CategoryController@updateShipping');

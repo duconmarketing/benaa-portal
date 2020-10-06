@@ -69,8 +69,8 @@
             </div>
             <div class="block-features__divider"></div>
             <div class="block-features__item">
-                <div class="block-features__icon">
-                    <a href="{{URL::to('/contact-us')}}">
+                <div class="block-features__icon">  
+                    <a href="tel:80023622">                  
                         <svg width="48px" height="48px">
                         <use xlink:href="{{asset('public/images/sprite.svg#fi-24-hours-48')}}"></use>
                         </svg>
@@ -93,18 +93,20 @@
                     <div class="block-features__subtitle">Only secure payments</div>
                 </div>
             </div>
-            <!-- <div class="block-features__divider"></div>
+            <div class="block-features__divider"></div>
             <div class="block-features__item">
                 <div class="block-features__icon">
                     <svg width="48px" height="48px">
-                    <use xlink:href="{{asset('public/images/sprite.svg#fi-tag-48')}}"></use>
+                    <use xlink:href="{{asset('public/images/sprite.svg#compare-16')}}"></use>
                     </svg>
                 </div>
                 <div class="block-features__content">
-                    <div class="block-features__title">Hot Offers</div>
-                    <div class="block-features__subtitle">Credit limit options</div>
+                    <a style="color:inherit;" href="{{URL('/catalog')}}">
+                        <div class="block-features__title">Price Guide</div>
+                        <div class="block-features__subtitle">View our price guide</div>
+                    </a>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 </div>

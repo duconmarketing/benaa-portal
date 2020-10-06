@@ -213,57 +213,7 @@
                                             <div class="nav-links__submenu nav-links__submenu--type--megamenu nav-links__submenu--size--nl">
                                                 <!-- .megamenu -->
                                                 <div class="megamenu ">
-                                                    <div class="megamenu__body" id="categoryTopMenu">
-                                                        <div class="row">
-                                                            <div class="col-6">
-                                                                <ul class="megamenu__links megamenu__links--level--0">
-                                                                    <li class="megamenu__item  megamenu__item--with-submenu ">
-                                                                        <a href="">Power Tools</a>
-                                                                        <ul class="megamenu__links megamenu__links--level--1">
-                                                                            <li class="megamenu__item"><a href="">Engravers</a></li>
-                                                                            <li class="megamenu__item"><a href="">Wrenches</a></li>
-                                                                            <li class="megamenu__item"><a href="">Wall Chaser</a></li>
-                                                                            <li class="megamenu__item"><a href="">Pneumatic Tools</a></li>
-                                                                        </ul>
-                                                                    </li>
-                                                                    <li class="megamenu__item  megamenu__item--with-submenu ">
-                                                                        <a href="">Machine Tools</a>
-                                                                        <ul class="megamenu__links megamenu__links--level--1">
-                                                                            <li class="megamenu__item"><a href="">Thread Cutting</a></li>
-                                                                            <li class="megamenu__item"><a href="">Chip Blowers</a></li>
-                                                                            <li class="megamenu__item"><a href="">Sharpening Machines</a></li>
-                                                                            <li class="megamenu__item"><a href="">Pipe Cutters</a></li>
-                                                                            <li class="megamenu__item"><a href="">Slotting machines</a></li>
-                                                                            <li class="megamenu__item"><a href="">Lathes</a></li>
-                                                                        </ul>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                            <div class="col-6">
-                                                                <ul class="megamenu__links megamenu__links--level--0">
-                                                                    <li class="megamenu__item  megamenu__item--with-submenu ">
-                                                                        <a href="">Hand Tools</a>
-                                                                        <ul class="megamenu__links megamenu__links--level--1">
-                                                                            <li class="megamenu__item"><a href="">Screwdrivers</a></li>
-                                                                            <li class="megamenu__item"><a href="">Handsaws</a></li>
-                                                                            <li class="megamenu__item"><a href="">Knives</a></li>
-                                                                            <li class="megamenu__item"><a href="">Axes</a></li>
-                                                                            <li class="megamenu__item"><a href="">Multitools</a></li>
-                                                                            <li class="megamenu__item"><a href="">Paint Tools</a></li>
-                                                                        </ul>
-                                                                    </li>
-                                                                    <li class="megamenu__item  megamenu__item--with-submenu ">
-                                                                        <a href="">Garden Equipment</a>
-                                                                        <ul class="megamenu__links megamenu__links--level--1">
-                                                                            <li class="megamenu__item"><a href="">Motor Pumps</a></li>
-                                                                            <li class="megamenu__item"><a href="">Chainsaws</a></li>
-                                                                            <li class="megamenu__item"><a href="">Electric Saws</a></li>
-                                                                            <li class="megamenu__item"><a href="">Brush Cutters</a></li>
-                                                                        </ul>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
+                                                    <div class="megamenu__body" id="categoryTopMenu">                                                        
                                                     </div>
                                                 </div>
                                                 <!-- .megamenu / end -->
@@ -273,9 +223,13 @@
                                             <a class="nav-links__item-link" href="{{URL::to('/')}}/shop">
                                                 <div class="nav-links__item-body">
                                                     Shop
-                                                    <svg class="nav-links__item-arrow" width="9px" height="6px">
-                                                        <use xlink:href="images/sprite.svg#arrow-rounded-down-9x6"></use>
-                                                    </svg>
+                                                </div>
+                                            </a>                                           
+                                        </li>
+                                        <li class="nav-links__item">
+                                            <a class="nav-links__item-link" href="{{URL::to('/catalog')}}">
+                                                <div class="nav-links__item-body">
+                                                    Catalog
                                                 </div>
                                             </a>                                           
                                         </li>
@@ -283,9 +237,6 @@
                                             <a class="nav-links__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank">
                                                 <div class="nav-links__item-body">
                                                     My Account
-                                                    <svg class="nav-links__item-arrow" width="9px" height="6px">
-                                                        <use xlink:href="images/sprite.svg#arrow-rounded-down-9x6"></use>
-                                                    </svg>
                                                 </div>
                                             </a>                                            
                                         </li>                                                                                                                   
@@ -691,6 +642,15 @@
             var regexPattern=new RegExp(/^[0-9-+]+$/);    // regular expression pattern
             return regexPattern.test(phno);
         }
+    </script>
+    <script type="text/javascript">
+        window.__lc = window.__lc || {};
+        window.__lc.license = 6516451;
+        (function() {
+        var lc = document.createElement('script'); lc.type = 'text/javascript'; lc.async = true;
+        lc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdn.livechatinc.com/tracking.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(lc, s);
+        })();
     </script>
 </body>
 </html>

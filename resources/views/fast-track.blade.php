@@ -14,15 +14,20 @@
                     ... ضع رقمك وسنتواصل معك في أقرب وقت</p>
                 <form method="post" class="widget-newsletter__form" id="fast-track-form" action="{{URL('/fast-track-submit')}}">
                     @csrf
-                    <div class="form-group">
+                    <input type=hidden name="oid" value="00D0O000000Z7K2">
+                    <input type=hidden name="retURL" value="https://www.800benaa.com/">
+                    <input id="recordType" name="recordType" type="hidden" value="0121r000000nbcQ" />
+                    <input id="00N1r00000KB5yK" name="00N1r00000KB5yK" type="hidden" value="Prospect - Benaa" />
+                    
+                    <!-- <div class="form-group">
                         <input name="name" id="name" required="" type="text" class="form-control" placeholder="Enter Your Name" autocomplete="off">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                         <input name="phone" id="phone" required="" type="text" class="form-control" placeholder="Enter Your Phone Number" autocomplete="off">
                         <span id="phone-info" class="invalid-feedback"></span>
                     </div>                    
                     <div class="form-group">
-                        <button class="btn btn-primary btn-lg btn-block" title="Subscribe" type="submit">Contact</button>
+                        <button class="btn btn-primary btn-lg btn-block" title="Subscribe" type="submit">Call Me</button>
                     </div>
                     <small style="color:#687188;">
                         Or send your inquiry on <a href="mailto:sales@800benaa.com">sales@800benaa.com</a> <br/>
