@@ -58,7 +58,7 @@
                                 <div class="product-card__info">
                                     <div class="product-card__name">
                                         <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$product['Id']}}">{{$product['Name']}}</a>
-                                    </div>
+                                    </div>  
                                     <div class="product-card__rating">
                                         <div class="product-card__rating-stars">
                                             <div class="rating">

@@ -84,7 +84,7 @@
                     </ul>
                     <ul class="product__meta">
                         <li class="product__meta-availability">Availability: <span class="text-success">In Stock</span></li>
-                        <li>Brand: <a href="#">{{$details['Product2']['Brand_Name__c']}}</a></li>
+                        <li>Brand: <a href="#">{{$details['Product2']['Brand_Name__c'] ?? "No Brand"}}</a></li>
                         <li>SKU: {{$details['Product2']['SKU__c']}}</li>
                     </ul>
                 </div>
@@ -95,7 +95,7 @@
                         Availability: <span class="text-success">In Stock</span>
                     </div>
                     <div class="product__prices">
-                        AED {{$details['UnitPrice']}}
+                        AED {{$details['UnitPrice']}} / {{$details['Product2']['Unit__c'] ?? 'PCS'}}
                     </div>
                     <!-- .product__options -->
                     <form class="product__options" action="{{URL::to('/addtocart')}}" method="POST">

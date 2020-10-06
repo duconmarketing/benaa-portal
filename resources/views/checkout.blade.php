@@ -192,7 +192,7 @@
                                         </span>
                                     </span>
                                     <label class="form-check-label" for="checkout-terms">
-                                        I have read and agree to the website <a target="_blank" href="terms-and-conditions.html">terms and conditions</a>*
+                                        I have read and agree to the website <a href="#">terms and conditions</a>*
                                     </label>
                                 </div>
                             </div>
