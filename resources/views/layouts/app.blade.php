@@ -33,6 +33,8 @@
             .social-links__link--type--instagram{
                 background: transparent;
             }
+            .footer-links__item, .footer-contacts__text, .footer-newsletter__text, .site-footer__copyright{color: #b3bdc6;}
+            .footer-contacts__title, .footer-links__title, .footer-newsletter__title{color: #e8e0e0;}
             </style>
     </head>
     <body>
@@ -113,9 +115,9 @@
         <!-- mobile site__header / end -->
         <!-- desktop site__header -->
         <header class="site__header d-lg-block d-none">
-            <div class="site-header">
+            <div class="site-header" style="background: #cccc;">
                 <!-- .topbar -->
-                <div class="site-header__topbar topbar">
+                <div class="site-header__topbar topbar" style="background: #262626;color:#acaaaa;">
                     <div class="topbar__container container">
                         <div class="topbar__row">
                             <div class="topbar__item topbar__item--link">
@@ -159,7 +161,7 @@
                             <!-- logo / end -->
                         </a>
                     </div>
-                    <div class="site-header__search">
+                    <div class="site-header__search" style="background: #fff;">
                         <div class="search search--location--header ">
                             <div class="search__body">
                                 <form class="search__form" action="{{ url('search')}}" method="GET">
@@ -355,7 +357,7 @@
         
         </div>
         <!-- site__footer -->
-        <footer class="site__footer">
+        <footer class="site__footer" style="background: #000;">
             <div class="site-footer">
                 <div class="container">
                     <div class="site-footer__widgets">
@@ -366,7 +368,7 @@
                                     <div class="footer-contacts__text">
                                         Please contact us for more information about our products.
                                     </div>
-                                    <ul class="footer-contacts__contacts">
+                                    <ul class="footer-contacts__contacts text-info">
                                         <!-- <li><i class="footer-contacts__icon fas fa-globe-americas"></i>Plot 2125 - Nadd Al Hamar</li> -->
                                         <li><i class="footer-contacts__icon far fa-envelope"></i> sales@800benaa.com</li>
                                         <li><i class="footer-contacts__icon fas fa-mobile-alt"></i> 800-23622</li>

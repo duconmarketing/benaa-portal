@@ -118,7 +118,7 @@
 
 <!-- .block-banner / end -->
 <!-- .block-categories -->
-<div class="block block--highlighted block-categories block-categories--layout--classic">
+<div class="block block--highlighted block-categories block-categories--layout--classic" style="background: #e6e3e2;">
     <div class="container">
         <div class="block-header">
             <h3 class="block-header__title">Categories</h3>
