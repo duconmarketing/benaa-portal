@@ -84,7 +84,7 @@
             </table>
             <div class="cart__actions">
                 <div class="cart__coupon-form">
-                    <a href="" class="btn btn-light">Continue Shopping</a>
+                    <a href="{{URL('/shop')}}" class="btn btn-light">Continue Shopping</a>
                 </div>
                 <div class="cart__buttons">
                     <button type="submit" name="submit" value="update" class="btn btn-primary cart__update-button">Update Cart</button>
