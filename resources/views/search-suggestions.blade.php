@@ -19,7 +19,7 @@
                         <a class="suggestions__item-name" href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}">
                             {{$row['Name']}}
                         </a>
-                        <div class="suggestions__item-meta">SKU: 83690/32</div>
+                        <div class="suggestions__item-meta">{{$row['Product2']['SKU__c']}}</div>
                     </div>
                     <div class="suggestions__item-price">
                         AED {{number_format($row['UnitPrice'], 2)}}
