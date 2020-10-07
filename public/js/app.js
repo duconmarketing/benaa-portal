@@ -66715,7 +66715,7 @@ var SubCategoryHome = /*#__PURE__*/function (_React$Component) {
         validSubcategory = true;
       }
 
-      return validSubcategory ? categories.Categories__r.records.slice(0, 5).map(function (subCat) {
+      return validSubcategory ? categories.Categories__r.records.slice(0, 3).map(function (subCat) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           style: {
             textTransform: 'capitalize'

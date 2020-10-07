@@ -11,7 +11,7 @@
             <!--<div class="col-lg-3 d-none d-lg-block"></div>-->
             <div class="col-12">
                 <div class="block-slideshow__body">
-                    <div class="owl-carousel">  
+                    <div class="owl-carousel">
                         <a class="block-slideshow__slide" href="product/a1d1x000000Nq2tAAC">
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1.jpg')}}')"></div>
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1-mob.jpg')}}')"></div>
@@ -22,7 +22,7 @@
                                     <span class="btn btn-primary btn-lg">Shop Now</span>
                                 </div>
                             </div>
-                        </a>                      
+                        </a>
                         <a class="block-slideshow__slide" href="product/a1d1x000000Nq2tAAC">
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner3.jpg')}}')"></div>
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner2-mob.jpg')}}')"></div>
@@ -44,7 +44,7 @@
                                     <span class="btn btn-primary btn-lg">Shop Now</span>
                                 </div>
                             </div>
-                        </a>                        
+                        </a>
                     </div>
                 </div>
             </div>
@@ -69,8 +69,8 @@
             </div>
             <div class="block-features__divider"></div>
             <div class="block-features__item">
-                <div class="block-features__icon">  
-                    <a href="tel:80023622">                  
+                <div class="block-features__icon">
+                    <a href="tel:80023622">
                         <svg width="48px" height="48px">
                         <use xlink:href="{{asset('public/images/sprite.svg#fi-24-hours-48')}}"></use>
                         </svg>
@@ -120,10 +120,6 @@
 <!-- .block-categories -->
 <div class="block block--highlighted block-categories block-categories--layout--classic" style="background: #e6e3e2;">
     <div class="container">
-        <div class="block-header">
-            <h3 class="block-header__title">Categories</h3>
-            <div class="block-header__divider"></div>
-        </div>
         <div class="block-categories__list" id="categoryDiv">
             <div class="block-categories__item category-card category-card--layout--classic">
                 <div class="category-card__body">
