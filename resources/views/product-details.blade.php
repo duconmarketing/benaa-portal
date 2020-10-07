@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', '800Benaa | '.$details['Name'])
+
 @section('content')
 @if(isset($details))
 <div class="page-header">
