@@ -28,11 +28,9 @@ class Category extends React.Component {
                         <div className="category-card__body">
                             <div className="category-card__image">
                                 <a href={"product/" + category.Id}><img src={category.Image_URL__c} alt="" /></a>
-                            </div>
-                            <div className="category-card__content" style={{width: '53%'}}>
                                 <div className="category-card__name">
-                                    <a href={"product/" + category.Id} style={{textTransform: 'capitalize'}}>{category.Name}</a>                                    
-                                </div>  
+                                    <a href={"product/" + category.Id} style={{textTransform: 'capitalize'}}>{category.Name}</a>
+                                </div>
                                 <ul className="category-card__links">
                                     <SubCategoryHome categories={category} />
                                 </ul>
@@ -43,7 +41,7 @@ class Category extends React.Component {
                         </div>
                     </div>
                                         )
-                            )                    
+                            )
                 );
     }
 }

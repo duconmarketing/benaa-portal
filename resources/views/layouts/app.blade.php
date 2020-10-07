@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">    
+<html lang="en" dir="ltr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -133,11 +133,11 @@
                                     <button class="topbar-dropdown__btn" type="button">
                                     <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank">
                                         My Account
-                                    </a>                                        
+                                    </a>
                                         <svg width="7px" height="5px">
                                             <use xlink:href="images/sprite.svg#arrow-rounded-down-7x5"></use>
                                         </svg>
-                                    </button>                                    
+                                    </button>
                                 </div>
                             </div>
                             <div class="topbar__item">
@@ -147,9 +147,9 @@
                                         <svg width="7px" height="5px">
                                             <use xlink:href="images/sprite.svg#arrow-rounded-down-7x5"></use>
                                         </svg>
-                                    </button>                                    
+                                    </button>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -191,7 +191,7 @@
                         <div class="nav-panel__container container">
                             <div class="nav-panel__row">
                                 <div class="nav-panel__departments">
-                                    <!-- .departments -->                                    
+                                    <!-- .departments -->
                                     <!-- .departments / end -->
                                 </div>
                                 <!-- .nav-links -->
@@ -202,7 +202,7 @@
                                                 <div class="nav-links__item-body">
                                                     Home
                                                 </div>
-                                            </a>                                            
+                                            </a>
                                         </li>
                                         <li class="nav-links__item  nav-links__item--has-submenu " id="">
                                             <a class="nav-links__item-link" href="">
@@ -216,7 +216,7 @@
                                             <div class="nav-links__submenu nav-links__submenu--type--megamenu nav-links__submenu--size--nl">
                                                 <!-- .megamenu -->
                                                 <div class="megamenu ">
-                                                    <div class="megamenu__body" id="categoryTopMenu">                                                        
+                                                    <div class="megamenu__body" id="categoryTopMenu">
                                                     </div>
                                                 </div>
                                                 <!-- .megamenu / end -->
@@ -227,26 +227,26 @@
                                                 <div class="nav-links__item-body">
                                                     Shop
                                                 </div>
-                                            </a>                                           
+                                            </a>
                                         </li>
                                         <li class="nav-links__item">
                                             <a class="nav-links__item-link" href="{{URL::to('/catalog')}}">
                                                 <div class="nav-links__item-body">
                                                     Catalog
                                                 </div>
-                                            </a>                                           
+                                            </a>
                                         </li>
                                         <li class="nav-links__item  nav-links__item--has-submenu ">
                                             <a class="nav-links__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank">
                                                 <div class="nav-links__item-body">
                                                     My Account
                                                 </div>
-                                            </a>                                            
-                                        </li>                                                                                                                   
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <!-- .nav-links / end -->
-                                <div class="nav-panel__indicators">                                    
+                                <div class="nav-panel__indicators">
                                     <div class="indicator indicator--trigger--click">
                                         <a href="{{URL::to('/cart')}}" class="indicator__button">
                                             <span class="indicator__area">
@@ -324,7 +324,7 @@
                                             </div>
                                             <!-- .dropcart / end -->
                                         </div>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -355,7 +355,7 @@
         <!--<div class="section">-->
         @yield('content')
         <!--</div>-->
-        
+
         </div>
         <!-- site__footer -->
         <footer class="site__footer" style="background: #000;">
@@ -386,7 +386,7 @@
                                         <li class="footer-links__item"><a href="{{URL::to('/contact-us')}}" class="footer-links__link">Get in touch</a></li>
                                     </ul>
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="col-12 col-md-12 col-lg-4">
                                 <div class="site-footer__widget footer-newsletter">
                                     <h5 class="footer-newsletter__title">Newsletter</h5>
@@ -484,7 +484,7 @@
                     <li class="mobile-links__item" data-collapse-item>
                         <div class="mobile-links__item-title">
                             <a href="<?= URL::to('/') ?>" class="mobile-links__item-link">Home</a>
-                        </div>                        
+                        </div>
                     </li>
                     <li class="mobile-links__item" data-collapse-item>
                         <div class="mobile-links__item-title">
@@ -496,13 +496,13 @@
                             </button>
                         </div>
                         <div class="mobile-links__item-sub-links" data-collapse-content id="categoryMobile">
-                            
+
                         </div>
                     </li>
                     <li class="mobile-links__item" data-collapse-item>
                         <div class="mobile-links__item-title">
                             <a href="shop" class="mobile-links__item-link">Shop</a>
-                        </div>                        
+                        </div>
                     </li>
                     <li class="mobile-links__item" data-collapse-item>
                         <div class="mobile-links__item-title">
@@ -512,7 +512,7 @@
                                     <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-12x7')}}"></use>
                                 </svg>
                             </button>
-                        </div>                        
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -556,7 +556,7 @@
     </div>
     <!-- photoswipe / end -->
     <!-- js -->
-    <script src="{{ asset('public/js/app.js') }}" defer></script>    
+    <script src="{{ asset('public/js/app.js') }}" defer></script>
     <script src="{{ asset('public/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('public/vendor/owl-carousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('public/vendor/nouislider/nouislider.min.js') }}"></script>
@@ -570,8 +570,8 @@
     <script>
         svg4everybody();
     </script>
-    <script>        
-        var xhr = new XMLHttpRequest();        
+    <script>
+        var xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4){
                 var homeUrl = "{{URL::to('/')}}";
@@ -581,7 +581,7 @@
                 for (i = 0; i < categories.length; i++) {
                     if(i%2 == 0){
                         menuString += '<div class="col-4"> <ul class="megamenu__links megamenu__links--level--0">';
-                    }                    
+                    }
                     menuString += '<li class="megamenu__item">';
                     // menuString += '<a style="text-transform: capitalize;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;" href="{{URL::to('/')}}/product/' + categories[i].Name.replace(/ /g,"-").toLowerCase() +'">' + categories[i].Name.toLowerCase() +'</a>';
 					menuString += '<a style="text-transform: capitalize;" href="{{URL::to('/')}}/product/' + categories[i].Id +'">' + categories[i].Name.toLowerCase() +'</a>';

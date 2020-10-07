@@ -66214,12 +66214,7 @@ var Category = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: category.Image_URL__c,
           alt: ""
-        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "category-card__content",
-          style: {
-            width: '53%'
-          }
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "category-card__name"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "product/" + category.Id,
@@ -66758,8 +66753,8 @@ var SubCategoryHome = /*#__PURE__*/function (_React$Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp7.4\htdocs\benaa-new\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp7.4\htdocs\benaa-new\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp73\htdocs\benaa-portal\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp73\htdocs\benaa-portal\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
