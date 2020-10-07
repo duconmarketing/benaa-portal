@@ -21,6 +21,7 @@
         <!-- font - stroyka -->
         <link rel="stylesheet" href="{{asset('public/fonts/stroyka/stroyka.css')}}">
         <script>BaseUrl = "{{URL('/')}}";</script>
+        <script src="{{ asset('public/vendor/jquery/jquery.min.js') }}"></script>
         <style>
             .fa-instagram {
             color: transparent;
@@ -555,8 +556,7 @@
     </div>
     <!-- photoswipe / end -->
     <!-- js -->
-    <script src="{{ asset('public/js/app.js') }}" defer></script>
-    <script src="{{ asset('public/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('public/js/app.js') }}" defer></script>    
     <script src="{{ asset('public/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('public/vendor/owl-carousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('public/vendor/nouislider/nouislider.min.js') }}"></script>
