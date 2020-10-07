@@ -371,8 +371,8 @@
                                     </div>
                                     <ul class="footer-contacts__contacts text-info">
                                         <!-- <li><i class="footer-contacts__icon fas fa-globe-americas"></i>Plot 2125 - Nadd Al Hamar</li> -->
-                                        <li><i class="footer-contacts__icon far fa-envelope"></i> sales@800benaa.com</li>
-                                        <li><i class="footer-contacts__icon fas fa-mobile-alt"></i> 800-23622</li>
+                                        <li><i class="footer-contacts__icon far fa-envelope"></i><a href="mailto:sales@800benaa.com">sales@800benaa.com</a></li>
+                                        <li><i class="footer-contacts__icon fas fa-mobile-alt"></i><a href="tel:80023622"> 800-23622</a></li>
                                         <!-- <li><i class="footer-contacts__icon far fa-clock"></i> Sat-Thur 7.00am - 4:00pm</li> -->
                                     </ul>
                                 </div>
