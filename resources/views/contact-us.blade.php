@@ -57,26 +57,28 @@ You can submit the query here, you can make a call to us,you can send us email o
                         </div> -->
                         <div class="col-12 col-lg-12">
                             <h4 class="contact-us__header card-title">Leave us a Message</h4>
-                            <form>
+                            <form id="contact-form">
+                                @csrf
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="form-name">Your Name</label>
-                                        <input type="text" id="form-name" class="form-control" placeholder="Your Name">
+                                        <input type="text" id="form-name" name="lastName" class="form-control" placeholder="Your Name" required>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="form-email">Email</label>
-                                        <input type="email" id="form-email" class="form-control" placeholder="Email Address">
+                                        <input type="email" id="form-email" name="email" class="form-control" placeholder="Email Address" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="form-subject">Subject</label>
-                                    <input type="text" id="form-subject" class="form-control" placeholder="Subject">
+                                    <input type="text" id="form-subject" name="subject" class="form-control" placeholder="Subject">
                                 </div>
                                 <div class="form-group">
                                     <label for="form-message">Message</label>
-                                    <textarea id="form-message" class="form-control" rows="4"></textarea>
+                                    <textarea id="form-message" name="message" class="form-control" rows="4"></textarea>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Send Message</button>
+                                <span id="contact-message"></span>
                             </form>
                         </div>
                     </div>
@@ -85,4 +87,19 @@ You can submit the query here, you can make a call to us,you can send us email o
         </div>
     </div>
 </div>
+<script>
+    $(document).on('submit', '#contact-form', function(){
+        event.preventDefault();
+        var formvalues = $(this).serialize();
+        $.post('contact-us-submit', formvalues, function(data){
+            // result = JSON.parse(data);
+            if(data.success === true){
+                $("#contact-message").removeClass().addClass('valid-feedback').html("Thanks for contacting us..").show().delay(5000).fadeOut();
+                $("#contact-form")[0].reset();
+            }else{
+                $("#contact-message").removeClass().addClass('invalid-feedback').html(data.message).show();
+            }
+        });
+    });
+</script>
 @endsection

@@ -49,4 +49,12 @@ class HomeController extends Controller {
         $result = $response->json();        
         return $result;
     }
+
+    public function contactUsSubmit(Request $request){
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/createlead', [
+            'lead' => $request->all(),
+        ]);
+        $result = $response->json();        
+        return $result;
+    }
 }
