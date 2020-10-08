@@ -376,7 +376,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-6 col-md-3 col-lg-3">
+                            <div class="col-12 col-md-3 col-lg-3">
                                 <div class="site-footer__widget footer-links">
                                     <h5 class="footer-links__title">Information</h5>
                                     <ul class="footer-links__list">

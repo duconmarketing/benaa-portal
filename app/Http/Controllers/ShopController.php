@@ -9,7 +9,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 use PDF;
 
 class ShopController extends Controller {
-    
+
     public function addToCart(Request $request){
         // $validatedData = $request->validate(['item' => 'required']);
         \Cart::setGlobalTax(5);
@@ -148,7 +148,7 @@ class ShopController extends Controller {
                 "Shipping_Country__c" => $request->country,
                 "Shipping_Street__c" => $request->street,
                 "P_O_Box__c" => $request->postcode,
-                "Payment_Mode__c" => 'Cash on Delivery'
+                "Payment_Mode__c" => $request->checkout_payment_method == 'creditcard'? 'Credit Card' : 'Cash on Delivery',
             );
 
             foreach(\Cart::content() as $row){
@@ -159,16 +159,33 @@ class ShopController extends Controller {
             $info['leadInfo'] = $leadInfo;
             $info['orderInfo'] = $orderInfo;
             $postArray['checkoutInfo'] = $info;
-
-            $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/placeorder');
-            $result = $response->json();
-            if($result['success'] == true){
-                session()->flush();
-                return redirect('order-complete');                
-            }
+            if($request->checkout_payment_method == 'creditcard'){
+                
+            }else{
+                $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/placeorder');
+                $result = $response->json();
+                if($result['success'] == true){
+                    session()->flush();
+                    return redirect('order-complete');                
+                }
+            }            
             return json_encode($result['message']);
         }
     }    
+
+    public function makePayment(){
+        $outletRef = '33c4ddf7-d153-4320-ab94-e19e58714fe1';
+        $apikey = 'Njc5Yzg0NmMtMDI2My00YzU1LWIyMzYtYzI2OTVhNmY4OTJiOmYwNjI3ZjczLWFmMGYtNDkyZS1iZmE5LTI5ZjA4YmEwODc2Mw==';
+        $idServiceURL = "https://api-gateway.sandbox.ngenius-payments.com/identity/auth/access-token";
+        $txnServiceURL = "https://api-gateway.sandbox.ngenius-payments.com/transactions/outlets/" . $outletRef . "/orders";
+        $tokenHeaders = array("accept: application/vnd.ni-identity.v1+json", "authorization: Basic " . $apikey, "content-type: application/vnd.ni-identity.v1+json");
+        $tokenResponse = $this->curlRequest("POST", $idServiceURL, $tokenHeaders, "{\"realmName\":\"ni\"}");
+        $tokenResponse = json_decode($tokenResponse);
+        $access_token = $tokenResponse->access_token;
+        $redirectURL = URL::to('/checkout/networkresponse');
+
+        
+    }
 
     public function getCart(){
         $cart = array();
@@ -185,7 +202,6 @@ class ShopController extends Controller {
         $result['total'] = \Cart::total();
         $result['tax'] = \Cart::tax();
         $result['shippingCharge'] = round(session('shippingCharge'), 2);
-
         return json_encode($result);
     }
 

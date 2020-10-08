@@ -150,7 +150,7 @@
                                         <label class="payment-methods__item-header">
                                             <span class="payment-methods__item-radio input-radio">
                                                 <span class="input-radio__body">
-                                                    <input class="input-radio__input" name="checkout_payment_method" type="radio" checked>
+                                                    <input class="input-radio__input" name="checkout_payment_method" type="radio" value="cod" checked>
                                                     <span class="input-radio__circle"></span>
                                                 </span>
                                             </span>
@@ -166,7 +166,7 @@
                                         <label class="payment-methods__item-header">
                                             <span class="payment-methods__item-radio input-radio">
                                                 <span class="input-radio__body">
-                                                    <input class="input-radio__input" name="checkout_payment_method" type="radio">
+                                                    <input class="input-radio__input" name="checkout_payment_method" value="creditcard" type="radio">
                                                     <span class="input-radio__circle"></span>
                                                 </span>
                                             </span>
