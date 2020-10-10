@@ -65,14 +65,20 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="checkout-state">Region *</label>
-                                <!-- <select id="checkout-region" class="form-control" name="region" onchange="this.form.submit();"> -->
-                                <select id="checkout-region" class="form-control" name="region" onchange="updateShipping(this.value)" required>
+                                <label for="checkout-emirate">Emirate *</label>
+                                <select id="checkout-emirate" class="form-control" name="emirate" onchange="getRegions(this.value)" required>
                                     <option value="" selected></option>
-                                    @foreach($regions as $region)
-                                    <option value="{{$region}}" {{Session::get('formValues.region') == $region ? "selected" : ""}}>{{$region}}</option>
+                                    @foreach($regions as $key=>$region )
+                                        <option value="{{$key}}" {{Session::get('formValues.emirate') == $key ? "selected" : ""}}>{{$key}}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout-region">Region *</label>
+                                <select id="checkout-region" class="form-control" name="region" onchange="updateShipping(this.value)" required>
+                                    <option value="" selected></option>
+                                </select>
+                                <input type="hidden" id="region-current" value="{{\Session::get('formValues.region')}}"/>
                             </div>
                             <div class="form-group">
                                 <label for="checkout-street-address">Street Address</label>
@@ -208,6 +214,21 @@
     </div>
 </div>
 <script>
+function getRegions(emirate){
+    var allRegions = <?= json_encode($regions) ?>;
+    if(allRegions[emirate]){
+        var options = '<option value="" selected></option>';
+        for(i in allRegions[emirate]){
+            // options += '<option value="' + allRegions[emirate][i] +'" '+ selectedFlag + '>'+ allRegions[emirate][i] + '</option>';
+            options += '<option value="' + allRegions[emirate][i] +'">'+ allRegions[emirate][i] + '</option>';
+        }
+        $('#checkout-region').html(options);
+    }
+}
+$(function(){
+    getRegions($("#checkout-emirate").val());
+    $("#checkout-region").val($("#region-current").val());
+});
 function updateShipping(region){
     document.getElementById('totalValueSpan').innerHTML = '<span>Loading...</span>';
     var xhr = new XMLHttpRequest();
@@ -222,16 +243,11 @@ function updateShipping(region){
         kvpairs.push(encodeURIComponent(e.name) + "=" + encodeURIComponent(e.value));
     }
     var queryString = kvpairs.join("&");
-
-    // var formValues = new URLSearchParams(new FormData(form)).toString();
     xhr.open("POST", '{{URL::to('/')}}/api/updateshipping', true);
-
-    //Send the proper header information along with the request
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
     xhr.onreadystatechange = function() { // Call a function when the state changes.
         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-            // console.log(this.responseText);
+            console.log(this.responseText);
             var cartValues = JSON.parse(this.responseText);
             document.getElementById('totalValueSpan').innerHTML = cartValues.cartTotal;
             document.getElementById('shippingValueSpan').innerHTML = cartValues.shippingCharge;

@@ -35,4 +35,5 @@ Route::get('ajax-search', 'HomeController@ajaxSearch');
 Route::post('fast-track-submit', 'HomeController@fastTrackSubmit');
 Route::view('catalog', 'catalog');
 Route::post('contact-us-submit', 'HomeController@contactUsSubmit');
+Route::get('checkout/networkresponse', 'ShopController@networkResponse');
 // Route::post('api/updateshipping', 'CategoryController@updateShipping');
