@@ -11,7 +11,7 @@
             <!--<div class="col-lg-3 d-none d-lg-block"></div>-->
             <div class="col-12">
                 <div class="block-slideshow__body">
-                    <div class="owl-carousel">
+                    <div class="owl-carousel">git
                         <a class="block-slideshow__slide" href="product/a1d1x000000Nq2tAAC">
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1.jpg')}}')"></div>
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1-mob.jpg')}}')"></div>
@@ -118,7 +118,7 @@
 
 <!-- .block-banner / end -->
 <!-- .block-categories -->
-<div class="block block--highlighted block-categories block-categories--layout--classic" style="background: #e6e3e2;">
+<div class="block block--highlighted block-categories block-categories--layout--classic">
     <div class="container">
         <div class="block-categories__list" id="categoryDiv">
             <div class="block-categories__item category-card category-card--layout--classic">

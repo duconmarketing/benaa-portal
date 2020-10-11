@@ -116,8 +116,9 @@
         <!-- mobile site__header / end -->
         <!-- desktop site__header -->
         <header class="site__header d-lg-block d-none">
-            <div class="site-header" style="background: #cccc;">
+            <div class="site-header" style="background-image: url({{asset('public/images/new_hd.jpg')}}); background-size: cover;">
                 <!-- .topbar -->
+
                 <div class="site-header__topbar topbar" style="background: #262626;color:#acaaaa;">
                     <div class="topbar__container container">
                         <div class="topbar__row">
@@ -357,7 +358,7 @@
 
         </div>
         <!-- site__footer -->
-        <footer class="site__footer" style="background: #000;">
+        <footer class="site__footer">
             <div class="site-footer">
                 <div class="container">
                     <div class="site-footer__widgets">
