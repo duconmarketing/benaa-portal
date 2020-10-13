@@ -11,7 +11,7 @@
             <!--<div class="col-lg-3 d-none d-lg-block"></div>-->
             <div class="col-12">
                 <div class="block-slideshow__body">
-                    <div class="owl-carousel">git
+                    <div class="owl-carousel">
                         <a class="block-slideshow__slide" href="product/a1d1x000000Nq2tAAC">
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1.jpg')}}')"></div>
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1-mob.jpg')}}')"></div>

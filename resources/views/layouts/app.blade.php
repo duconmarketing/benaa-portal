@@ -119,20 +119,20 @@
             <div class="site-header" style="background-image: url({{asset('public/images/new_hd.jpg')}}); background-size: cover;">
                 <!-- .topbar -->
 
-                <div class="site-header__topbar topbar" style="background: #262626;color:#acaaaa;">
+                <div class="site-header__topbar topbar" style="background: #ec7c05;color:#ffffff;">
                     <div class="topbar__container container">
                         <div class="topbar__row">
                             <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="{{URL::to('/about-us')}}">About Us</a>
+                                <a class="topbar-link" href="{{URL::to('/about-us')}}" style="color:#ffffff;">About Us</a>
                             </div>
                             <div class="topbar__item topbar__item--link">
-                                <a class="topbar-link" href="{{URL::to('/contact-us')}}">Contact Us</a>
+                                <a class="topbar-link" href="{{URL::to('/contact-us')}}" style="color:#ffffff;">Contact Us</a>
                             </div>
                             <div class="topbar__spring"></div>
                             <div class="topbar__item">
                                 <div class="topbar-dropdown">
                                     <button class="topbar-dropdown__btn" type="button">
-                                    <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank">
+                                    <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color:#ffffff;">
                                         My Account
                                     </a>
                                         <svg width="7px" height="5px">
@@ -144,7 +144,7 @@
                             <div class="topbar__item">
                                 <div class="topbar-dropdown">
                                     <button class="topbar-dropdown__btn" type="button">
-                                        Currency: <span class="topbar__item-value">AED</span>
+                                        Currency: <span class="topbar__item-value" style="color:#ffffff;">AED</span>
                                         <svg width="7px" height="5px">
                                             <use xlink:href="images/sprite.svg#arrow-rounded-down-7x5"></use>
                                         </svg>
