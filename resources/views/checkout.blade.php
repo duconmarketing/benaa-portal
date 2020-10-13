@@ -1,8 +1,15 @@
+@if(count(\Cart::content()) < 1)
+<script type="text/javascript">
+    window.location = "{{ url('/cart') }}";//here double curly bracket
+</script>
+@endif
+
 @extends('layouts.app')
 
 @section('title', '800Benaa | Checkout')
 
 @section('content')
+
 <div class="page-header">
     <div class="page-header__container container">
         <div class="page-header__breadcrumb">
@@ -42,7 +49,10 @@
             <div class="row">
                 <div class="col-12 col-lg-6 col-xl-7">
                     <div class="card mb-lg-0">
-                        <div class="card-body">                        
+                        <div class="card-body">    
+                            @if (session('error'))
+                                <div class="alert alert-danger">{{ session('error') }}</div>
+                            @endif                    
                             <h3 class="card-title">Billing details</h3>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -219,7 +229,6 @@ function getRegions(emirate){
     if(allRegions[emirate]){
         var options = '<option value="" selected></option>';
         for(i in allRegions[emirate]){
-            // options += '<option value="' + allRegions[emirate][i] +'" '+ selectedFlag + '>'+ allRegions[emirate][i] + '</option>';
             options += '<option value="' + allRegions[emirate][i] +'">'+ allRegions[emirate][i] + '</option>';
         }
         $('#checkout-region').html(options);
@@ -228,6 +237,7 @@ function getRegions(emirate){
 $(function(){
     getRegions($("#checkout-emirate").val());
     $("#checkout-region").val($("#region-current").val());
+    updateShipping($("#region-current").val());   //to automatically check shippingcost once came back to checkout after adding more pdcts.
 });
 function updateShipping(region){
     document.getElementById('totalValueSpan').innerHTML = '<span>Loading...</span>';

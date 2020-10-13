@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', '800Benaa | '.$details['Name'])
+@section('title', '800Benaa | '.$details['entry']['Name'])
 
 @section('content')
 @if(isset($details))
@@ -16,20 +16,20 @@
                         </svg>
                     </li>
                     <li class="breadcrumb-item">
-                        <a href="{{URL::to('/')}}/product/{{$details['Product2']['Portal_Category__r']['Id']}}">{{$details['Product2']['Portal_Category__r']['Name']}}</a>
+                        <a href="{{URL::to('/')}}/product/{{$details['entry']['Product2']['Portal_Category__r']['Id']}}">{{$details['entry']['Product2']['Portal_Category__r']['Name']}}</a>
                         <svg class="breadcrumb-arrow" width="6px" height="9px">
                         <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-right-6x9')}}"></use>
                         </svg>
                     </li>
-                    @if(isset($details['Product2']['Portal_Subcategory__r']['Name']))
+                    @if(isset($details['entry']['Product2']['Portal_Subcategory__r']['Name']))
                         <li class="breadcrumb-item">
-                            <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $details['Product2']['Portal_Category__r']['Name']))}}/{{$details['Product2']['Portal_Subcategory__r']['Id']}}">{{$details['Product2']['Portal_Subcategory__r']['Name']}}</a>
+                            <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $details['entry']['Product2']['Portal_Category__r']['Name']))}}/{{$details['entry']['Product2']['Portal_Subcategory__r']['Id']}}">{{$details['entry']['Product2']['Portal_Subcategory__r']['Name']}}</a>
                             <svg class="breadcrumb-arrow" width="6px" height="9px">
                             <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-right-6x9')}}"></use>
                             </svg>
                         </li>
                     @endif
-                    <li class="breadcrumb-item active" aria-current="page">{{$details['Name']}}</li>
+                    <li class="breadcrumb-item active" aria-current="page">{{$details['entry']['Name']}}</li>
                 </ol>
             </nav>
         </div>
@@ -50,8 +50,8 @@
                             </button>
                             <div class="owl-carousel" id="product-image">
                                 <div class="product-image product-image--location--gallery">
-                                    <a href="{{$details['Product2']['Default_Image_URL__c']}}" data-width="700" data-height="700" class="product-image__body" target="_blank">
-                                        <img class="product-image__img" src="{{$details['Product2']['Default_Image_URL__c']}}" alt="">
+                                    <a href="{{$details['entry']['Product2']['Default_Image_URL__c']}}" data-width="700" data-height="700" class="product-image__body" target="_blank">
+                                        <img class="product-image__img" src="{{$details['entry']['Product2']['Default_Image_URL__c']}}" alt="">
                                     </a>
                                 </div>                                
                             </div>
@@ -73,9 +73,9 @@
                             </svg>
                         </button>
                     </div>
-                    <h1 class="product__name">{{$details['Name']}}</h1>                    
+                    <h1 class="product__name">{{$details['entry']['Name']}}</h1>                    
                     <div class="product__description">
-                        {{$details['Product2']['Website_Description__c']}}
+                        {{$details['entry']['Product2']['Website_Description__c']}}
                     </div>
                     <ul class="product__features">
                         <li>Speed: 750 RPM</li>
@@ -86,8 +86,8 @@
                     </ul>
                     <ul class="product__meta">
                         <li class="product__meta-availability">Availability: <span class="text-success">In Stock</span></li>
-                        <li>Brand: <a href="#">{{$details['Product2']['Brand_Name__c'] ?? "No Brand"}}</a></li>
-                        <li>SKU: {{$details['Product2']['SKU__c']}}</li>
+                        <li>Brand: <a href="#">{{$details['entry']['Product2']['Brand_Name__c'] ?? "No Brand"}}</a></li>
+                        <li>SKU: {{$details['entry']['Product2']['SKU__c']}}</li>
                     </ul>
                 </div>
                 <!-- .product__info / end -->
@@ -97,7 +97,7 @@
                         Availability: <span class="text-success">In Stock</span>
                     </div>
                     <div class="product__prices">
-                        AED {{$details['UnitPrice']}} / {{$details['Product2']['Unit__c'] ?? 'PCS'}}
+                        AED {{$details['entry']['UnitPrice']}} / {{$details['entry']['Product2']['Unit__c'] ?? 'PCS'}}
                     </div>
                     <!-- .product__options -->
                     <form class="product__options" action="{{URL::to('/addtocart')}}" method="POST">
@@ -108,11 +108,11 @@
                                 <div class="product__actions-item">
                                     <div class="input-number product__quantity">
                                         <input id="product-quantity" class="input-number__input form-control form-control-lg" type="number" min="1" value="1" name="quantity">
-                                        <input type="hidden" name="id" value="{{$details['Id']}}" />
-                                        <input type="hidden" name="name" value="{{$details['Name']}}" />
-                                        <input type="hidden" name="price" value="{{$details['UnitPrice']}}" />
-                                        <input type="hidden" name="image" value="{{$details['Product2']['Default_Image_URL__c']}}" />
-                                        <input type="hidden" name="link" value="{{URL::to('/')}}/product/{{$details['Product2']['Portal_Category__c']}}/{{$details['Product2']['Portal_Subcategory__c'] ?? 'subcat'}}/{{$details['Id']}}" />
+                                        <input type="hidden" name="id" value="{{$details['entry']['Id']}}" />
+                                        <input type="hidden" name="name" value="{{$details['entry']['Name']}}" />
+                                        <input type="hidden" name="price" value="{{$details['entry']['UnitPrice']}}" />
+                                        <input type="hidden" name="image" value="{{$details['entry']['Product2']['Default_Image_URL__c']}}" />
+                                        <input type="hidden" name="link" value="{{URL::to('/')}}/product/{{$details['entry']['Product2']['Portal_Category__c']}}/{{$details['entry']['Product2']['Portal_Subcategory__c'] ?? 'subcat'}}/{{$details['entry']['Id']}}" />
                                         <div class="input-number__add"></div>
                                         <div class="input-number__sub"></div>
                                     </div>

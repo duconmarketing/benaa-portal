@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -160,13 +161,13 @@ class ShopController extends Controller {
             $info['orderInfo'] = $orderInfo;
             $postArray['checkoutInfo'] = $info;
             if($request->checkout_payment_method == 'creditcard'){
-                $payLink = $this->makePayment($request);                
-                $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/placeorder');
-                $result = $response->json();
-                if($result['success'] == true){
-                    session()->flush();
-                    return redirect($payLink);           
-                }
+                try{
+                    $payLink = $this->makePayment($request);                       
+                    session(['postArray' => $postArray]);
+                    return redirect($payLink);
+                } catch(Exception $e){                    
+                    return back()->withError($e->getMessage());
+                }                
             }else{
                 $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/placeorder');
                 $result = $response->json();
@@ -180,51 +181,58 @@ class ShopController extends Controller {
     }    
 
     public function makePayment(Request $request){
-        $outletRef = '33c4ddf7-d153-4320-ab94-e19e58714fe1';
-        $apikey = 'Njc5Yzg0NmMtMDI2My00YzU1LWIyMzYtYzI2OTVhNmY4OTJiOmYwNjI3ZjczLWFmMGYtNDkyZS1iZmE5LTI5ZjA4YmEwODc2Mw==';
-        $idServiceURL = "https://api-gateway.sandbox.ngenius-payments.com/identity/auth/access-token";
-        $txnServiceURL = "https://api-gateway.sandbox.ngenius-payments.com/transactions/outlets/" . $outletRef . "/orders";
-        $tokenHeaders = array(
-            "Content-Type" => "application/vnd.ni-identity.v1+json",
-            "Authorization" => "Basic " . $apikey
-        );
-        $tokenResponse = Http::withHeaders($tokenHeaders)->post($idServiceURL, [
-            'realmName' => 'ni',
-        ]);
-        $tokenResponse = json_decode($tokenResponse);
-        $access_token = $tokenResponse->access_token;
-        $redirectURL = \URL::to('/checkout/networkresponse');
-        
-        $order = new \stdClass();
-        $order->action = "SALE";  // Transaction mode ("AUTH" = authorize only, no automatic settle/capture, "SALE" = authorize + automatic settle/capture)
-        $order->amount = new \stdClass();
-        $order->amount->currencyCode = "AED";
-        $order->amount->value = \Cart::total() * 100;   // Minor units (1000 = 10.00 AED)
-//        $order->language = "en";                                        // Payment page language ('en' or 'ar' only)
-        $order->merchantOrderReference = date('Ymdhis');
-        $order->merchantAttributes = new \stdClass();
-        $order->merchantAttributes->redirectUrl = $redirectURL;
-        $order->merchantAttributes->skipConfirmationPage = true;
-        $order->billingAddress = new \stdClass();
-        $order->billingAddress->firstName = $request->firstname;
-        $order->billingAddress->lastName = $request->lastname;
-        $order->billingAddress->address1 = $request->street;
-        $order->billingAddress->city = $request->region;    
-        $order->billingAddress->countryCode = $request->country;
-        $order->merchantDefinedData = new \stdClass();
-        $order->merchantDefinedData->website = $_SERVER['SERVER_NAME'];
-        $order = json_encode($order);
+        try{
+            $outletRef = '33c4ddf7-d153-4320-ab94-e19e58714fe1';
+            $apikey = 'Njc5Yzg0NmMtMDI2My00YzU1LWIyMzYtYzI2OTVhNmY4OTJiOmYwNjI3ZjczLWFmMGYtNDkyZS1iZmE5LTI5ZjA4YmEwODc2Mw==';
+            $idServiceURL = "https://api-gateway.sandbox.ngenius-payments.com/identity/auth/access-token";
+            $txnServiceURL = "https://api-gateway.sandbox.ngenius-payments.com/transactions/outlets/" . $outletRef . "/orders";
+            $tokenHeaders = array(
+                "Content-Type" => "application/vnd.ni-identity.v1+json",
+                "Authorization" => "Basic " . $apikey
+            );
+            $tokenResponse = Http::withHeaders($tokenHeaders)->post($idServiceURL, [
+                'realmName' => 'ni',
+            ]);
+            $tokenResponse = json_decode($tokenResponse);
+            $access_token = $tokenResponse->access_token;
+            $redirectURL = \URL::to('/checkout/networkresponse');
+            
+            $order = new \stdClass();
+            $order->action = "SALE";  // Transaction mode ("AUTH" = authorize only, no automatic settle/capture, "SALE" = authorize + automatic settle/capture)
+            $order->amount = new \stdClass();
+            $order->amount->currencyCode = "AED";
+            $order->amount->value = (floatval(\Cart::total()) + floatval(session('shippingCharge'))) * 100;   // Minor units (1000 = 10.00 AED)
+    //        $order->language = "en";                                        // Payment page language ('en' or 'ar' only)
+            $order->merchantOrderReference = date('Ymdhis');
+            $order->merchantAttributes = new \stdClass();
+            $order->merchantAttributes->redirectUrl = $redirectURL;
+            $order->merchantAttributes->skipConfirmationPage = true;
+            $order->billingAddress = new \stdClass();
+            $order->billingAddress->firstName = $request->firstname;
+            $order->billingAddress->lastName = $request->lastname;
+            $order->billingAddress->address1 = $request->street;
+            $order->billingAddress->city = $request->region;    
+            $order->billingAddress->countryCode = $request->country;
+            $order->merchantDefinedData = new \stdClass();
+            $order->merchantDefinedData->website = $_SERVER['SERVER_NAME'];
+            $order = json_encode($order);
 
-        $orderCreateHeaders = array(
-            'Authorization' => 'Bearer '. $access_token,
-            // 'Content-Type' => 'application/vnd.ni-payment.v2+json',
-            'Accept' => 'application/vnd.ni-payment.v2+json',
-        );
-        $orderCreateResponse = Http::withHeaders($orderCreateHeaders)->withBody($order, 'application/vnd.ni-payment.v2+json')->post($txnServiceURL);
-        $orderCreateResponse = json_decode($orderCreateResponse);
-        $paymentLink = $orderCreateResponse->_links->payment->href;     // the link to the payment page for redirection (either full-page redirect or iframe)
-        $orderReference = $orderCreateResponse->reference;              // the reference to the order, which you should store in your records for future interaction with this order
-        return $paymentLink;
+            $orderCreateHeaders = array(
+                'Authorization' => 'Bearer '. $access_token,
+                // 'Content-Type' => 'application/vnd.ni-payment.v2+json',
+                'Accept' => 'application/vnd.ni-payment.v2+json',
+            );
+            $orderCreateResponse = Http::withHeaders($orderCreateHeaders)->withBody($order, 'application/vnd.ni-payment.v2+json')->post($txnServiceURL);
+            $orderCreateResponse = json_decode($orderCreateResponse);
+            $paymentLink = $orderCreateResponse->_links->payment->href;     // the link to the payment page for redirection (either full-page redirect or iframe)
+            $orderReference = $orderCreateResponse->reference;              // the reference to the order, which you should store in your records for future interaction with this order
+            return $paymentLink;
+        }catch(Exception $e){
+            $msg = $e->getMessage();
+            $msg .= ' ' . ($tokenResponse->errors[0]->message?? '');
+            $msg .= ' ' . ($orderCreateResponse->errors[0]->message?? '');
+            throw new Exception($msg);
+        }        
     }
 
     public function networkResponse(){
@@ -257,10 +265,15 @@ class ShopController extends Controller {
         
         if ($orderStatus == 'CAPTURED') {
             $orderNumber= $orderStatusResponse->merchantOrderReference;
-            session()->flush();
-            return redirect('order-complete'); 
+            $postArray = session('postArray');
+            $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/placeorder');
+            $result = $response->json();
+            if($result['success'] == true){
+                session()->flush();
+                return redirect('order-complete');
+            }            
         } else {
-            return redirect('/checkout');
+            return redirect('/checkout')->withError('Payment Failed!');
         }
     }
 
