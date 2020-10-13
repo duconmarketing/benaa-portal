@@ -7074,7 +7074,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 */
 .nav-panel {
   height: 54px;
-    background: #000000;
+    background: #2d2b2b;
   -webkit-box-shadow: 0 1px rgba(0, 0, 0, 0.04), inset 0 -1px rgba(0, 0, 0, 0.04);
           box-shadow: 0 1px rgba(0, 0, 0, 0.04), inset 0 -1px rgba(0, 0, 0, 0.04);
   color: #fff;

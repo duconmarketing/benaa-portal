@@ -49,17 +49,30 @@
                                 </svg>
                             </button>
                             <div class="owl-carousel" id="product-image">
+                                @foreach($details['images'] as $img)
                                 <div class="product-image product-image--location--gallery">
-                                    <a href="{{$details['entry']['Product2']['Default_Image_URL__c']}}" data-width="700" data-height="700" class="product-image__body" target="_blank">
-                                        <img class="product-image__img" src="{{$details['entry']['Product2']['Default_Image_URL__c']}}" alt="">
+                                    <a href="{{$img['Image_URL__c']}}" data-width="700" data-height="700" class="product-image__body" target="_blank">
+                                        <img class="product-image__img" src="{{$img['Image_URL__c']}}" alt="">
                                     </a>
-                                </div>                                
+                                </div>
+                                @endforeach
                             </div>
-                        </div>                        
+                        </div>
+                            <div class="product-gallery__carousel">
+                                <div class="owl-carousel" id="product-carousel">
+                                 @foreach($details['images'] as $img)
+                                    <a href="{{$img['Image_URL__c']}}" class="product-image product-gallery__carousel-item">
+                                        <div class="product-image__body">
+                                            <img class="product-image__img product-gallery__carousel-image" src="{{$img['Image_URL__c']}}" alt="">
+                                        </div>
+                                    </a>
+                                 @endforeach
+                                </div>
+                            </div>
                     </div>
                 </div>
                 <!-- .product__gallery / end -->
-                <!-- .product__info -->                
+                <!-- .product__info -->
                 <div class="product__info">
                     <div class="product__wishlist-compare">
                         <button type="button" class="btn btn-sm btn-light btn-svg-icon" data-toggle="tooltip" data-placement="right" title="Wishlist">
@@ -73,7 +86,7 @@
                             </svg>
                         </button>
                     </div>
-                    <h1 class="product__name">{{$details['entry']['Name']}}</h1>                    
+                    <h1 class="product__name">{{$details['entry']['Name']}}</h1>
                     <div class="product__description">
                         {{$details['entry']['Product2']['Website_Description__c']}}
                     </div>
@@ -101,7 +114,7 @@
                     </div>
                     <!-- .product__options -->
                     <form class="product__options" action="{{URL::to('/addtocart')}}" method="POST">
-                        @csrf                                                
+                        @csrf
                         <div class="form-group product__option">
                             <label class="product__option-label" for="product-quantity">Quantity</label>
                             <div class="product__actions">
@@ -119,7 +132,7 @@
                                 </div>
                                 <div class="product__actions-item product__actions-item--addtocart">
                                     <button class="btn btn-primary btn-lg">Add to cart</button>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -127,7 +140,7 @@
                 </div>
                 <!-- .product__end -->
                 <div class="product__footer">
-                    
+
                 </div>
             </div>
         </div>
