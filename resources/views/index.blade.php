@@ -4,6 +4,10 @@
 
 @section('content')
 
+<style>
+.block-features__icon{fill:#fff;}
+.block-features__content{color: #fff;}
+</style>
 <!-- .block-slideshow -->
 <div class="block-slideshow block-slideshow--layout--full block">
     <div class="container">
@@ -55,7 +59,7 @@
 <!-- .block-features -->
 <div class="block block-features block-features--layout--classic">
     <div class="container">
-        <div class="block-features__list">
+        <div class="block-features__list" style="background-color:#ec7613;">
             <div class="block-features__item">
                 <div class="block-features__icon">
                     <svg width="48px" height="48px">
