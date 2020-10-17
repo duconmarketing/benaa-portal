@@ -31,7 +31,7 @@ Table of Contents:
   - .pagination
   - .post-card
   - .product-card
-  - .product-image
+  - .product-imagegit
   - .rating
   - .select2
   - .share-links
@@ -193,11 +193,13 @@ body {
 [dir=ltr] body {
   text-align: left;
   direction: ltr;
+    background: #c6c8ca;
 }
 
 [dir=rtl] body {
   text-align: right;
   direction: rtl;
+    background: #c6c8ca;
 }
 
 svg {

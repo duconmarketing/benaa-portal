@@ -29,51 +29,52 @@ class CategoryController extends Controller {
             $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/fetchProducts', [
                     'subcategoryId' => $category
             ]);
-            $result = $response->json();        
+            $result = $response->json();
             $parentCat = $result['data'][0]['Product2']['Portal_Category__r']['Name'];
 
             $currentPage = $request->input("page") ?? 1;
             $perPage = 12;
             $currentItems = array_slice($result['data'], $perPage * ($currentPage -1 ), $perPage);
             $paginator = new LengthAwarePaginator($currentItems, count($result['data']), $perPage, $currentPage);
-            $paginator->setPath('');      
+            $paginator->setPath('');
             $CategoryName = $paginator[0]['Product2']['Portal_Category__r']['Name'];
-            
+
             return view('category-product-list', ['results' => $paginator, 'category' => $CategoryName]);
         }else{
             $parentCat = $result['data'][0]['Parent_Category__r']['Name'];
-        }        
+        }
         return view('category', ['results' => $result['data'], 'category' => $parentCat]);
     }
-    
+
     public function showSubcategoryProducts(Request $request, $category, $subCategory) {
         $subcategoryString = $subCategory;
         $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/fetchProducts', [
                     'subcategoryId' => $subcategoryString
         ]);
         $result = $response->json();
-        
+
         $currentPage = $request->input("page") ?? 1;
         $perPage = 12;
         $currentItems = array_slice($result['data'], $perPage * ($currentPage -1 ), $perPage);
         $paginator = new LengthAwarePaginator($currentItems, count($result['data']), $perPage, $currentPage);
-        $paginator->setPath('');      
+        $paginator->setPath('');
         $subCategoryName = $paginator[0]['Product2']['Portal_Subcategory__r']['Name'];
         $CategoryName = $paginator[0]['Product2']['Portal_Category__r']['Name'];
-        
+
         return view('sub-category', ['results' => $paginator, 'category' => $CategoryName, 'subCategory' => $subCategoryName]);
     }
-    
+
     public function showProductDetails($category, $subCategory, $product){
         // $productString = $category . '#'. $subCategory .'#'. $product;
         // dd(str_replace('-',' ', $category. ' '. $subCategory.' '. $product));
         $productString = $product;
-        // die($productString);            
+        // die($productString);
         $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/productDetail', [
                     'pricebookEntryId' => $productString,
         ]);
         $result = $response->json();
-        
+        // dd($result);
+
         return view('product-details', ['details' => $result['data'], 'product' => 'Check']);
     }
 
@@ -83,5 +84,5 @@ class CategoryController extends Controller {
         ]);
         $result = $response->json();
         return view('shop', ['categories' => $result['data']]);
-    }    
+    }
 }
