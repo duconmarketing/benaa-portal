@@ -31,14 +31,14 @@ Table of Contents:
   - .pagination
   - .post-card
   - .product-card
-  - .product-imagegit
+  - .product-image
   - .rating
   - .select2
   - .share-links
   - .social-links
   - .tags
   - .tooltip
-  - .typography
+  - .typography.product__content
 - Filters
   - .filter
   - .filter-categories
@@ -358,7 +358,7 @@ h6 {
 // .page-header
 */
 .page-header__container {
-  padding-bottom: 32px;
+  padding-bottom: 12px;
 }
 
 .page-header__breadcrumb {
@@ -665,7 +665,7 @@ h6 {
       -ms-flex-positive: 1;
           flex-grow: 1;
   height: 2px;
-  background: #ebebeb;
+ /* background: #ebebeb; */
 }
 
 .block-header__groups-list {
@@ -10544,6 +10544,8 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
   grid-template-columns: [gallery] calc(50% - 20px) [info] calc(50% - 20px);
   grid-template-rows: auto auto auto auto auto;
   grid-column-gap: 40px;
+    padding-top: 15px;
+    background-color: #ffffff;
 }
 
 .product__gallery {
@@ -13690,7 +13692,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 // .block
 */
 .block {
-  margin-bottom: 0px;
+  margin-bottom: 30px;
 }
 
 .block--highlighted {

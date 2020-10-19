@@ -30,6 +30,7 @@ Route::get('shop', 'CategoryController@shop');
 Route::view('contact-us', 'contact-us');
 Route::view('about-us', 'about-us');
 Route::view('fast-track', 'fast-track');
+Route::view('catalog-popup', 'catalog-popup');
 Route::view('order-complete', 'orderComplete');
 Route::get('ajax-search', 'HomeController@ajaxSearch');
 Route::post('fast-track-submit', 'HomeController@fastTrackSubmit');

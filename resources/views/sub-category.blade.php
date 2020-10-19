@@ -58,8 +58,8 @@
                                 <div class="product-card__info">
                                     <div class="product-card__name">
                                         <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$product['Id']}}">{{$product['Name']}}</a>
-                                    </div>  
-                                    <div class="product-card__rating">
+                                    </div>
+                                 <!--   <div class="product-card__rating">
                                         <div class="product-card__rating-stars">
                                             <div class="rating">
                                                 <div class="rating__body">
@@ -153,7 +153,7 @@
                                         <li>Battery Cell Type: Lithium</li>
                                         <li>Voltage: 20 Volts</li>
                                         <li>Battery Capacity: 2 Ah</li>
-                                    </ul>
+                                    </ul>  -->
                                 </div>
                                 <div class="product-card__actions">
                                     <div class="product-card__availability">
@@ -178,8 +178,8 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>                            
-                        @endforeach                        
+                        </div>
+                        @endforeach
                     </div>
                 </div>
                 @else
