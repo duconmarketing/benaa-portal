@@ -884,4 +884,14 @@
             }
         }, passiveSupported ? {passive: true} : false);
     });
+
+    // $(document).on("click", '.product-card__addtocart', function(){
+    //     event.preventDefault();
+    //     var pID = $(this).data('id');
+    //     var data = $(this).data();        
+    //     console.log(addToUrl);
+    //     $.post('{{URL("addtocart")}}', function(data){
+    //         alert(data);
+    //     });
+    // });
 })(jQuery);

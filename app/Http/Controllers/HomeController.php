@@ -41,7 +41,7 @@ class HomeController extends Controller {
             $subCategoryName = $response['data'][0]['Product2']['Portal_Subcategory__r']['Name'];
             $CategoryName = $response['data'][0]['Product2']['Portal_Category__r']['Name'];
         }        
-        return view('search-suggestions', ['result' => array_slice($response['data'], 0, 5), 'category' => $CategoryName, 'subCategory' => $subCategoryName,]);
+        return view('search-suggestions', ['result' => array_slice($response['data'], 0, 8), 'category' => $CategoryName, 'subCategory' => $subCategoryName,]);
     }
 
     public function fastTrackSubmit(Request $request){

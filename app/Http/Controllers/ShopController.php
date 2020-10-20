@@ -54,24 +54,7 @@ class ShopController extends Controller {
     }
 
     public function checkoutSubmit(Request $request){
-        session(['formValues' => $request->all()]);
-
-        if($request->region != '' && (!$request->btnSubmit  == 'submit')){
-            $region = $request->get('region');
-            $shippingInfo["shippingCity"] = $region;
-            foreach(\Cart::content() as $row){
-                $temp["pricebookEntryId"] = $row->id;
-                $temp["quantity"] = $row->qty;
-                $shippingInfo["entries"][] = $temp;
-            }
-            $postArray['shippingInfo'] = $shippingInfo;
-            $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/shippingcharges');
-            $result = $response->json();
-            $shippingCharge = $result['data'];
-            session(['shippingCharge' => $shippingCharge]);
-            session(['cartTotal' => $shippingCharge + (str_replace(',', '', \Cart::total()) + $shippingCharge)]);
-            return redirect()->back();
-        }
+        session(['formValues' => $request->all()]);        
 
         $validatedData = $request->validate([
             'firstname' => 'required',
@@ -182,16 +165,16 @@ class ShopController extends Controller {
 
     public function makePayment(Request $request){
         try{
-            $outletRef = '33c4ddf7-d153-4320-ab94-e19e58714fe1';
-            $apikey = 'Njc5Yzg0NmMtMDI2My00YzU1LWIyMzYtYzI2OTVhNmY4OTJiOmYwNjI3ZjczLWFmMGYtNDkyZS1iZmE5LTI5ZjA4YmEwODc2Mw==';
-            $idServiceURL = "https://api-gateway.sandbox.ngenius-payments.com/identity/auth/access-token";
-            $txnServiceURL = "https://api-gateway.sandbox.ngenius-payments.com/transactions/outlets/" . $outletRef . "/orders";
+            $outletRef = config('benaa.OUTLET');
+            $apikey = config('benaa.APIKEY');
+            $idServiceURL = config('benaa.TOKENURL');
+            $txnServiceURL = config('benaa.ORDERURL') . $outletRef . "/orders";
             $tokenHeaders = array(
                 "Content-Type" => "application/vnd.ni-identity.v1+json",
                 "Authorization" => "Basic " . $apikey
             );
             $tokenResponse = Http::withHeaders($tokenHeaders)->post($idServiceURL, [
-                'realmName' => 'ni',
+                'realmName' => config('benaa.REALNAME'),
             ]);
             $tokenResponse = json_decode($tokenResponse);
             $access_token = $tokenResponse->access_token;
@@ -237,11 +220,10 @@ class ShopController extends Controller {
 
     public function networkResponse(){
         $raw_get_data = $_GET;
-        $outletRef = '33c4ddf7-d153-4320-ab94-e19e58714fe1';
-        $apikey = 'Njc5Yzg0NmMtMDI2My00YzU1LWIyMzYtYzI2OTVhNmY4OTJiOmYwNjI3ZjczLWFmMGYtNDkyZS1iZmE5LTI5ZjA4YmEwODc2Mw==';
-
-        $idServiceURL = "https://api-gateway.sandbox.ngenius-payments.com/identity/auth/access-token";
-        $txnServiceURL = "https://api-gateway.sandbox.ngenius-payments.com/transactions/outlets/$outletRef/orders/".$raw_get_data['ref'];
+        $outletRef = config('benaa.OUTLET');
+        $apikey = config('benaa.APIKEY');
+        $idServiceURL = config('benaa.TOKENURL');
+        $txnServiceURL = config('benaa.ORDERURL') . $outletRef . "/orders/" . $raw_get_data['ref'];
 
         $tokenHeaders = array(
             "accept" => "application/vnd.ni-identity.v1+json",
@@ -249,7 +231,7 @@ class ShopController extends Controller {
             "content-type" => "application/vnd.ni-identity.v1+json"
         );
         $tokenResponse = Http::withHeaders($tokenHeaders)->post($idServiceURL, [
-            'realmName' => 'ni',
+            'realmName' => config('benaa.REALNAME'),
         ]);
         $tokenResponse = json_decode($tokenResponse);
         $access_token = $tokenResponse->access_token;

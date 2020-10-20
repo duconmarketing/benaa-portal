@@ -17398,3 +17398,11 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 }
 
 /*# sourceMappingURL=style.css.map */
+.a_title_ajx {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-weight: bold;
+  font-size: 11px;
+}
