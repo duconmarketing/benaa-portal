@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="format-detection" content="telephone=no">
+        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <title>@yield('title')</title>
         <link rel="icon" type="image/png" href="{{asset('public/images/favicon.png')}}">
         <link rel="apple-touch-icon" href="{{asset('public/images/apple-touch-icon.png')}}">
@@ -20,7 +21,10 @@
         <link rel="stylesheet" href="{{asset('public/vendor/fontawesome/css/all.min.css')}}">
         <!-- font - stroyka -->
         <link rel="stylesheet" href="{{asset('public/fonts/stroyka/stroyka.css')}}">
-        <script>BaseUrl = "{{URL('/')}}";</script>
+        <script>
+            BaseUrl = "{{URL('/')}}";
+            addToCartUrl = '{{URL("addtocart-ajax")}}';
+        </script>
         <script src="{{ asset('public/vendor/jquery/jquery.min.js') }}"></script>
         <style>
             .fa-instagram {
@@ -117,8 +121,11 @@
         <!-- desktop site__header -->
         <header class="site__header d-lg-block d-none">
             <div class="site-header" style="background-image: url({{asset('public/images/new_hd.jpg')}}); background-size: cover;">
+                <!-- Toast -->
+                <div class="toast" id="cart-added">
+                    Product Added to the cart
+                </div>
                 <!-- .topbar -->
-
                 <div class="site-header__topbar topbar" style="background: #ec7c05;color:#ffffff;">
                     <div class="topbar__container container">
                         <div class="topbar__row">
@@ -563,6 +570,13 @@
     <script src="{{ asset('public/vendor/svg4everybody/svg4everybody.min.js') }}"></script>
     <script>
         svg4everybody();
+    </script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     </script>
     <script>
         var xhr = new XMLHttpRequest();

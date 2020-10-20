@@ -14,15 +14,15 @@ class ShopController extends Controller {
     public function addToCart(Request $request){
         // $validatedData = $request->validate(['item' => 'required']);
         \Cart::setGlobalTax(5);
-        
+
         $rowId = $request->get('id');
         $name = $request->get('name');
         $price = $request->get('price');
         $image = $request->get('image');
         $link = $request->get('link');
         $qty = $request->has('quantity') ? $qty = $request->get('quantity') : 1;
-
         \Cart::add($rowId, $name, $qty, $price, 0, ['image' => $image, 'link' => $link]);
+
         return redirect()->back();
     }
 
@@ -304,5 +304,18 @@ class ShopController extends Controller {
         session(['cartTotal' => $shippingCharge + (str_replace(',', '', \Cart::total()) + $shippingCharge)]);
         $ajaxReturn = array('shippingCharge' => $shippingCharge ? 'AED '. number_format($shippingCharge, 2) : 'NA', 'cartTotal' => 'AED ' . ($shippingCharge + (str_replace(',', '', \Cart::total()))));
         return json_encode($ajaxReturn);
+    }
+
+    public function AJAXAddtoCart(Request $request){
+        \Cart::setGlobalTax(5);
+        $rowId = $request->get('id');
+        $name = $request->get('name');
+        $price = $request->get('price');
+        $image = $request->get('image');
+        $link = $request->get('link');
+        $qty = $request->has('quantity') ? $qty = $request->get('quantity') : 1;
+        \Cart::add($rowId, $name, $qty, $price, 0, ['image' => $image, 'link' => $link]);
+        $cartHtml = (string) view('drop-cart');
+        return response()->json(['msg' => 'Product Added to the cart', 'class' => 'success', 'cartHtml' => $cartHtml]);
     }
 }

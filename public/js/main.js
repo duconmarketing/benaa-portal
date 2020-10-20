@@ -885,13 +885,12 @@
         }, passiveSupported ? {passive: true} : false);
     });
 
-    // $(document).on("click", '.product-card__addtocart', function(){
-    //     event.preventDefault();
-    //     var pID = $(this).data('id');
-    //     var data = $(this).data();        
-    //     console.log(addToUrl);
-    //     $.post('{{URL("addtocart")}}', function(data){
-    //         alert(data);
-    //     });
-    // });
+    $(document).on("click", '.product-card__addtocart', function(){
+        event.preventDefault();
+        var data = $(this).data();
+        $.post(addToCartUrl, data, function(response){
+            $("#cart-added").toast('show');
+            $('.dropcart').html(response.cartHtml);
+        });
+    });
 })(jQuery);

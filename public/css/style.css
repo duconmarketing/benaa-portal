@@ -17408,3 +17408,23 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
   font-weight: bold;
   font-size: 11px;
 }
+
+.toast {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: #0CE30F;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1000;
+  top: 10px; right: 0;
+  font-size: 17px;
+}
+
+.toast.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
