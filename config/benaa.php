@@ -2,7 +2,7 @@
 
 return [
 
-    'sf_url' => env('SF_URL', 'https://dev-ducon.cs100.force.com'),
+    'sf_url' => env('SF_URL', 'https://duconind.secure.force.com'),
     'fast_track_action' => env('FAST_TRACK_ACTION', 'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8'),
     'APIKEY' => env('APIKEY', 'NzZlNWM2YWItNmY2My00YjVhLTgyZGQtZmIwNGQzNTNhNzRjOmU0MThiZmE4LTRiMDEtNGM0OC04ODY2LWVkYTI5YjJlMmI0Nw=='),
     'OUTLET' => env('OUTLET', '0c0f97e2-748a-492c-9ef1-f658257010aa'),

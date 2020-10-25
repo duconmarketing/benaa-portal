@@ -58,11 +58,11 @@
                                 </div>
                                 @endforeach
                                 @else
-                                        <div class="product-image product-image--location--gallery">
-                                            <a href="{{$details['entry']['Product2']['Default_Image_URL__c']}}" data-width="700" data-height="700" class="product-image__body" target="_blank">
-                                                <img class="product-image__img" src="{{$details['entry']['Product2']['Default_Image_URL__c']}}" alt="">
-                                            </a>
-                                        </div>
+                                    <div class="product-image product-image--location--gallery">
+                                        <a href="{{$details['entry']['Product2']['Default_Image_URL__c']}}" data-width="700" data-height="700" class="product-image__body" target="_blank">
+                                            <img class="product-image__img" src="{{$details['entry']['Product2']['Default_Image_URL__c']}}" alt="">
+                                        </a>
+                                    </div>
                                 @endif
                             </div>
                         </div>

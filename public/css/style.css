@@ -13692,7 +13692,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 // .block
 */
 .block {
-  margin-bottom: 30px;
+  margin-bottom: 0px;
 }
 
 .block--highlighted {

@@ -7,16 +7,13 @@
                             <!-- <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{strtolower(str_replace(' ', '-', $row['Name']))}}">
                                 <img class="product-image__img" src="{{$row['Product2']['Default_Image_URL__c']}}" alt="">
                             </a> -->
-                            <a href="{{URL::to('/')}}/product/{{urlencode($category . '#' . $subCategory. '#'. $row['Name'])}}">
+                            <a href="{{URL::to('/')}}/product/{{urlencode($row['Portal_Category__r']['Name'] . '#' . $subCategory. '#'. $row['Name'])}}">
                                 <img class="product-image__img" src="{{$row['Product2']['Default_Image_URL__c']}}" alt="">
                             </a>
                         </div>
                     </div>
                     <div class="suggestions__item-info">
-                        <!-- <a class="suggestions__item-name" href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{strtolower(str_replace(' ', '-', $row['Name']))}}">
-                            {{$row['Name']}}
-                        </a> -->
-                        <a class="suggestions__item-name" href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}">
+                        <a class="suggestions__item-name" href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $row['Portal_Category__r']['Name']))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}">
                             {{$row['Name']}}
                         </a>
                         <div class="suggestions__item-meta">{{$row['Product2']['SKU__c']}}</div>

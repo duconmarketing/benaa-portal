@@ -38,8 +38,8 @@ class HomeController extends Controller {
             'key' => $request->key,
         ]);
         if(count($response['data'])){
-            $subCategoryName = $response['data'][0]['Product2']['Portal_Subcategory__r']['Name'];
-            $CategoryName = $response['data'][0]['Product2']['Portal_Category__r']['Name'];
+            $subCategoryName = isset($response['data'][0]['Product2']['Portal_Subcategory__r']['Name']) ? $response['data'][0]['Product2']['Portal_Subcategory__r']['Name'] : 'subcat';
+            $CategoryName = isset($response['data'][0]['Product2']['Portal_Category__r']['Name']) ? $response['data'][0]['Product2']['Portal_Category__r']['Name'] : 'cat';
         }        
         return view('search-suggestions', ['result' => array_slice($response['data'], 0, 8), 'category' => $CategoryName, 'subCategory' => $subCategoryName,]);
     }
