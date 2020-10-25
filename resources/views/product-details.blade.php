@@ -5,7 +5,7 @@
 @section('content')
 @if(isset($details))
 <div class="page-header">
-    <div class="page-header__container container">
+    <div class="page-header__container container" style="background-color: #fff;">
         <div class="page-header__breadcrumb">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -36,8 +36,8 @@
     </div>
 </div>
 <div class="block">
-    <div class="container">
-        <div class="product product--layout--standard" data-layout="standard">
+    <div class="container" style="background-color: #fff;">
+        <div class="product product--layout--standard" data-layout="standard" >
             <div class="product__content">
                 <!-- .product__gallery -->
                 <div class="product__gallery">

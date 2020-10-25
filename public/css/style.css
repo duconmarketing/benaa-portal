@@ -193,7 +193,7 @@ body {
 [dir=ltr] body {
   text-align: left;
   direction: ltr;
-    background: #c6c8ca;
+    background: #c6c8cab0;
 }
 
 [dir=rtl] body {
@@ -3078,8 +3078,8 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
   z-index: 1;
   pointer-events: none;
   border-radius: 2px;
-  -webkit-box-shadow: 0 0 0 1px #ededed inset;
-          box-shadow: 0 0 0 1px #ededed inset;
+  -webkit-box-shadow: 0 0 0 1px #ec7c05 inset;
+          box-shadow: 0 0 0 1px #ec7c05 inset;
   -webkit-transition: -webkit-box-shadow .2s;
   transition: -webkit-box-shadow .2s;
   transition: box-shadow .2s;
@@ -3089,8 +3089,8 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 .product-card:hover::before {
   -webkit-transition-duration: 0s;
           transition-duration: 0s;
-  -webkit-box-shadow: 0 0 0 2px #e5e5e5 inset;
-          box-shadow: 0 0 0 2px #e5e5e5 inset;
+  -webkit-box-shadow: 0 0 0 2px #ec7c05 inset;
+          box-shadow: 0 0 0 2px #ec7c05 inset;
   z-index: 2;
 }
 
@@ -9488,6 +9488,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
   .cart-table__head {
     background: #f7f7f7;
     font-size: 15px;
+      color: #ec6e05ab;
   }
   .cart-table__head .cart-table__column {
     font-weight: 500;
@@ -13697,7 +13698,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 
 .block--highlighted {
   padding: 10px 0 10px;
-  background: #c6c8ca;
+ /* background: #c6c8ca; */
 }
 
 @media (max-width: 991px) {
@@ -13708,8 +13709,8 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 
 /*
 // .block-banner
-*/
-.block-banner__body {
+*/table
+  .block-banner__body {
   position: relative;
   display: block;
   height: 170px;

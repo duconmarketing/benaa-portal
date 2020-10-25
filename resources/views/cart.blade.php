@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="page-header">
-    <div class="page-header__container container">
+    <div class="page-header__container container" style="background-color: #fff;">
         <div class="page-header__breadcrumb">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -23,8 +23,8 @@
         </div>
     </div>
 </div>
-<div class="cart block">    
-    <div class="container">
+<div class="cart block">
+    <div class="container" style="background-color: #fff;">
         @if(count(\Cart::content()) > 0)
             <form action="{{URL::to('/updatecart')}}" method="POST">
                 @csrf
@@ -39,7 +39,7 @@
                             <th class="cart-table__column cart-table__column--remove"></th>
                         </tr>
                     </thead>
-                    <tbody class="cart-table__body">                
+                    <tbody class="cart-table__body">
                         @foreach(\Cart::content() as $item)
                             <tr class="cart-table__row">
                                 <td class="cart-table__column cart-table__column--image">
@@ -51,7 +51,7 @@
                                 </td>
                                 <td class="cart-table__column cart-table__column--product">
                                     <a href="" class="cart-table__product-name">{{$item->name}}</a>
-                                    
+
                                 </td>
                                 <td class="cart-table__column cart-table__column--price" data-title="Price">{{$item->price}}</td>
                                 <td class="cart-table__column cart-table__column--quantity" data-title="Quantity">
@@ -70,7 +70,7 @@
                                     </button>
                                 </td>
                             </tr>
-                        @endforeach                                                
+                        @endforeach
                     </tbody>
                 </table>
                 <div class="cart__actions">
@@ -121,8 +121,8 @@
             </form>
         @else
             <div class="block-empty__body"><div class="block-empty__message">Your shopping cart is empty!</div><div class="block-empty__actions"><a class="btn btn-primary btn-sm" href="{{URL('/shop')}}">Continue</a></div></div>
-        @endif        
-    </div>    
+        @endif
+    </div>
 </div>
 
 @endsection

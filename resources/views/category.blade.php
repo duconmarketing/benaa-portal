@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="page-header">
-    <div class="page-header__container container">
+    <div class="page-header__container container" style="background-color: #fff;">
         <div class="page-header__breadcrumb">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -23,7 +23,7 @@
 </div>
 
 <div class="block block-products block-products--layout--large-first" data-mobile-grid-columns="2">
-    <div class="container">
+    <div class="container" style="background-color: #fff;">
         <div class="block-header">
             <h3 class="block-header__title">{{$category}}</h3>
             <div class="block-header__divider"></div>
@@ -31,12 +31,12 @@
         <div class="row">
             <div class="col-12 col-lg-12">
                 <div class="block">
-                    <div class="products-view">
+                    <div class="products-view" style="padding-bottom: 30px;">
                         <div class="products-view__list products-list" data-layout="grid-4-full" data-mobile-grid-columns="2" data-with-features="false">
                             <div class="products-list__body">
                                 @foreach($results as $subCategory)
                                     <div class="products-list__item">
-                                        <div class="product-card product-card--hidden-actions text-center">
+                                        <div class="product-card text-center">
                                             <div class="post-card__image">
                                                 <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{$subCategory['Id']}}">
                                                     <img src="{{$subCategory['Image_URL__c']}}" alt="{{$subCategory['Name']}}">
@@ -49,12 +49,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                @endforeach                            
+                                @endforeach
                             </div>
-                        </div>                    
+                        </div>
                     </div>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 </div>

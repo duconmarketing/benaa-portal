@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="page-header">
-    <div class="page-header__container container">
+    <div class="page-header__container container" style="background-color: #fff;">
         <div class="page-header__breadcrumb">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -28,8 +28,8 @@
 </div>
 
 <div class="block block-products block-products--layout--large-first" data-mobile-grid-columns="2">
-    <div class="container">
-        <div class="block block--highlighted block-categories block-categories--layout--classic">
+    <div class="container" style="background-color: #fff;">
+        <div class="block block--highlighted block-categories block-categories--layout--classic" style="padding-bottom: 50px;">
             <div class="container">
                 <div class="block-header">
                     <h3 class="block-header__title">{{$subCategory}}</h3>
@@ -58,7 +58,7 @@
                                 <div class="product-card__info">
                                     <div class="product-card__name">
                                         <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$product['Id']}}">{{$product['Name']}}</a>
-                                    </div>                                 
+                                    </div>
                                 </div>
                                 <div class="product-card__actions">
                                     <div class="product-card__availability">
