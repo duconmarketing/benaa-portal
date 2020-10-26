@@ -34,7 +34,7 @@
     </div>
 
 <script>
-    // to show fast track form popup in the home page
+    // to show fast track form popup 
     const modal = $('#quickview-modal');
     const timeout = setTimeout(function() {
         res = $.ajax({
@@ -47,32 +47,6 @@
                 });
             }
         });
-    }, 1000);
-    // fast track form submission
-    $(document).on('submit', "#fast-track-form", function(){
-        event.preventDefault();
-        var ph=$('#phone').val();
-        if(!(ph)) {
-            $("#phone-info").html("Please enter Phone Number").show();
-            return false;
-        } else if(isNaN(ph)) {
-            $("#phone-info").html("Please type only Numbers").show();
-            return false;
-        } else if(ph.length < 9) {
-            $("#phone-info").html("Invalid mobile number").show();
-            return false;
-        } else if(phone_validate(ph)) {
-            $("#phone-info").html("");
-            $.post($(this).attr('action'), $(this).serialize(), function (res) {
-                console.log(res);
-            });
-            modal.modal('hide');
-        }
-    });
-
-    function phone_validate(phno){
-        var regexPattern=new RegExp(/^[0-9-+]+$/);    // regular expression pattern
-        return regexPattern.test(phno);
-    }
+    }, 1000);    
 </script>
 @endsection

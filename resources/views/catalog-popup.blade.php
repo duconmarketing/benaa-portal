@@ -19,16 +19,17 @@
                     <input id="00N1r00000KB5yK" name="00N1r00000KB5yK" type="hidden" value="Prospect - Benaa" />  -->
 
                     <div class="form-group">
-                        <input name="fname" id="fname" required="" type="text" class="form-control" placeholder="First Name" autocomplete="off">
+                        <input name="firstName" id="firstName" required="" type="text" class="form-control" placeholder="First Name" autocomplete="off">
                     </div>
                     <div class="form-group">
-                        <input name="lname" id="lname" required="" type="text" class="form-control" placeholder="Last Name" autocomplete="off">
+                        <input name="lastName" id="lastName" required="" type="text" class="form-control" placeholder="Last Name" autocomplete="off">
                     </div>
                     <div class="form-group">
                         <input name="email" id="email" required="" type="text" class="form-control" placeholder="Email" autocomplete="off">
+                        <span id="email-info" class="invalid-feedback"></span>
                     </div>
                     <div class="form-group">
-                        <input name="phone" id="phone" required="" type="text" class="form-control" placeholder="Phone Number" autocomplete="off">
+                        <input name="mobilephone" id="mobilephone" required="" type="text" class="form-control" placeholder="Phone Number" autocomplete="off">
                         <span id="phone-info" class="invalid-feedback"></span>
                     </div>
                     <div class="form-group">
@@ -43,3 +44,36 @@
         </div>
     </div>
 </div>
+
+<script>
+$(document).on('submit', "#catalog-popup-form", function(){
+    event.preventDefault();
+    var ph=$('#mobilephone').val();
+    var email = $("#email").val();
+    if(!(phone_validate(ph))){
+        $("#phone-info").html("Please enter Phone Number").show();
+        return false;
+    }else if(!validateEmail(email)) {
+        $("#email-info").html("Please enter valid email").show();
+        return false;
+    }else{
+        // if($("#lastName").val() == ''){
+        //     $("#lastName").val($("#firstName").val());
+        // } 
+        $("#phone-info").html("");
+        $.post('contact-us-submit', $(this).serialize(), function (res) {
+            console.log(res);            
+        });        
+        modal.modal('hide');
+    } 
+});
+
+function phone_validate(phno){
+    var regexPattern=new RegExp(/^[0-9-+]+$/);    // regular expression pattern
+    return regexPattern.test(phno);
+}
+function validateEmail(email) { //Validates the email address
+    var emailRegex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return emailRegex.test(email);
+}
+</script>
