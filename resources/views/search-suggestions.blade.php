@@ -3,7 +3,7 @@
         <div class="products-view__list products-list" data-layout="grid-4-full" data-with-features="false" data-mobile-grid-columns="2">
             <div class="products-list__body">
                 @if(count($result) > 0)
-                <div class="row">
+                <div class="row" style="min-width:100%;">
                     @foreach($result as $row)            
                     <div class="products-list__item">
                         <div class="product-card product-card--hidden-actions ">
