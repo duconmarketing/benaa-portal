@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use Facade\FlareClient\View;
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -39,6 +40,8 @@ class ShopController extends Controller {
             foreach(\Cart::content() as $item){
                 \Cart::update($item->rowId, $request->get($item->rowId));
             }
+        }elseif($request->submit == 'clear'){
+            \Cart::destroy();
         }
         return redirect()->back();
     }

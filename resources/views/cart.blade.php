@@ -78,6 +78,7 @@
                         <a href="{{URL('/shop')}}" class="btn btn-light">Continue Shopping</a>
                     </div>
                     <div class="cart__buttons">
+                        <button type="submit" name="submit" value="clear" onclick="return confirm('Do you really want to clear the cart?')" class="btn btn-light">Clear</a>
                         <button type="submit" name="submit" value="update" class="btn btn-primary cart__update-button">Update Cart</button>
                     </div>
                 </div>
