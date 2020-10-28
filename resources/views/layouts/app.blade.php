@@ -91,7 +91,7 @@
                                         </span>
                                     </button>
                                 </div>
-                                <div class="indicator indicator--mobile d-sm-flex d-none">
+                               <!-- <div class="indicator indicator--mobile d-sm-flex d-none">
                                     <a href="wishlist.html" class="indicator__button">
                                         <span class="indicator__area">
                                             <svg width="20px" height="20px">
@@ -100,7 +100,7 @@
                                             <span class="indicator__value">0</span>
                                         </span>
                                     </a>
-                                </div>
+                                </div> -->
                                 <div class="indicator indicator--mobile">
                                     <a href="{{URL::to('/cart')}}" class="indicator__button">
                                         <span class="indicator__area">
@@ -581,10 +581,11 @@
     </script>
     <script>
         var xhr = new XMLHttpRequest();
+        var categories = [];
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4){
                 var homeUrl = "{{URL::to('/')}}";
-                var categories = JSON.parse(xhr.responseText);
+                categories = JSON.parse(xhr.responseText);
                 var menuString = '<div class="row">';
                 var mobileMenuString = '<ul class="mobile-links mobile-links--level--1">';
                 for (i = 0; i < categories.length; i++) {

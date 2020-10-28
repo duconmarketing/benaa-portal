@@ -38,4 +38,6 @@ Route::view('catalog', 'catalog');
 Route::post('contact-us-submit', 'HomeController@contactUsSubmit');
 Route::get('checkout/networkresponse', 'ShopController@networkResponse');
 Route::post('addtocart-ajax', 'ShopController@AJAXAddtoCart');
+Route::get('cat-list', 'CategoryController@showCatList');
+Route::get('sub-cat-list', 'CategoryController@showSubCatList');
 

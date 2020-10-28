@@ -43,7 +43,8 @@ class CategoryController extends Controller {
         }else{
             $parentCat = $result['data'][0]['Parent_Category__r']['Name'];
         }
-        return view('category', ['results' => $result['data'], 'category' => $parentCat]);
+        $parentCategory = json_decode($this->getCategories());
+        return view('category', ['results' => $result['data'], 'category' => $parentCat, 'parentcategory' => $parentCategory]);
     }
 
     public function showSubcategoryProducts(Request $request, $category, $subCategory) {
@@ -84,5 +85,22 @@ class CategoryController extends Controller {
         ]);
         $result = $response->json();
         return view('shop', ['categories' => $result['data']]);
+    }
+
+    public function showCatList(){
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/categories', [
+            '' => ''
+        ]);
+        $result = $response->json();
+        return view('catList', ['categories' => $result['data']]);
+    }
+    public function showSubCatList(Request $request){
+        $category = $request->input("category");
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/subcategories', [
+            'categoryId' => $category
+        ]);
+        $result = $response->json();
+       // $parentCat = $result['data'][0]['Product2']['Portal_Category__r']['Name'];
+        return view('subCatList', ['subcategories' => $result['data']]);
     }
 }

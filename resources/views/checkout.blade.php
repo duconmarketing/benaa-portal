@@ -11,7 +11,7 @@
 @section('content')
 
 <div class="page-header">
-    <div class="page-header__container container">
+    <div class="page-header__container container" style="background-color: #fff;">
         <div class="page-header__breadcrumb">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -21,7 +21,7 @@
                             <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-right-6x9')}}"></use>
                         </svg>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Checkout</li>                    
+                    <li class="breadcrumb-item active" aria-current="page">Checkout</li>
                 </ol>
             </nav>
         </div>
@@ -34,7 +34,7 @@
     </div>
     </div>
     <div class="checkout block">
-    <div class="container">
+    <div class="container" style="background-color: #fff;">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -49,10 +49,10 @@
             <div class="row">
                 <div class="col-12 col-lg-6 col-xl-7">
                     <div class="card mb-lg-0">
-                        <div class="card-body">    
+                        <div class="card-body">
                             @if (session('error'))
                                 <div class="alert alert-danger">{{ session('error') }}</div>
-                            @endif                    
+                            @endif
                             <h3 class="card-title">Billing details</h3>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
@@ -111,7 +111,7 @@
                                     <label for="checkout-phone">Phone *</label>
                                     <input type="text" class="form-control" id="checkout-phone" placeholder="Phone" name="phone" required value="{{Session::get('formValues.phone') ?? ''}}"/>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                         <div class="card-divider"></div>
                     </div>
