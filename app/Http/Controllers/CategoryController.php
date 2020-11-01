@@ -31,7 +31,8 @@ class CategoryController extends Controller {
             ]);
             $result = $response->json();
             $parentCat = $result['data'][0]['Product2']['Portal_Category__r']['Name'];
-
+            $parentId = $result['data'][0]['Product2']['Portal_Category__r']['Id'];
+           // dd($parentId);
             $currentPage = $request->input("page") ?? 1;
             $perPage = 12;
             $currentItems = array_slice($result['data'], $perPage * ($currentPage -1 ), $perPage);
@@ -39,12 +40,12 @@ class CategoryController extends Controller {
             $paginator->setPath('');
             $CategoryName = $paginator[0]['Product2']['Portal_Category__r']['Name'];
 
-            return view('category-product-list', ['results' => $paginator, 'category' => $CategoryName]);
+            return view('category-product-list', ['results' => $paginator, 'category' => $CategoryName, 'parentId' => $parentId]);
         }else{
             $parentCat = $result['data'][0]['Parent_Category__r']['Name'];
+            $parentId = $result['data'][0]['Parent_Category__r']['Id'];
         }
-        $parentCategory = json_decode($this->getCategories());
-        return view('category', ['results' => $result['data'], 'category' => $parentCat, 'parentcategory' => $parentCategory]);
+        return view('category', ['results' => $result['data'], 'category' => $parentCat, 'parentId' => $parentId]);
     }
 
     public function showSubcategoryProducts(Request $request, $category, $subCategory) {
@@ -61,8 +62,9 @@ class CategoryController extends Controller {
         $paginator->setPath('');
         $subCategoryName = $paginator[0]['Product2']['Portal_Subcategory__r']['Name'];
         $CategoryName = $paginator[0]['Product2']['Portal_Category__r']['Name'];
+        $parentId = $paginator[0]['Product2']['Portal_Subcategory__c'];
 
-        return view('sub-category', ['results' => $paginator, 'category' => $CategoryName, 'subCategory' => $subCategoryName]);
+        return view('sub-category', ['results' => $paginator, 'category' => $CategoryName, 'subCategory' => $subCategoryName, 'parentId' => $parentId]);
     }
 
     public function showProductDetails($category, $subCategory, $product){
@@ -87,20 +89,24 @@ class CategoryController extends Controller {
         return view('shop', ['categories' => $result['data']]);
     }
 
-    public function showCatList(){
+    public function showCatList(Request $request){
+        $parentId = $request->parentId;
         $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/categories', [
             '' => ''
         ]);
         $result = $response->json();
-        return view('catList', ['categories' => $result['data']]);
+        return view('catList', ['categories' => $result['data'],'parentId' => $parentId]);
     }
     public function showSubCatList(Request $request){
+
         $category = $request->input("category");
+        $parentId = $request->parentId;
+        // dd($category);
         $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/subcategories', [
             'categoryId' => $category
         ]);
         $result = $response->json();
        // $parentCat = $result['data'][0]['Product2']['Portal_Category__r']['Name'];
-        return view('subCatList', ['subcategories' => $result['data']]);
+        return view('subCatList', ['subcategories' => $result['data'],'parentId' => $parentId]);
     }
 }

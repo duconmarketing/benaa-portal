@@ -96,7 +96,7 @@
     $.ajax({
         url: BaseUrl + '/cat-list',
         method: 'GET',
-        data:{},
+        data:{parentId : '{{$parentId}}'},
         success: function(data) {
             xhr = null;
             setSideBar(data);

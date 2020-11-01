@@ -127,6 +127,7 @@
 
     </div>
 </div>
+
 <script>
     const setSideBar = function(html) {
         if (html) {
@@ -136,7 +137,7 @@
     $.ajax({
         url: BaseUrl + '/sub-cat-list',
         method: 'GET',
-        data:{category : '{{$results[0]['Product2']['Portal_Category__c']}}'},
+            data:{category : '{{$results[0]['Product2']['Portal_Category__c']}}',parentId : '{{$parentId}}'},
         success: function(data) {
             xhr = null;
             setSideBar(data);

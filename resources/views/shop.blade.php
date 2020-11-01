@@ -24,34 +24,25 @@
         </div>
     </div>
 </div>
+<div class="block block--highlighted block-categories block-categories--layout--classic">
 <div class="container">
-    <div class="row">
-        <div class="col-12 col-lg-12">
-            <div class="block">
-                <div class="products-view">
-                    <div class="products-view__list products-list" data-layout="grid-4-full" data-mobile-grid-columns="2" data-with-features="false">
-                        <div class="products-list__body">
-                            @foreach($categories as $category)
-                                <div class="products-list__item">
-                                    <div class="product-card product-card--hidden-actions text-center">
-                                        <div class="product-card__image product-image">
-                                            <a class="product-image__body" href="{{URL::to('/')}}/product/{{$category['Id']}}">
-                                                <img src="{{$category['Image_URL__c']}}" alt="{{$category['Name']}}" class="product-image__img">
-                                            </a>
-                                        </div>
-                                        <div class="product-card__info">
-                                            <div class="product-card__name text-center">
-                                                <a href="{{URL::to('/')}}/product/{{$category['Id']}}">{{$category['Name']}}</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach                            
-                        </div>
-                    </div>                    
+    <div class="block-categories__list"  >
+        @foreach($categories as $category)
+        <div class="block-categories__item category-card category-card--layout--classic" style="float: left;"   >
+            <div class="category-card__body">
+                <div class="category-card__image">
+                    <a href="{{URL::to('/')}}/product/{{$category['Id']}}">
+                        <img src="{{$category['Image_URL__c']}}" alt="{{$category['Name']}}" >
+                    </a>
+                    <div class="category-card__name">
+                        <a href="{{URL::to('/')}}/product/{{$category['Id']}}">{{$category['Name']}}</a>
+                    </div>
                 </div>
+
             </div>
-        </div>        
+        </div>
+        @endforeach
     </div>
+</div>
 </div>
 @endsection
