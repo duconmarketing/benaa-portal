@@ -579,38 +579,29 @@
         });
     </script>
     <script>
-        var xhr = new XMLHttpRequest();
-        var categories = [];
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4){
-                var homeUrl = "{{URL::to('/')}}";
-                categories = JSON.parse(xhr.responseText);
-                var menuString = '<div class="row">';
-                var mobileMenuString = '<ul class="mobile-links mobile-links--level--1">';
-                for (i = 0; i < categories.length; i++) {
-                    if(i%2 == 0){
-                        menuString += '<div class="col-4"> <ul class="megamenu__links megamenu__links--level--0">';
-                    }
-                    menuString += '<li class="megamenu__item">';
-                    // menuString += '<a style="text-transform: capitalize;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical;overflow: hidden;" href="{{URL::to('/')}}/product/' + categories[i].Name.replace(/ /g,"-").toLowerCase() +'">' + categories[i].Name.toLowerCase() +'</a>';
-					menuString += '<a style="text-transform: capitalize;" href="{{URL::to('/')}}/product/' + categories[i].Id +'">' + categories[i].Name.toLowerCase() +'</a>';
-					menuString += '<ul class="megamenu__links megamenu__links--level--1">';
-					// menuString += '<li class="megamenu__item"><a href="">Engravers</a></li>';
-                    menuString += '</ul></li>';
-                    if(i%2 == 1){
-                        menuString += '</ul></div>';
-                    }
-                    mobileMenuString += '<li class="mobile-links__item" data-collapse-item><div class="mobile-links__item-title">';
-                    mobileMenuString += '<a href="{{URL::to('/')}}/product/' + categories[i].Id +'" class="mobile-links__item-link">' + categories[i].Name.toLowerCase() + '</a></div></li>';
+        $.get("{{URL::to('/')}}/api/categories", function( data ) {
+            var homeUrl = "{{URL::to('/')}}";
+            categories = JSON.parse(data);
+            var menuString = '<div class="row">';
+            var mobileMenuString = '<ul class="mobile-links mobile-links--level--1">';
+            for (i = 0; i < categories.length; i++) {
+                if(i%2 == 0){
+                    menuString += '<div class="col-4"> <ul class="megamenu__links megamenu__links--level--0">';
                 }
-                menuString += '</ul></div>';
-                document.getElementById('categoryTopMenu').innerHTML = menuString;
-                document.getElementById('categoryMobile').innerHTML = mobileMenuString;
+                menuString += '<li class="megamenu__item">';
+                menuString += '<a style="text-transform: capitalize;" href="{{URL::to('/')}}/product/' + categories[i].Id +'">' + categories[i].Name.toLowerCase() +'</a>';
+                menuString += '<ul class="megamenu__links megamenu__links--level--1">';
+                menuString += '</ul></li>';
+                if(i%2 == 1){
+                    menuString += '</ul></div>';
+                }
+                mobileMenuString += '<li class="mobile-links__item" data-collapse-item><div class="mobile-links__item-title">';
+                mobileMenuString += '<a href="{{URL::to('/')}}/product/' + categories[i].Id +'" class="mobile-links__item-link">' + categories[i].Name.toLowerCase() + '</a></div></li>';
             }
-        };
-        xhr.open('GET', '{{URL::to('/')}}/api/categories');
-        xhr.send();
-
+            menuString += '</ul></div>';
+            document.getElementById('categoryTopMenu').innerHTML = menuString;
+            document.getElementById('categoryMobile').innerHTML = mobileMenuString;
+        });
     </script>
     <script type="text/javascript">
         window.__lc = window.__lc || {};
