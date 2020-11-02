@@ -43,7 +43,7 @@
                                                 <span class="fake-svg-icon"></span>
                                             </button>
                                             <div class="product-card__badges-list">
-                                                <div class="product-card__badge product-card__badge--new">New</div>
+                                                <!-- <div class="product-card__badge product-card__badge--new">New</div> -->
                                             </div>
                                             <div class="product-card__image product-image">
                                             <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$product['Id']}}" class="product-image__body">
@@ -141,7 +141,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="product-card__rating-legend">9 Reviews</div>
                                                 </div>
                                                 <ul class="product-card__features-list">
                                                     <li>Speed: 750 RPM</li>

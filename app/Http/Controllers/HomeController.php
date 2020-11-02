@@ -41,7 +41,7 @@ class HomeController extends Controller {
             $subCategoryName = isset($response['data'][0]['Product2']['Portal_Subcategory__r']['Name']) ? $response['data'][0]['Product2']['Portal_Subcategory__r']['Name'] : 'subcat';
             $CategoryName = isset($response['data'][0]['Product2']['Portal_Category__r']['Name']) ? $response['data'][0]['Product2']['Portal_Category__r']['Name'] : 'cat';
         }        
-        return view('search-suggestions', ['result' => array_slice($response['data'], 0, 8), 'category' => $CategoryName, 'subCategory' => $subCategoryName,]);
+        return view('search-suggestions', ['result' => array_slice($response['data'], 0, 6), 'category' => $CategoryName, 'subCategory' => $subCategoryName,]);
     }
 
     public function fastTrackSubmit(Request $request){
