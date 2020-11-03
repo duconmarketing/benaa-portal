@@ -211,10 +211,12 @@
                                         I have read and agree to the website <a href="#">terms and conditions</a>*
                                     </label>
                                 </div>
+                                <div id="quotesuccess" class="alert-success2"></div>
                             </div>
                             <button type="submit" name="btnSubmit" value="submit" class="btn btn-primary btn-xl btn-block">Place Order</button>
                             <div class="text-center">
-                                <button type="submit" name="btnSubmit" value="quote" class="btn btn-primary btn-md mt-3">Get Your Quote</button>
+
+                                <button name="btnSubmit" value="quote" id="quotebtn" class="btn btn-primary btn-md mt-3">Get Your Quote</button>
                             </div>
                         </div>
                     </div>
@@ -284,5 +286,20 @@ function transferFailed(evt) {
 function transferCanceled(evt) {
   console.log("The transfer has been canceled by the user.");
 }
+
+$(document).ready(function() {
+    $("#quotebtn").click(function(e) {
+        e.preventDefault();
+        var formdata = $(this).closest('form').serialize();
+        $.post(
+            BaseUrl + '/quotequery',
+            formdata,
+            function(result){
+                $("#quotesuccess").text(result);
+                $("#quotesuccess").hide().slideDown().delay(5000).fadeOut();
+               // console.log(result);
+            });
+    });
+});
 </script>
 @endsection

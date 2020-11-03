@@ -56,8 +56,50 @@ class ShopController extends Controller {
         return view('checkout', $data);
     }
 
+    public function quoteQuery(Request $request){
+
+        $leadInfo = array(
+            "firstName" => $request->firstname,
+            "lastName" => $request->lastname,
+            "mobilephone" => $request->phone,
+            "email" => $request->email,
+            "company" => $request->company
+        );
+        $orderInfo = array(
+            "Shipping_City__c" => $request->region,
+            "Shipping_Cost__c" => session('shippingCharge'),
+            "Shipping_Country__c" => $request->country,
+            "Shipping_Street__c" => $request->street,
+            "P_O_Box__c" => $request->postcode,
+            "Payment_Mode__c" => 'Cash on Delivery'
+        );
+
+        foreach(\Cart::content() as $row){
+            $temp["pricebookEntryId"] = $row->id;
+            $temp["quantity"] = $row->qty;
+            $info["entries"][] = $temp;
+        }
+        $info['leadInfo'] = $leadInfo;
+        $info['orderInfo'] = $orderInfo;
+        $postArray['checkoutInfo'] = $info;
+
+        $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/placeorder');
+        $result = $response->json();
+        session(['requestId' => $result['data']]);
+        if($result['data'] != ''){
+            echo 'Please check your email for the quotation.';
+           // \Session::flash('msg','Please check your email for the quotation.');
+           // \Session::flash('msg-class','alert-success');
+        }
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/getquote',[
+            'requestId' => $result['data'],
+        ]);
+        $resultQuote = $response->json();
+
+    }
+
     public function checkoutSubmit(Request $request){
-        session(['formValues' => $request->all()]);        
+        session(['formValues' => $request->all()]);
 
         $validatedData = $request->validate([
             'firstname' => 'required',
@@ -65,55 +107,10 @@ class ShopController extends Controller {
             'region' => 'required',
             'email' => ['required', 'email:rfc,dns'],
             'phone' => 'required',
-            'terms' => 'required',            
+            'terms' => 'required',
             ]);
 
-        if($request->btnSubmit  == 'quote'){
-            // $pdf = PDF::loadView('getquote', ['details' => $request]);
-            // return $pdf->download('getQuote.pdf');
-            // return redirect()->back();
-
-            $leadInfo = array(
-                "firstName" => $request->firstname,
-                "lastName" => $request->lastname,
-                "mobilephone" => $request->phone,
-                "email" => $request->email,
-                "company" => $request->company
-            );
-            $orderInfo = array(
-                "Shipping_City__c" => $request->region,
-                "Shipping_Cost__c" => session('shippingCharge'),
-                "Shipping_Country__c" => $request->country,
-                "Shipping_Street__c" => $request->street,
-                "P_O_Box__c" => $request->postcode,
-                "Payment_Mode__c" => 'Cash on Delivery'
-            );
-
-            foreach(\Cart::content() as $row){
-                $temp["pricebookEntryId"] = $row->id;
-                $temp["quantity"] = $row->qty;
-                $info["entries"][] = $temp;
-            }
-            $info['leadInfo'] = $leadInfo;
-            $info['orderInfo'] = $orderInfo;
-            $postArray['checkoutInfo'] = $info;
-
-            $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/placeorder');
-            $result = $response->json();
-            session(['requestId' => $result['data']]);
-
-            $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/getquote',[
-                'requestId' => $result['data'],
-            ]);
-            $resultQuote = $response->json();            
-            if($resultQuote['success'] == true){
-                \Session::flash('msg','Please check your email for the quotation...');
-                \Session::flash('msg-class','alert-success');
-            }
-            return redirect()->back();
-        }
-
-        if($request->btnSubmit  == 'submit'){            
+        if($request->btnSubmit  == 'submit'){
             $leadInfo = array(
                 "firstName" => $request->firstname,
                 "lastName" => $request->lastname,
@@ -148,23 +145,23 @@ class ShopController extends Controller {
             $postArray['checkoutInfo'] = $info;
             if($request->checkout_payment_method == 'creditcard'){
                 try{
-                    $payLink = $this->makePayment($request);                       
+                    $payLink = $this->makePayment($request);
                     session(['postArray' => $postArray]);
                     return redirect($payLink);
-                } catch(Exception $e){                    
+                } catch(Exception $e){
                     return back()->withError($e->getMessage());
-                }                
+                }
             }else{
                 $response = Http::withBody(json_encode($postArray), 'application/json')->post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/placeorder');
                 $result = $response->json();
                 if($result['success'] == true){
                     session()->flush();
-                    return redirect('order-complete');                
+                    return redirect('order-complete');
                 }
-            }            
+            }
             return json_encode($result['message']);
         }
-    }    
+    }
 
     public function makePayment(Request $request){
         try{
@@ -182,7 +179,7 @@ class ShopController extends Controller {
             $tokenResponse = json_decode($tokenResponse);
             $access_token = $tokenResponse->access_token;
             $redirectURL = \URL::to('/checkout/networkresponse');
-            
+
             $order = new \stdClass();
             $order->action = "SALE";  // Transaction mode ("AUTH" = authorize only, no automatic settle/capture, "SALE" = authorize + automatic settle/capture)
             $order->amount = new \stdClass();
@@ -197,7 +194,7 @@ class ShopController extends Controller {
             $order->billingAddress->firstName = $request->firstname;
             $order->billingAddress->lastName = $request->lastname;
             $order->billingAddress->address1 = $request->street;
-            $order->billingAddress->city = $request->region;    
+            $order->billingAddress->city = $request->region;
             $order->billingAddress->countryCode = $request->country;
             $order->merchantDefinedData = new \stdClass();
             $order->merchantDefinedData->website = $_SERVER['SERVER_NAME'];
@@ -218,7 +215,7 @@ class ShopController extends Controller {
             $msg .= ' ' . ($tokenResponse->errors[0]->message?? '');
             $msg .= ' ' . ($orderCreateResponse->errors[0]->message?? '');
             throw new Exception($msg);
-        }        
+        }
     }
 
     public function networkResponse(){
@@ -247,7 +244,7 @@ class ShopController extends Controller {
         $orderStatusResponse = Http::withHeaders($orderStatusHeaders)->get($txnServiceURL);
         $orderStatusResponse = json_decode($orderStatusResponse);
         $orderStatus = $orderStatusResponse->_embedded->payment[0]->state;
-        
+
         if ($orderStatus == 'CAPTURED') {
             $orderNumber= $orderStatusResponse->merchantOrderReference;
             $postArray = session('postArray');
@@ -256,7 +253,7 @@ class ShopController extends Controller {
             if($result['success'] == true){
                 session()->flush();
                 return redirect('order-complete');
-            }            
+            }
         } else {
             return redirect('/checkout')->withError('Payment Failed!');
         }
