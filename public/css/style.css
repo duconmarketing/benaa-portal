@@ -562,7 +562,12 @@ h6 {
   color: #34402d;
 }
 .alert-success2 {
-    color: #28a745;
+    color: #1c7430;
+    text-align: center;
+}
+.alert-success3 {
+    color: #cc3333;
+    text-align: center;
 }
 
 .alert-danger {
@@ -8874,7 +8879,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 }
 
 .checkout__agree {
-  margin-bottom: 36px;
+  margin-bottom: 10px;
 }
 
 .checkout__agree a:hover {

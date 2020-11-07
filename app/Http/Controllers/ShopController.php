@@ -88,14 +88,11 @@ class ShopController extends Controller {
         session(['requestId' => $result['data']]);
         if($result['data'] != ''){
             echo 'Please check your email for the quotation.';
-           // \Session::flash('msg','Please check your email for the quotation.');
-           // \Session::flash('msg-class','alert-success');
         }
         $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/getquote',[
             'requestId' => $result['data'],
         ]);
         $resultQuote = $response->json();
-
     }
 
     public function checkoutSubmit(Request $request){

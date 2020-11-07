@@ -211,11 +211,11 @@
                                         I have read and agree to the website <a href="#">terms and conditions</a>*
                                     </label>
                                 </div>
+                                <div id="quoteerror" class="alert-success3"></div>
                                 <div id="quotesuccess" class="alert-success2"></div>
                             </div>
                             <button type="submit" name="btnSubmit" value="submit" class="btn btn-primary btn-xl btn-block">Place Order</button>
                             <div class="text-center">
-
                                 <button name="btnSubmit" value="quote" id="quotebtn" class="btn btn-primary btn-md mt-3">Get Your Quote</button>
                             </div>
                         </div>
@@ -289,16 +289,31 @@ function transferCanceled(evt) {
 
 $(document).ready(function() {
     $("#quotebtn").click(function(e) {
+        // $("#checkoutForm").validate();
         e.preventDefault();
-        var formdata = $(this).closest('form').serialize();
-        $.post(
-            BaseUrl + '/quotequery',
-            formdata,
-            function(result){
-                $("#quotesuccess").text(result);
-                $("#quotesuccess").hide().slideDown().delay(5000).fadeOut();
-               // console.log(result);
-            });
+        var nfname = $("#checkout-first-name").val();
+        var nlname = $("#checkout-last-name").val();
+        var ncountry = $("#checkout-country").val();
+        var nemirate = $("#checkout-emirate").val();
+        var nemail = $("#checkout-email").val();
+        var nphone = $("#checkout-phone").val();
+
+        if(nfname == '' || nlname == '' || ncountry == '' || nemirate == '' || nemail == '' || nphone == '') {
+            $("#quoteerror").text('Please fill required fields.');
+            $("#quoteerror").hide().slideDown().delay(3000).fadeOut();
+        }else{
+            $("#quotesuccess").text('Please wait. Processing...');
+            var formdata = $(this).closest('form').serialize();
+            $.post(
+                BaseUrl + '/quotequery',
+                formdata,
+                function(result){
+                    $("#quotesuccess").text(result);
+                    $("#quotesuccess").hide().slideDown().delay(5000).fadeOut();
+                    // console.log(result);
+                });
+        }
+
     });
 });
 </script>
