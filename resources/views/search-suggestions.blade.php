@@ -14,7 +14,7 @@
                                     <div class="product-card product-card--hidden-actions ">
                                         <div class="product-card__image product-image">
                                             <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}" class="product-image__body">
-                                                <img class="product-image__img" src="{{$row['Product2']['Default_Image_URL__c']}}" alt="">
+                                                <img class="product-image__img" src="{{$row['Product2']['Thumbnails_URL__c']}}" alt="">
                                             </a>
                                         </div>
                                         <div class="product-card__info">
