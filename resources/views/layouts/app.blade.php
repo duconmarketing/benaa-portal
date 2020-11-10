@@ -45,6 +45,15 @@
     <body>
     <!-- site -->
     <div class="site">
+        
+        <!-- quickview-modal -->
+        <div id="quickview-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content"></div>
+            </div>
+        </div>
+        <!-- quickview-modal / end -->
+
         <!-- mobile site__header -->
         <header class="site__header d-lg-none">
             <!-- data-sticky-mode - one of [pullToShow, alwaysOnTop] -->
@@ -398,7 +407,7 @@
                                 <div class="site-footer__widget footer-newsletter">
                                     <h5 class="footer-newsletter__title">Newsletter</h5>
                                     <div class="footer-newsletter__text">
-                                        Don’t miss any offers! Join our newsletter for the latest offers and news
+                                        Join our newsletter for the latest offers and news
                                     </div>                            
                                     <form action="" class="footer-newsletter__form">
                                         <label class="sr-only" for="footer-newsletter-address">Email Address</label>

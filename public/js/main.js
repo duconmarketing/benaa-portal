@@ -889,8 +889,19 @@
         event.preventDefault();
         var data = $(this).data();
         $.post(addToCartUrl, data, function(response){
-            $("#cart-added").toast('show');
+            // $("#cart-added").toast('show');
             $('.dropcart').html(response.cartHtml);
+            const modal = $('#quickview-modal');
+            res = $.ajax({
+                url: BaseUrl + '/add-to-cart-popup',
+                success: function(data) {
+                    modal.find('.modal-content').html(data);
+                    modal.modal('show');
+                    modal.find('.quickview__close').on('click', function() {
+                        modal.modal('hide');
+                    });
+                }
+            });            
         });
     });
 })(jQuery);

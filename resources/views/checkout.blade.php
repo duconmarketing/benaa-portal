@@ -156,7 +156,7 @@
                                 <tfoot class="checkout__totals-footer">
                                     <tr>
                                         <th>Total</th>
-                                        <td><span id="totalValueSpan">AED {{\Cart::total() + Session::get('shippingCharge')}}</span></td>
+                                        <td><span id="totalValueSpan">AED {{intval(\Cart::total()) + intval(Session::get('shippingCharge'))}}</span></td>
                                     </tr>
                                 </tfoot>
                             </table>

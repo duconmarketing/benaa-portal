@@ -100,7 +100,7 @@
 
 
                                                         <div class="product-card__buttons">
-                                                            <button class="btn btn-primary product-card__addtocart" data-id="{{$product['Id']}}" data-name="{{$product['Name']}}" data-price="{{$product['UnitPrice']}}" data-image="{{$product['Product2']['Default_Image_URL__c']}}" data-link="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/subcat/{{$product['Id']}}" type="submit">Add To Cart</button>
+                                                            <button class="btn btn-primary product-card__addtocart" data-id="{{$product['Id']}}" data-name="{{$product['Name']}}" data-price="{{$product['UnitPrice']}}" data-image="{{$product['Product2']['Thumbnails_URL__c']}}" data-link="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/subcat/{{$product['Id']}}" type="submit">Add To Cart</button>
                                                         </div>
                                                     </form>
                                                 </div>

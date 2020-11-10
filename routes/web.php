@@ -41,4 +41,5 @@ Route::get('checkout/networkresponse', 'ShopController@networkResponse');
 Route::post('addtocart-ajax', 'ShopController@AJAXAddtoCart');
 Route::get('cat-list', 'CategoryController@showCatList');
 Route::get('sub-cat-list', 'CategoryController@showSubCatList');
+Route::view('add-to-cart-popup', 'add-to-cart-popup');
 

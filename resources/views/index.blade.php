@@ -8,13 +8,7 @@
 .block-features__icon{fill:#fff;}
 .block-features__content{color: #fff;}
 </style>
-<!-- quickview-modal -->
-<div id="quickview-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content"></div>
-    </div>
-</div>
-<!-- quickview-modal / end -->
+
 <!-- .block-slideshow -->
 <div class="block-slideshow block-slideshow--layout--full block">
     <div class="container">
