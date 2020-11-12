@@ -172,7 +172,7 @@
                 </div>
                 <!-- .topbar / end -->
                 <div class="site-header__middle container">
-                    <div class="site-header__logo">
+                    <div class="site-header__logo mr-0">
                         <a href="<?= URL::to('/') ?>">
                             <!-- logo -->
                             <img src="{{asset('public/images/Benaa_Logo.png')}}" alt="800Benaa" />

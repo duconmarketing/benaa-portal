@@ -40,8 +40,32 @@ class HomeController extends Controller {
         if(count($response['data'])){
             $subCategoryName = isset($response['data'][0]['Product2']['Portal_Subcategory__r']['Name']) ? $response['data'][0]['Product2']['Portal_Subcategory__r']['Name'] : 'subcat';
             $CategoryName = isset($response['data'][0]['Product2']['Portal_Category__r']['Name']) ? $response['data'][0]['Product2']['Portal_Category__r']['Name'] : 'cat';
+
+            $key = $request->key;
+            $cat = '';
+            $brand = '';
+            foreach($response['data'] as $row){
+                if(stripos($row['Name'], $key) == 0){
+                    $prod = implode(' ', array_slice(explode(' ', $row['Name']), 0, 2));                    
+                }else{
+                    $prod = substr($row['Name'], 0, stripos($row['Name'], ' ', stripos($row['Name'], $key)));
+                }
+                if(isset($row['Product2']['Portal_Category__r']['Name'])){
+                    $cat = $row['Product2']['Portal_Category__r']['Name'];
+                    $Id = $row['Product2']['Portal_Category__r']['Id'];
+                }
+                if(isset($row['Product2']['Brand_Name__c'])){
+                    $brand = $row['Product2']['Brand_Name__c'];
+                }
+                $suggestion['products'][] = preg_replace('/[^A-Za-z0-9\- ]/', '', $prod); // to remove some commas
+                $suggestion['categories'][] = array('Name'=>$cat, 'Id'=>$Id);
+                $suggestion['brands'][] = $brand;
+            }
+            $suggestion['products'] = array_unique($suggestion['products']);
+            $suggestion['categories'] = array_map("unserialize", array_unique(array_map("serialize", $suggestion['categories'])));
+            $suggestion['brands'] = array_unique($suggestion['brands']);
         }        
-        return view('search-suggestions', ['result' => array_slice($response['data'], 0, 6), 'category' => $CategoryName, 'subCategory' => $subCategoryName,]);
+        return view('search-suggestions', ['result' => array_slice($response['data'], 0, 6), 'category' => $CategoryName, 'subCategory' => $subCategoryName, 'suggestion' => $suggestion]);
     }
 
     public function fastTrackSubmit(Request $request){
