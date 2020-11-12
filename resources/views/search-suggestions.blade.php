@@ -46,35 +46,42 @@ ul.suggestion li a{
                         </div>
                         <div class="col-md-9">
                             <div class="row">
-                            @foreach($result as $row)            
-                                <div class="products-list__item">
-                                    <div class="product-card">
-                                        <div class="product-card__image product-image" style="padding:5px 18px 5px;">
-                                            <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}" class="product-image__body">
-                                                <img class="product-image__img" src="{{$row['Product2']['Thumbnails_URL__c']}}" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="product-card__info">
-                                            <div class="product-card__name">
-                                                <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}" class="a_title_ajx">{{$row['Name']}}</a>
-                                            </div>                                 
-                                        </div>
-                                        <div class="product-card__actions" style="padding: 0 24px 10px;">
-                                            <div class="product-card__availability">
-                                                Availability: <span class="text-success">In Stock</span>
+                                @foreach($result as $row)            
+                                    <div class="products-list__item">
+                                        <div class="product-card">
+                                            <div class="product-card__image product-image" style="padding:5px 18px 5px;">
+                                                <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}" class="product-image__body">
+                                                    <img class="product-image__img" src="{{$row['Product2']['Thumbnails_URL__c']}}" alt="">
+                                                </a>
                                             </div>
-                                            <div class="product-card__prices">
-                                                AED {{$row['UnitPrice']}}
+                                            <div class="product-card__info">
+                                                <div class="product-card__name">
+                                                    <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}" class="a_title_ajx">{{$row['Name']}}</a>
+                                                </div>                                 
                                             </div>
-                                            <div class="product-card__buttons" style="margin-top:10px;">
-                                                <button class="btn btn-primary product-card__addtocart" data-id="{{$row['Id']}}" data-name="{{$row['Name']}}" data-price="{{$row['UnitPrice']}}" data-image="{{$row['Product2']['Default_Image_URL__c']}}" data-link="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}" type="submit">
-                                                    <small>Add to Cart</small>
-                                                </button>
+                                            <div class="product-card__actions" style="padding: 0 24px 10px;">
+                                                <div class="product-card__availability">
+                                                    Availability: <span class="text-success">In Stock</span>
+                                                </div>
+                                                <div class="product-card__prices">
+                                                    AED {{$row['UnitPrice']}}
+                                                </div>
+                                                <div class="product-card__buttons" style="margin-top:10px;">
+                                                    <button class="btn btn-primary product-card__addtocart" data-id="{{$row['Id']}}" data-name="{{$row['Name']}}" data-price="{{$row['UnitPrice']}}" data-image="{{$row['Product2']['Default_Image_URL__c']}}" data-link="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}" type="submit">
+                                                        <small>Add to Cart</small>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>                   
-                            @endforeach 
+                                    </div>                   
+                                @endforeach 
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <div class="badge">
+                                    <a class="viewAllResults" href="">View All Results</a>
+                                    </div>                                    
+                                </div>
                             </div>
                         </div>                        
                     </div>      
@@ -94,5 +101,9 @@ ul.suggestion li a{
         event.preventDefault();
         console.log($(this).html());
         window.location.replace("{{URL::to('/')}}/search?searchKey=" + $(this).html());
-    })
+    });
+    $(".viewAllResults").click(function(){
+        event.preventDefault();
+        $(".search__form").submit();
+    });
 </script>
