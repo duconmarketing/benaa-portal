@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="block">
-    <div class="container">
+    <div class="container bg-white">
         <div class="row justify-content-center mt-3">
             <div class="col-12">
                 <h1 class="about-us__title">Sorry, the server is not responding at the moment, Please try again!</h1>

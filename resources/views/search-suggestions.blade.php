@@ -79,9 +79,11 @@ ul.suggestion li a{
                         </div>                        
                     </div>      
                 @else
-                    <li>
-                        No results!
-                    </li>        
+                    <div class="row w-100">
+                        <div class="col-md-12 text-center">
+                            No Results!
+                        </div>
+                    </div>
                 @endif
             </div>
         </div>

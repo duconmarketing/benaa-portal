@@ -82,7 +82,11 @@
                         </div>
                     {{$results->appends($_GET)->links()}}
                     @else
-                        <h2>No Results !!!</h2>
+                    <div class="row" style="min-height:450px;">
+                        <div class="col-md-12 text-center">
+                            <h2>No Results !!!</h2>
+                        </div>
+                    </div>                        
                     @endif
                 </div>
             </div>                                    

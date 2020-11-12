@@ -37,6 +37,9 @@ class HomeController extends Controller {
         $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/search', [
             'key' => $request->key,
         ]);
+        $subCategoryName ='';
+        $CategoryName = '';
+        $suggestion = array();
         if(count($response['data'])){
             $subCategoryName = isset($response['data'][0]['Product2']['Portal_Subcategory__r']['Name']) ? $response['data'][0]['Product2']['Portal_Subcategory__r']['Name'] : 'subcat';
             $CategoryName = isset($response['data'][0]['Product2']['Portal_Category__r']['Name']) ? $response['data'][0]['Product2']['Portal_Category__r']['Name'] : 'cat';
