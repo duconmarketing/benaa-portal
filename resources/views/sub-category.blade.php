@@ -69,7 +69,7 @@
                             @if(count($results) > 0)
                                 @foreach($results as $product)
                                     <div class="products-list__item">
-                                        <div class="product-card product-card--hidden-actions ">
+                                        <div class="product-card ">
                                          <!--   <button class="product-card__quickview" type="button">
                                                 <svg width="16px" height="16px">
                                                     <use xlink:href="images/sprite.svg#quickview-16"></use>
@@ -93,7 +93,7 @@
                                                 <div class="product-card__availability">
                                                     Availability: <span class="text-success">In Stock</span>
                                                 </div>
-                                                <div class="product-card__prices">
+                                                <div class="product-card__prices" >
                                                     AED {{$product['UnitPrice']}}
                                                 </div>
                                                 <form action="{{URL::to('/addtocart')}}" method="POST">
@@ -103,10 +103,8 @@
                                                     <input type="hidden" name="price" value="{{$product['UnitPrice']}}" />
                                                     <input type="hidden" name="image" value="{{$product['Product2']['Thumbnails_URL__c']}}" />
                                                     <input type="hidden" name="link" value="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$product['Id']}}" />
-
-
                                                     <div class="product-card__buttons">
-                                                        <button class="btn btn-primary product-card__addtocart" data-id="{{$product['Id']}}" data-name="{{$product['Name']}}" data-price="{{$product['UnitPrice']}}" data-image="{{$product['Product2']['Thumbnails_URL__c']}}" data-link="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$product['Id']}}" type="submit">Add To Cart</button>
+                                                        <button class="btn btn-primary product-card__addtocart" data-id="{{$product['Id']}}" data-name="{{$product['Name']}}" data-price="{{$product['UnitPrice']}}" data-image="{{$product['Product2']['Default_Image_URL__c']}}" data-link="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$product['Id']}}" type="submit">Add To Cart</button>
                                                     </div>
                                                 </form>
                                             </div>

@@ -3295,7 +3295,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 24px;
+  margin-top: 15px;
 }
 
 [dir=ltr] .product-card__buttons > *:first-child {
@@ -11540,7 +11540,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 @media (hover: hover) {
   .products-list[data-layout="grid-3-sidebar"] .product-card--hidden-actions .product-card__buttons,
   .products-list[data-layout="grid-4-full"] .product-card--hidden-actions .product-card__buttons {
-    display: none;
+   /* display: none; */
   }
   .products-list[data-layout="grid-3-sidebar"] .product-card--hidden-actions:hover,
   .products-list[data-layout="grid-4-full"] .product-card--hidden-actions:hover {

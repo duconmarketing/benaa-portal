@@ -63,7 +63,7 @@
                                 @if(count($results) > 0)
                                     @foreach($results as $product)
                                         <div class="products-list__item">
-                                            <div class="product-card product-card--hidden-actions ">
+                                            <div class="product-card ">
                                                 <!--   <button class="product-card__quickview" type="button">
                                                        <svg width="16px" height="16px">
                                                            <use xlink:href="images/sprite.svg#quickview-16"></use>
