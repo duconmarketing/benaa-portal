@@ -81,9 +81,9 @@
                         </svg>
                     </a>
                 </div>
-                <div class="block-features__content">
-                    <div class="block-features__title">Support 24/7</div>
-                    <div class="block-features__subtitle">Call us anytime</div>
+                <div class="block-features__content" onclick="showFastTrack();" style="cursor: pointer;">
+                    <div class="block-features__title">Fast Track Order</div>
+                    <div class="block-features__subtitle">Drop us your Number</div>
                 </div>
             </div>
             <div class="block-features__divider"></div>
@@ -107,8 +107,8 @@
                 </div>
                 <div class="block-features__content">
                     <a style="color:inherit;" href="{{URL('/catalog')}}">
-                        <div class="block-features__title">Price Guide</div>
-                        <div class="block-features__subtitle">View our price guide</div>
+                        <div class="block-features__title">Our Catalog</div>
+                        <div class="block-features__subtitle">Download the Catalog</div>
                     </a>
                 </div>
             </div>
@@ -282,19 +282,22 @@
 <!-- .block-categories / end -->
 <script>
     // to show fast track form popup in the home page
-    const modal = $('#quickview-modal');
-    const timeout = setTimeout(function() {
-        res = $.ajax({
-            url: '{{URL("fast-track")}}',
-            success: function(data) {
-                modal.find('.modal-content').html(data);
-                modal.modal('show');
-                modal.find('.quickview__close').on('click', function() {
-                    modal.modal('hide');
-                });
-            }
-        });
-    }, 1000);
+    function showFastTrack(waitTime = 0){
+        const modal = $('#quickview-modal');
+        const timeout = setTimeout(function() {
+            res = $.ajax({
+                url: '{{URL("fast-track")}}',
+                success: function(data) {
+                    modal.find('.modal-content').html(data);
+                    modal.modal('show');
+                    modal.find('.quickview__close').on('click', function() {
+                        modal.modal('hide');
+                    });
+                }
+            });
+        }, waitTime);    
+    }    
+    showFastTrack(1000);
     // fast track form submission
     $(document).on('submit', "#fast-track-form", function(){
         event.preventDefault();

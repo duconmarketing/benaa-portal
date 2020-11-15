@@ -11,7 +11,7 @@
     </div>
     <!-- quickview-modal / end -->
 <div class="page-header">
-    <div class="page-header__container container">
+    <div class="page-header__container container bg-white">
         <div class="page-header__breadcrumb">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -28,7 +28,7 @@
     </div>
     </div>
     <div class="checkout block">
-        <div class="container">
+        <div class="container bg-white">
          <iframe allowfullscreen="" allow="fullscreen" style="border:none;width:100%;height:1000px;" src="//e.issuu.com/embed.html?d=800benaa_catalogue&amp;hideIssuuLogo=true&amp;u=duconind"></iframe>
         </div>
     </div>
