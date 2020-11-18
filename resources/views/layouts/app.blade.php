@@ -45,7 +45,7 @@
     <body>
     <!-- site -->
     <div class="site">
-        
+
         <!-- quickview-modal -->
         <div id="quickview-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -207,59 +207,96 @@
                     <div class="nav-panel nav-panel--sticky" data-sticky-mode="pullToShow">
                         <div class="nav-panel__container container">
                             <div class="nav-panel__row">
-                                <div class="nav-panel__departments">
-                                    <!-- .departments -->
-                                    <!-- .departments / end -->
-                                </div>
                                 <!-- .nav-links -->
-                                <div class="nav-panel__nav-links nav-links">
-                                    <ul class="nav-links__list">
+                                <div class="nav-panel__nav-links nav-links" style="margin-left: -10px;">
+                                    <ul class="nav-links__list" >
                                         <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="<?= URL::to('/') ?>">
-                                                <div class="nav-links__item-body">
-                                                    Home
-                                                </div>
+                                            <a href="{{URL::to('/')}}" class="indicator__button">
+                                            <span class="indicator__area" style="height: 53px;">
+                                                <svg width="25px" height="25px">
+                                                    <use xlink:href="{{asset('public/images/sprite.svg#icon-home')}}"></use>
+                                                </svg>
+                                            </span>
                                             </a>
                                         </li>
-                                        <li class="nav-links__item  nav-links__item--has-submenu " id="">
-                                            <a class="nav-links__item-link" href="">
-                                                <div class="nav-links__item-body">
-                                                    Categories
-                                                    <svg class="nav-links__item-arrow" width="9px" height="6px">
-                                                        <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-9x6')}}"></use>
-                                                    </svg>
-                                                </div>
-                                            </a>
-                                            <div class="nav-links__submenu nav-links__submenu--type--megamenu nav-links__submenu--size--nl">
-                                                <!-- .megamenu -->
-                                                <div class="megamenu ">
-                                                    <div class="megamenu__body" id="categoryTopMenu">
-                                                    </div>
-                                                </div>
-                                                <!-- .megamenu / end -->
-                                            </div>
-                                        </li>
                                         <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="{{URL::to('/')}}/shop">
+                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2nAAC') ?>">
                                                 <div class="nav-links__item-body">
-                                                    Shop
+                                                    Bathrooms
                                                 </div>
                                             </a>
                                         </li>
                                         <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="{{URL::to('/catalog')}}">
+                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2oAAC') ?>">
                                                 <div class="nav-links__item-body">
-                                                    Catalog
+                                                    Builders Equipment & Cleaning
                                                 </div>
                                             </a>
                                         </li>
-                                        <li class="nav-links__item  nav-links__item--has-submenu ">
-                                            <a class="nav-links__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank">
+                                        <li class="nav-links__item">
+                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2pAAC') ?>">
                                                 <div class="nav-links__item-body">
-                                                    My Account
+                                                    Building Materials
                                                 </div>
                                             </a>
                                         </li>
+                                        <li class="nav-links__item">
+                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2qAAC') ?>">
+                                                <div class="nav-links__item-body">
+                                                    Door Furniture, Ironmongery & Locks
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-links__item">
+                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2rAAC') ?>">
+                                                <div class="nav-links__item-body">
+                                                    Electrical, Lighting & Ventilation
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-links__item">
+                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2tAAC') ?>">
+                                                <div class="nav-links__item-body">
+                                                    Hand & Power Tools
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-links__item">
+                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2wAAC') ?>">
+                                                <div class="nav-links__item-body">
+                                                    Painting & Decorating
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-links__item">
+                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2mAAC') ?>">
+                                                <div class="nav-links__item-body">
+                                                    Automotive
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-links__item">
+                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2xAAC') ?>">
+                                                <div class="nav-links__item-body">
+                                                    Plumbing & Heating
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-links__item">
+                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2yAAC') ?>">
+                                                <div class="nav-links__item-body">
+                                                    Safety Wear & Clothing
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="nav-links__item">
+                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2zAAC') ?>">
+                                                <div class="nav-links__item-body">
+                                                    Screws, Nails & Fixings
+                                                </div>
+                                            </a>
+                                        </li>
+
                                     </ul>
                                 </div>
                                 <!-- .nav-links / end -->
@@ -407,8 +444,8 @@
                                 <div class="site-footer__widget footer-newsletter">
                                     <h5 class="footer-newsletter__title">Newsletter</h5>
                                     <div class="footer-newsletter__text">
-                                        Join our newsletter for the latest offers and news
-                                    </div>                            
+                                        Join our newsletter
+                                    </div>
                                     <form action="" class="footer-newsletter__form">
                                         <label class="sr-only" for="footer-newsletter-address">Email Address</label>
                                         <input type="text" class="footer-newsletter__form-input form-control" id="footer-newsletter-address" placeholder="Email Address..." required />
