@@ -2,28 +2,48 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import SubCategoryHome from './SubCategoryHome';
 import AddToCartButton from './AddToCartButton';
+import Loader from 'react-loader-spinner';
 
+export const LoadingDemo = ()=> (
+            <div
+                style={{
+                    width: "100%",
+                    height: "100",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
+                }}
+            >
+                <Loader type="ThreeDots" color="#EC6E05"  height={100} width={100} />
+            </div>
+);
 
 class Category extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            categories: []
+            categories: [],
+            loading: false
         };
     }
 
     componentDidMount() {
+        this.setState({
+            loading: true
+        });
         axios.get('api/categories').then(response => {
             this.setState({
+                loading: false,
                 categories: response.data
             });
         });
     }
 
     render() {
-        const {categories} = this.state;
+        const {categories, loading} = this.state;
         return (
-                categories.map(category => (
+            loading ? (<LoadingDemo />) :
+                    (categories.map(category => (
                     <div className="block-categories__item category-card category-card--layout--classic">
                         <div className="category-card__body">
                             <div className="category-card__image">
@@ -40,7 +60,7 @@ class Category extends React.Component {
                             </div>
                         </div>
                     </div>
-                                        )
+                                        ))
                             )
                 );
     }
