@@ -5952,7 +5952,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
   transition: background-color .2s;
   border-radius: 2px;
   height: 42px;
-  padding: 0 14px;
+  padding: 0 6px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -6928,7 +6928,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
       -ms-flex-align: center;
           align-items: center;
   height: 100%;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1;
   letter-spacing: .02em;
   font-weight: 400;
@@ -6949,7 +6949,8 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
   background: transparent;
   -webkit-transition: background-color .2s;
   transition: background-color .2s;
-  padding: 0 14px;
+  padding: 0 4px;
+    text-align: center;
   height: 42px;
   border-radius: 2px;
   background: transparent;
@@ -7083,7 +7084,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 // .nav-panel
 */
 .nav-panel {
-  height: 54px;
+  height: 60px;
     background: #191818;
   -webkit-box-shadow: 0 1px rgba(0, 0, 0, 0.04), inset 0 -1px rgba(0, 0, 0, 0.04);
           box-shadow: 0 1px rgba(0, 0, 0, 0.04), inset 0 -1px rgba(0, 0, 0, 0.04);
