@@ -139,7 +139,7 @@
                                     </div>
                                 </div>
                                 <div class="product__actions-item product__actions-item--addtocart">
-                                    <button class="btn btn-primary btn-lg">Add to cart</button>
+                                    <button class="btn btn-primary btn-lg product-card__addtocart" data-id="{{$details['entry']['Id']}}" data-name="{{$details['entry']['Name']}}" data-price="{{$details['entry']['UnitPrice']}}" data-image="{{$details['entry']['Product2']['Thumbnails_URL__c']}}" data-link="{{URL::to('/')}}/product/{{$details['entry']['Product2']['Portal_Category__c']}}/{{$details['entry']['Product2']['Portal_Subcategory__c'] ?? 'subcat'}}/{{$details['entry']['Id']}}">Add to cart</button>
                                 </div>
                             </div>
                         </div>

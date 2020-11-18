@@ -318,4 +318,19 @@ class ShopController extends Controller {
         $cartHtml = (string) view('drop-cart');
         return response()->json(['msg' => 'Product Added to the cart', 'class' => 'success', 'cartHtml' => $cartHtml]);
     }
+
+    public function removeItemAjax(Request $request){
+        $rowId = $request->get('rowId');
+        \Cart::remove($rowId);
+        $cartHtml = (string) view('drop-cart');
+        return response()->json(['msg' => 'Product Removed', 'class' => 'success', 'cartHtml' => $cartHtml]);
+    }
+
+    public function updateItemAjax(Request $request){
+        $rowId = $request->get('rowId');
+        $qty = $request->get('qty');
+        \Cart::update($rowId, $qty);
+        $cartHtml = (string) view('drop-cart');
+        return response()->json(['msg' => 'Product Updated', 'class' => 'success', 'cartHtml' => $cartHtml]);  
+    }
 }

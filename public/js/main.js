@@ -904,4 +904,36 @@
             });            
         });
     });
+
+    $(document).on("click", '.clearItemPopup', function(){
+        event.preventDefault();
+        var data = $(this).data();
+        const modal = $('#quickview-modal');
+        $.post(BaseUrl + '/clear-item', data, function(response){
+            $('.dropcart').html(response.cartHtml);
+            res = $.ajax({
+                url: BaseUrl + '/add-to-cart-popup',
+                success: function(data) {
+                    modal.find('.modal-content').html(data);
+                }
+            });
+        });
+    });
+
+    $(document).on("change", '.updateItemPopup', function(){
+        event.preventDefault();
+        var data = $(this).data();
+        data.qty  = $(this).val();
+        const modal = $('#quickview-modal');
+        $.post(BaseUrl + '/update-item', data, function(response){
+            $('.dropcart').html(response.cartHtml);
+            res = $.ajax({
+                url: BaseUrl + '/add-to-cart-popup',
+                success: function(data) {
+                    modal.find('.modal-content').html(data);
+                }
+            });
+        });
+    });
+
 })(jQuery);
