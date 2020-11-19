@@ -43,4 +43,6 @@ Route::get('cat-list', 'CategoryController@showCatList');
 Route::get('main-cat-list', 'CategoryController@showMainCatList');
 Route::get('sub-cat-list', 'CategoryController@showSubCatList');
 Route::view('add-to-cart-popup', 'add-to-cart-popup');
+Route::post('clear-item', 'ShopController@removeItemAjax');
+Route::post('update-item', 'ShopController@updateItemAjax');
 

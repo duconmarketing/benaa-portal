@@ -35,29 +35,29 @@
           <table class="table table-image">
             <thead>
               <tr>
-                <th scope="col"></th>
+                <th scope="col" class="d-none d-sm-table-cell"></th>
                 <th scope="col">Product</th>
-                <th scope="col">Price</th>
+                <th scope="col" class="d-none d-sm-table-cell">Price</th>
                 <th scope="col">Qty</th>
                 <th scope="col">Total</th>
-                <!-- <th scope="col">Actions</th> -->
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
               @foreach(\Cart::content() as $items)
                 <tr>
-                  <td style="width:15%">
+                  <td style="width:15%" class="d-none d-sm-table-cell">
                     <img src="{{$items->options->image}}" class="img-fluid img-thumbnail w-100" alt="Sheep">
                   </td>
                   <td>{{ucwords(strtolower($items->name))}}</td>
-                  <td>{{$items->price}}</td>
-                  <td class="qty">{{$items->qty}}</td>
+                  <td class="d-none d-sm-table-cell">{{$items->price}}</td>
+                  <td><input type="number" value="{{$items->qty}}" min="1" class="form-control updateItemPopup" data-row-id="{{$items->rowId}}"></td>
                   <td>{{$items->subtotal()}}</td>
-                  <!-- <td>
-                    <a href="#" class="btn btn-danger btn-sm">
+                  <td>
+                    <a href="#" class="btn btn-danger btn-sm clearItemPopup" data-row-id="{{$items->rowId}}">
                       <i class="fa fa-times"></i>
                     </a>
-                  </td> -->
+                  </td>
                 </tr>
               @endforeach
             </tbody>
@@ -66,10 +66,12 @@
             <h5>Total: <span class="price text-dark">AED {{\Cart::subtotal()}}</span></h5>
           </div>
         @else
-        <h5>Cart is empty!</h5>
+        <h5 class="text-center">Cart is empty!</h5>
         @endif
       </div>
       <div class="modal-footer border-top-0 d-flex justify-content-between">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue Shopping</button>
-        <a class="btn btn-primary cart__checkout-button" href="{{URL::to('/checkout')}}">Checkout</button>
+        @if(count(\Cart::content()) > 0)
+          <a class="btn btn-primary cart__checkout-button" href="{{URL::to('/checkout')}}">Checkout</button>
+        @endif
       </div>
