@@ -97,6 +97,13 @@ class CategoryController extends Controller {
         $result = $response->json();
         return view('catList', ['categories' => $result['data'],'parentId' => $parentId]);
     }
+    public function showMainCatList(){
+        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/categories', [
+            '' => ''
+        ]);
+        $result = $response->json();
+        return view('mainCatList', ['categories' => $result['data']]);
+    }
     public function showSubCatList(Request $request){
 
         $category = $request->input("category");

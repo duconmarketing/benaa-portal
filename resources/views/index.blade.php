@@ -295,8 +295,8 @@
                     });
                 }
             });
-        }, waitTime);    
-    }    
+        }, waitTime);
+    }
     showFastTrack(1000);
     // fast track form submission
     $(document).on('submit', "#fast-track-form", function(){
