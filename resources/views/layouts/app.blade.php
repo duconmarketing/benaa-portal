@@ -208,96 +208,7 @@
                         <div class="nav-panel__container container">
                             <div class="nav-panel__row">
                                 <!-- .nav-links -->
-                                <div class="nav-panel__nav-links nav-links" style="margin-left: -10px;">
-                                    <ul class="nav-links__list" >
-                                        <li class="nav-links__item">
-                                            <a href="{{URL::to('/')}}" class="indicator__button">
-                                            <span class="indicator__area" style="height: 53px;">
-                                                <svg width="25px" height="25px">
-                                                    <use xlink:href="{{asset('public/images/sprite.svg#icon-home')}}"></use>
-                                                </svg>
-                                            </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2nAAC') ?>">
-                                                <div class="nav-links__item-body">
-                                                    Bathrooms
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2oAAC') ?>">
-                                                <div class="nav-links__item-body">
-                                                    Builders Equipment & Cleaning
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2pAAC') ?>">
-                                                <div class="nav-links__item-body">
-                                                    Building Materials
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2qAAC') ?>">
-                                                <div class="nav-links__item-body">
-                                                    Door Furniture, Ironmongery & Locks
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2rAAC') ?>">
-                                                <div class="nav-links__item-body">
-                                                    Electrical, Lighting & Ventilation
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2tAAC') ?>">
-                                                <div class="nav-links__item-body">
-                                                    Hand & Power Tools
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2wAAC') ?>">
-                                                <div class="nav-links__item-body">
-                                                    Painting & Decorating
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2mAAC') ?>">
-                                                <div class="nav-links__item-body">
-                                                    Automotive
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2xAAC') ?>">
-                                                <div class="nav-links__item-body">
-                                                    Plumbing & Heating
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2yAAC') ?>">
-                                                <div class="nav-links__item-body">
-                                                    Safety Wear & Clothing
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-links__item">
-                                            <a class="nav-links__item-link" href="<?= URL::to('/product/a1d1x000000Nq2zAAC') ?>">
-                                                <div class="nav-links__item-body">
-                                                    Screws, Nails & Fixings
-                                                </div>
-                                            </a>
-                                        </li>
-
-                                    </ul>
+                                <div class="nav-panel__nav-links nav-links" id="main-menu-div" style="margin-left: -10px;">
                                 </div>
                                 <!-- .nav-links / end -->
                                 <div class="nav-panel__indicators">
@@ -664,6 +575,20 @@
             $(this).find("input[type=text]").val("");
         });
     </script>
-
+    <script>
+        const setMainMenu = function(html) {
+            if (html) {
+                $('#main-menu-div').html(html);
+            }
+        };
+        $.ajax({
+            url: BaseUrl + '/main-cat-list',
+            method: 'GET',
+            success: function(data) {
+                xhr = null;
+                setMainMenu(data);
+            }
+        });
+    </script>
 </body>
 </html>

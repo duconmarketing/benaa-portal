@@ -362,7 +362,7 @@ h6 {
 }
 
 .page-header__breadcrumb {
-  padding-top: 16px;
+  padding-top: 30px;
 }
 
 .page-header__title {
@@ -7084,7 +7084,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 // .nav-panel
 */
 .nav-panel {
-  height: 60px;
+  height: 75px;
     background: #191818;
   -webkit-box-shadow: 0 1px rgba(0, 0, 0, 0.04), inset 0 -1px rgba(0, 0, 0, 0.04);
           box-shadow: 0 1px rgba(0, 0, 0, 0.04), inset 0 -1px rgba(0, 0, 0, 0.04);
