@@ -67,9 +67,13 @@ ul.suggestion li a{
                                                     AED {{$row['UnitPrice']}}
                                                 </div>
                                                 <div class="product-card__buttons" style="margin-top:10px;">
-                                                    <button class="btn btn-primary product-card__addtocart" data-id="{{$row['Id']}}" data-name="{{$row['Name']}}" data-price="{{$row['UnitPrice']}}" data-image="{{$row['Product2']['Default_Image_URL__c']}}" data-link="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}" type="submit">
-                                                        <small>Add to Cart</small>
-                                                    </button>
+                                                    @if($row['Product2']['Out_Of_Stock__c'])
+                                                        <span class="badge badge-danger">Out of Stock</span>
+                                                    @else
+                                                        <button class="btn btn-primary product-card__addtocart" data-id="{{$row['Id']}}" data-name="{{$row['Name']}}" data-price="{{$row['UnitPrice']}}" data-image="{{$row['Product2']['Default_Image_URL__c']}}" data-link="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}" type="submit">
+                                                            <small>Add to Cart</small>
+                                                        </button>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>

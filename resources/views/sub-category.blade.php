@@ -104,7 +104,11 @@
                                                     <input type="hidden" name="image" value="{{$product['Product2']['Thumbnails_URL__c']}}" />
                                                     <input type="hidden" name="link" value="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$product['Id']}}" />
                                                     <div class="product-card__buttons">
-                                                        <button class="btn btn-primary product-card__addtocart" data-id="{{$product['Id']}}" data-name="{{$product['Name']}}" data-price="{{$product['UnitPrice']}}" data-image="{{$product['Product2']['Thumbnails_URL__c']}}" data-link="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$product['Id']}}" type="submit">Add To Cart</button>
+                                                        @if($product['Product2']['Out_Of_Stock__c'])
+                                                            <button type="button" class="btn btn-light">Out of Stock</button>
+                                                        @else
+                                                            <button class="btn btn-primary product-card__addtocart" data-id="{{$product['Id']}}" data-name="{{$product['Name']}}" data-price="{{$product['UnitPrice']}}" data-image="{{$product['Product2']['Thumbnails_URL__c']}}" data-link="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$product['Id']}}" type="submit">Add To Cart</button>
+                                                        @endif
                                                     </div>
                                                 </form>
                                             </div>

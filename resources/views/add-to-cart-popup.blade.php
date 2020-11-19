@@ -51,7 +51,13 @@
                   </td>
                   <td>{{ucwords(strtolower($items->name))}}</td>
                   <td class="d-none d-sm-table-cell">{{$items->price}}</td>
-                  <td><input type="number" value="{{$items->qty}}" min="1" class="form-control updateItemPopup" data-row-id="{{$items->rowId}}"></td>
+                  <td>
+                    <div class="input-number product__quantity">
+                      <input type="number" value="{{$items->qty}}" min="1" class="input-number__input form-control updateItemPopup" data-row-id="{{$items->rowId}}">
+                      <div class="input-number__add"></div>
+                      <div class="input-number__sub"></div>
+                    </div>
+                  </td>
                   <td>{{$items->subtotal()}}</td>
                   <td>
                     <a href="#" class="btn btn-danger btn-sm clearItemPopup" data-row-id="{{$items->rowId}}">
