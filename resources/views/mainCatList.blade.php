@@ -23,7 +23,7 @@
                 @php($catimage = $cat['Image_URL__c'])
                 @if(isset($cat['Categories__r']))
                 <div class="nav-links__submenu nav-links__submenu--type--megamenu nav-links__submenu--size--nl">
-                    <div class="megamenu ">
+                    <div class="megamenu">
                         <div class="megamenu__body">
                             <div class="row">
                                 <div class="col-6">
