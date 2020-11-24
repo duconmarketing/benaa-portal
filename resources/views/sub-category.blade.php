@@ -46,7 +46,7 @@
 
                     <div class="block-sidebar__item">
                         <div class="widget-filters__list">
-                            <div class="widget-filters__item">
+                            <div class="widget-filters__item border-0">
                                 <div class="filter filter--opened">
                                     <div class="filter__body" >
                                         <div class="filter__container">
@@ -105,7 +105,7 @@
                                                     <input type="hidden" name="link" value="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$product['Id']}}" />
                                                     <div class="product-card__buttons">
                                                         @if($product['Product2']['Out_Of_Stock__c'])
-                                                            <button type="button" class="btn btn-light">Out of Stock</button>
+                                                            <span class="badge badge-danger">Out of Stock</span>
                                                         @else
                                                             <button class="btn btn-primary product-card__addtocart" data-id="{{$product['Id']}}" data-name="{{$product['Name']}}" data-price="{{$product['UnitPrice']}}" data-image="{{$product['Product2']['Thumbnails_URL__c']}}" data-link="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$product['Id']}}" type="submit">Add To Cart</button>
                                                         @endif
