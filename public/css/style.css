@@ -6085,7 +6085,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
           box-shadow: 0 1px 15px rgba(0, 0, 0, 0.25);
   min-height: 100%;
   width: 100%;
-  line-height: 1.5;
+  line-height: 2.0;
   letter-spacing: .01em;
   overflow-y: auto;
   overscroll-behavior-y: contain;

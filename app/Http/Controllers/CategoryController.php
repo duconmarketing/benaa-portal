@@ -102,6 +102,7 @@ class CategoryController extends Controller {
             '' => ''
         ]);
         $result = $response->json();
+        //dd($result['data']);
         return view('mainCatList', ['categories' => $result['data']]);
     }
     public function showSubCatList(Request $request){

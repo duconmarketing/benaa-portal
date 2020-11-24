@@ -149,7 +149,7 @@
                                 <div class="topbar-dropdown">
                                     <button class="topbar-dropdown__btn" type="button">
                                     <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color:#ffffff;">
-                                        My Account
+                                        Login
                                     </a>
                                         <svg width="7px" height="5px">
                                             <use xlink:href="images/sprite.svg#arrow-rounded-down-7x5"></use>
@@ -208,7 +208,78 @@
                         <div class="nav-panel__container container">
                             <div class="nav-panel__row">
                                 <!-- .nav-links -->
-                                <div class="nav-panel__nav-links nav-links" id="main-menu-div" style="margin-left: -10px;">
+                                <div class="nav-panel__nav-links nav-links" id="main-menu-div"  style="margin-left: -10px;">
+                                    <ul class="nav-links__list">
+                                        <li class="nav-links__item  nav-links__item--has-submenu ">
+                                            <a class="nav-links__item-link" href="">
+                                                <div class="nav-links__item-body">
+                                                    Megamenu
+                                                    <svg class="nav-links__item-arrow" width="9px" height="6px">
+                                                        <use xlink:href="images/sprite.svg#arrow-rounded-down-9x6"></use>
+                                                    </svg>
+                                                </div>
+                                            </a>
+                                            <div class="nav-links__submenu nav-links__submenu--type--megamenu nav-links__submenu--size--nl">
+                                                <!-- .megamenu -->
+                                                <div class="megamenu ">
+                                                    <div class="megamenu__body">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <ul class="megamenu__links megamenu__links--level--0">
+                                                                    <li class="megamenu__item  megamenu__item--with-submenu ">
+                                                                        <a href="">Power Tools</a>
+                                                                        <ul class="megamenu__links megamenu__links--level--1">
+                                                                            <li class="megamenu__item"><a href="">Engravers</a></li>
+                                                                            <li class="megamenu__item"><a href="">Wrenches</a></li>
+                                                                            <li class="megamenu__item"><a href="">Wall Chaser</a></li>
+                                                                            <li class="megamenu__item"><a href="">Pneumatic Tools</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li class="megamenu__item  megamenu__item--with-submenu ">
+                                                                        <a href="">Machine Tools</a>
+                                                                        <ul class="megamenu__links megamenu__links--level--1">
+                                                                            <li class="megamenu__item"><a href="">Thread Cutting</a></li>
+                                                                            <li class="megamenu__item"><a href="">Chip Blowers</a></li>
+                                                                            <li class="megamenu__item"><a href="">Sharpening Machines</a></li>
+                                                                            <li class="megamenu__item"><a href="">Pipe Cutters</a></li>
+                                                                            <li class="megamenu__item"><a href="">Slotting machines</a></li>
+                                                                            <li class="megamenu__item"><a href="">Lathes</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <ul class="megamenu__links megamenu__links--level--0">
+                                                                    <li class="megamenu__item  megamenu__item--with-submenu ">
+                                                                        <a href="">Hand Tools</a>
+                                                                        <ul class="megamenu__links megamenu__links--level--1">
+                                                                            <li class="megamenu__item"><a href="">Screwdrivers</a></li>
+                                                                            <li class="megamenu__item"><a href="">Handsaws</a></li>
+                                                                            <li class="megamenu__item"><a href="">Knives</a></li>
+                                                                            <li class="megamenu__item"><a href="">Axes</a></li>
+                                                                            <li class="megamenu__item"><a href="">Multitools</a></li>
+                                                                            <li class="megamenu__item"><a href="">Paint Tools</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                    <li class="megamenu__item  megamenu__item--with-submenu ">
+                                                                        <a href="">Garden Equipment</a>
+                                                                        <ul class="megamenu__links megamenu__links--level--1">
+                                                                            <li class="megamenu__item"><a href="">Motor Pumps</a></li>
+                                                                            <li class="megamenu__item"><a href="">Chainsaws</a></li>
+                                                                            <li class="megamenu__item"><a href="">Electric Saws</a></li>
+                                                                            <li class="megamenu__item"><a href="">Brush Cutters</a></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- .megamenu / end -->
+                                            </div>
+                                        </li>
+                                    </ul>
+
                                 </div>
                                 <!-- .nav-links / end -->
                                 <div class="nav-panel__indicators">
@@ -512,6 +583,23 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+            const setMainMenu = function (html) {
+                if (html) {
+                    $('#main-menu-div').html(html);
+                }
+            };
+            $.ajax({
+                url: BaseUrl + '/main-cat-list',
+                method: 'GET',
+                success: function (data) {
+                    xhr = null;
+                    setMainMenu(data);
+                }
+            });
+        });
+    </script>
     <!-- photoswipe / end -->
     <!-- js -->
     <script src="{{ asset('public/js/app.js') }}" defer></script>
@@ -523,7 +611,6 @@
     <script src="{{ asset('public/vendor/select2/js/select2.min.js') }}"></script>
     <script src="{{ asset('public/js/number.js') }}"></script>
     <script src="{{ asset('public/js/main.js') }}"></script>
-    <script src="{{ asset('public/js/header.js') }}"></script>
     <script src="{{ asset('public/vendor/svg4everybody/svg4everybody.min.js') }}"></script>
     <script>
         svg4everybody();
@@ -556,7 +643,7 @@
                 mobileMenuString += '<a href="{{URL::to('/')}}/product/' + categories[i].Id +'" class="mobile-links__item-link">' + categories[i].Name.toLowerCase() + '</a></div></li>';
             }
             menuString += '</ul></div>';
-            document.getElementById('categoryTopMenu').innerHTML = menuString;
+            //document.getElementById('categoryTopMenu').innerHTML = menuString;
             document.getElementById('categoryMobile').innerHTML = mobileMenuString;
         });
     </script>
@@ -575,20 +662,6 @@
             $(this).find("input[type=text]").val("");
         });
     </script>
-    <script>
-        const setMainMenu = function(html) {
-            if (html) {
-                $('#main-menu-div').html(html);
-            }
-        };
-        $.ajax({
-            url: BaseUrl + '/main-cat-list',
-            method: 'GET',
-            success: function(data) {
-                xhr = null;
-                setMainMenu(data);
-            }
-        });
-    </script>
+
 </body>
 </html>
