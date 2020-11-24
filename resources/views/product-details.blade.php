@@ -106,7 +106,11 @@
                         <li>Battery Capacity: 2 Ah</li>
                     </ul>
                     <ul class="product__meta">
-                        <li class="product__meta-availability">Availability: <span class="text-success">In Stock</span></li>
+                        @if($details['entry']['Product2']['Out_Of_Stock__c'])
+                            <li class="product__meta-availability">Availability: <span class="text-danger">Out of Stock</span></li>
+                        @else
+                            <li class="product__meta-availability">Availability: <span class="text-success">In Stock</span></li>
+                        @endif
                         <li>Brand: <a href="#">{{$details['entry']['Product2']['Brand_Name__c'] ?? "No Brand"}}</a></li>
                         <li>SKU: {{$details['entry']['Product2']['SKU__c']}}</li>
                     </ul>
@@ -115,7 +119,11 @@
                 <!-- .product__sidebar -->
                 <div class="product__sidebar">
                     <div class="product__availability">
-                        Availability: <span class="text-success">In Stock</span>
+                        @if($details['entry']['Product2']['Out_Of_Stock__c'])
+                            Availability: <span class="text-danger">Out of Stock</span>
+                        @else
+                            Availability: <span class="text-success">In Stock</span>
+                        @endif
                     </div>
                     <div class="product__prices">
                         AED {{$details['entry']['UnitPrice']}} / {{$details['entry']['Product2']['Unit__c'] ?? 'PCS'}}
@@ -124,28 +132,28 @@
                     <form class="product__options" action="{{URL::to('/addtocart')}}" method="POST">
                         @csrf
                         <div class="form-group product__option">
-                            <label class="product__option-label" for="product-quantity">Quantity</label>
-                            <div class="product__actions">
-                                <div class="product__actions-item">
-                                    <div class="input-number product__quantity">
-                                        <input id="product-quantity" class="input-number__input form-control form-control-lg" type="number" min="1" value="1" name="quantity">
-                                        <input type="hidden" name="id" value="{{$details['entry']['Id']}}" />
-                                        <input type="hidden" name="name" value="{{$details['entry']['Name']}}" />
-                                        <input type="hidden" name="price" value="{{$details['entry']['UnitPrice']}}" />
-                                        <input type="hidden" name="image" value="{{$details['entry']['Product2']['Default_Image_URL__c']}}" />
-                                        <input type="hidden" name="link" value="{{URL::to('/')}}/product/{{$details['entry']['Product2']['Portal_Category__c']}}/{{$details['entry']['Product2']['Portal_Subcategory__c'] ?? 'subcat'}}/{{$details['entry']['Id']}}" />
-                                        <div class="input-number__add"></div>
-                                        <div class="input-number__sub"></div>
+                            @if($details['entry']['Product2']['Out_Of_Stock__c'])
+
+                            @else
+                                <label class="product__option-label" for="product-quantity">Quantity</label>
+                                <div class="product__actions">
+                                    <div class="product__actions-item">
+                                        <div class="input-number product__quantity">
+                                            <input id="product-quantity" class="input-number__input form-control form-control-lg" type="number" min="1" value="1" name="quantity">
+                                            <input type="hidden" name="id" value="{{$details['entry']['Id']}}" />
+                                            <input type="hidden" name="name" value="{{$details['entry']['Name']}}" />
+                                            <input type="hidden" name="price" value="{{$details['entry']['UnitPrice']}}" />
+                                            <input type="hidden" name="image" value="{{$details['entry']['Product2']['Default_Image_URL__c']}}" />
+                                            <input type="hidden" name="link" value="{{URL::to('/')}}/product/{{$details['entry']['Product2']['Portal_Category__c']}}/{{$details['entry']['Product2']['Portal_Subcategory__c'] ?? 'subcat'}}/{{$details['entry']['Id']}}" />
+                                            <div class="input-number__add"></div>
+                                            <div class="input-number__sub"></div>
+                                        </div>
+                                    </div>
+                                    <div class="product__actions-item product__actions-item--addtocart">                                    
+                                        <button class="btn btn-primary btn-lg product-card__addtocart" data-id="{{$details['entry']['Id']}}" data-name="{{$details['entry']['Name']}}" data-price="{{$details['entry']['UnitPrice']}}" data-image="{{$details['entry']['Product2']['Thumbnails_URL__c']}}" data-link="{{URL::to('/')}}/product/{{$details['entry']['Product2']['Portal_Category__c']}}/{{$details['entry']['Product2']['Portal_Subcategory__c'] ?? 'subcat'}}/{{$details['entry']['Id']}}">Add to cart</button>                                    
                                     </div>
                                 </div>
-                                <div class="product__actions-item product__actions-item--addtocart">
-                                    @if($details['entry']['Product2']['Out_Of_Stock__c'])
-                                        <span class="badge badge-danger">Out of Stock</span>
-                                    @else
-                                        <button class="btn btn-primary btn-lg product-card__addtocart" data-id="{{$details['entry']['Id']}}" data-name="{{$details['entry']['Name']}}" data-price="{{$details['entry']['UnitPrice']}}" data-image="{{$details['entry']['Product2']['Thumbnails_URL__c']}}" data-link="{{URL::to('/')}}/product/{{$details['entry']['Product2']['Portal_Category__c']}}/{{$details['entry']['Product2']['Portal_Subcategory__c'] ?? 'subcat'}}/{{$details['entry']['Id']}}">Add to cart</button>
-                                    @endif
-                                </div>
-                            </div>
+                            @endif
                         </div>
                     </form>
                     <!-- .product__options / end -->
