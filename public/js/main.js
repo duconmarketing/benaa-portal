@@ -936,4 +936,66 @@
         });
     });
 
+    //filter button click
+    $(function () {
+        $('.widget-filters__actions #filter-button').on('click', function(){
+            const minPrice = $('.filter-price__min-value').html();
+            const maxPrice = $('.filter-price__max-value').html();
+            const subCategory = $('#subcategory').val();
+            const category = $('#category').val();
+            const brands = [];
+            $("input[name='filter-brand']").each(function(){
+                if(this.checked){
+                    brands.push(this.value);
+                }
+            });
+            const data = {
+                minPrice: minPrice,
+                maxPrice: maxPrice,
+                category: category,
+                subCategory: subCategory,
+                brands: JSON.stringify(brands),
+            }            
+            var html = '';
+            console.log(data);
+            $.post(BaseUrl + '/filter-product', data, function(filterResponse){  
+                var container = $('.products-view__pagination');
+                container.pagination({
+                    dataSource: filterResponse,
+                    locator: 'data',
+                    totalNumber: filterResponse.length,
+                    pageSize: 12,
+                    ajax: {
+                        beforeSend: function() {
+                            container.prev().html('Filtering ...');
+                        }
+                    },
+                    callback: function(response, pagination) {
+                        var dataHtml = '';
+                        var pageStart = (pagination.pageNumber - 1) * pagination.pageSize;
+                        var pageEnd = pageStart + pagination.pageSize;
+                        var pageItems = response.slice(pageStart, pageEnd);
+                        $.each(response, function(index, item) {
+                            dataHtml += item;
+                        });
+
+                        container.prev().html(dataHtml);
+                    }
+                });
+                $('.products-view__pagination1').hide(); //hiding laravel pagination
+            });
+        });
+    });
+
+    //resetting the filter
+    $(function (){
+        $('.widget-filters__actions #filter-reset-button').on('click', function(){
+            var slider = document.querySelector('.filter-price__slider');
+            slider.noUiSlider.reset();
+            $("input[name='filter-brand']").each(function(){
+                this.checked = false;
+            });
+        });
+    });
+
 })(jQuery);

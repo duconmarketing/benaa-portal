@@ -45,4 +45,5 @@ Route::get('sub-cat-list', 'CategoryController@showSubCatList');
 Route::view('add-to-cart-popup', 'add-to-cart-popup');
 Route::post('clear-item', 'ShopController@removeItemAjax');
 Route::post('update-item', 'ShopController@updateItemAjax');
+Route::post('filter-product', 'CategoryController@filterProduct');
 

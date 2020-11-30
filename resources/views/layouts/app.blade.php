@@ -540,6 +540,8 @@
     <script src="{{ asset('public/js/number.js') }}"></script>
     <script src="{{ asset('public/js/main.js') }}"></script>
     <script src="{{ asset('public/vendor/svg4everybody/svg4everybody.min.js') }}"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" rel="stylesheet" /> 
+    <script src="{{ asset('public/js/pagination.js') }}"></script>
     <script>
         svg4everybody();
     </script>

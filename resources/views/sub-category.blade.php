@@ -39,25 +39,92 @@
                         <div class="block-sidebar__title">Filters</div>
                         <button class="block-sidebar__close" type="button">
                             <svg width="20px" height="20px">
-                                <use xlink:href="images/sprite.svg#cross-20"></use>
+                                <use xlink:href="{{asset('public/images/sprite.svg#cross-20')}}"></use>
                             </svg>
                         </button>
                     </div>
 
                     <div class="block-sidebar__item">
-                        <div class="widget-filters__list">
-                            <div class="widget-filters__item border-0">
-                                <div class="filter filter--opened">
-                                    <div class="filter__body" >
-                                        <div class="filter__container">
-                                            <!-- category from ajax -->
+                        <div class="widget-filters widget widget-filters--offcanvas--mobile" data-collapse data-collapse-opened-class="filter--opened">
+                            <h4 class="widget-filters__title widget__title">Filters</h4>
+                            <div class="widget-filters__list">
+                                <div class="widget-filters__item">
+                                    <div class="filter filter--opened" data-collapse-item>
+                                        <button type="button" class="filter__title" data-collapse-trigger>
+                                            Categories	
+                                            <svg class="filter__arrow" width="12px" height="7px">
+                                                <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-12x7')}}"></use>
+                                            </svg>
+                                        </button>
+                                        <div class="filter__body" >
+                                            <div class="filter__container" id="subCategorySidebar">
+                                                <!-- category from ajax -->
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="widget-filters__item">
+                                    <div class="filter filter--opened" data-collapse-item>
+                                        <button type="button" class="filter__title" data-collapse-trigger>
+                                            Price
+                                            <svg class="filter__arrow" width="12px" height="7px">
+                                                <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-12x7')}}"></use>
+                                            </svg>
+                                        </button>
+                                        <div class="filter__body" data-collapse-content>
+                                            <div class="filter__container">
+                                                <div class="filter-price" data-min="{{$filterMin}}" data-max="{{$filterMax}}" data-from="{{$filterMin}}" data-to="{{$filterMax}}">
+                                                    <div class="filter-price__slider"></div>
+                                                    <div class="filter-price__title">Price: AED <span class="filter-price__min-value"></span> – AED <span class="filter-price__max-value"></span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-filters__item">
+                                    <div class="filter filter--opened" data-collapse-item>
+                                        <button type="button" class="filter__title" data-collapse-trigger>
+                                            Brand
+                                            <svg class="filter__arrow" width="12px" height="7px">
+                                                <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-12x7')}}"></use>
+                                            </svg>
+                                        </button>
+                                        <div class="filter__body" data-collapse-content>
+                                            <div class="filter__container">
+                                                <div class="filter-list">
+                                                    <div class="filter-list__list">
+                                                        @foreach($brands as $key => $row)
+                                                            <label class="filter-list__item ">
+                                                                <span class="filter-list__input input-check">
+                                                                    <span class="input-check__body">
+                                                                        <input class="input-check__input" type="checkbox" value="{{$key}}" name="filter-brand">
+                                                                        <span class="input-check__box"></span>
+                                                                        <svg class="input-check__icon" width="9px" height="7px">
+                                                                            <use xlink:href="{{asset('public/images/sprite.svg#check-9x7')}}"></use>
+                                                                        </svg>
+                                                                    </span>
+                                                                </span>
+                                                                <span class="filter-list__title">
+                                                                    {{$key ? $key : 'NO BRANDS'}}
+                                                                </span>
+                                                                <span class="filter-list__counter">{{$row}}</span>
+                                                            </label>
+                                                        @endforeach                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-filters__actions d-flex">
+                                    <button class="btn btn-primary btn-sm" id='filter-button'>Filter</button>
+                                    <button class="btn btn-secondary btn-sm" id="filter-reset-button">Reset</button>
+                                </div>
+                                <input type="hidden" name="subcategory" id="subcategory" value="{{$results[0]['Product2']['Portal_Subcategory__r']['Id']}}"/>
+                                <input type="hidden" name="category" id="category" value="{{$results[0]['Product2']['Portal_Category__r']['Id']}}"/>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -119,8 +186,9 @@
                                 <h2>No Products</h2>
                             @endif
                         </div>
+                        <div class="products-view__pagination"></div>
                     </div>
-                    <div class="products-view__pagination">
+                    <div class="products-view__pagination1">
                         {{$results->links()}}
                     </div>
                 </div>
@@ -133,7 +201,7 @@
 <script>
     const setSideBar = function(html) {
         if (html) {
-            $('.filter__container').html(html);
+            $('#subCategorySidebar').html(html);
         }
     };
     $.ajax({
