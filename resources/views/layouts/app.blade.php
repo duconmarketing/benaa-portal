@@ -27,6 +27,7 @@
         </script>
         <script src="{{ asset('public/vendor/jquery/jquery.min.js') }}"></script>
         <style>
+            /*
             .fa-instagram {
             color: transparent;
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
@@ -37,7 +38,7 @@
             }
             .social-links__link--type--instagram{
                 background: transparent;
-            }
+            }*/
             .footer-links__item, .footer-contacts__text, .footer-newsletter__text, .site-footer__copyright{color: #b3bdc6;}
             .footer-contacts__title, .footer-links__title, .footer-newsletter__title{color: #e8e0e0;}
             </style>
@@ -135,7 +136,7 @@
                     Product Added to the cart
                 </div>
                 <!-- .topbar -->
-                <div class="site-header__topbar topbar" style="background: #ec7c05;color:#ffffff;">
+                <div class="site-header__topbar topbar" style="background: #ec7c05;color:#ffffff; display: none;">
                     <div class="topbar__container container">
                         <div class="topbar__row">
                             <div class="topbar__item topbar__item--link">
@@ -179,11 +180,11 @@
                             <!-- logo / end -->
                         </a>
                     </div>
-                    <div class="site-header__search" style="background: #fff;">
+                    <div class="site-header__search" style="background: #fff; width: 70%;">
                         <div class="search search--location--header ">
                             <div class="search__body">
                                 <form class="search__form" action="{{ url('search')}}" method="GET">
-                                    <select class="search__categories" aria-label="Category" id="categorySearchList" style="text-transform: capitalize;">
+                                    <select class="search__categories" aria-label="Category" id="categorySearchList" style="text-transform: capitalize; display: none;">
                                     </select>
                                     <input class="search__input" name="searchKey" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
                                     <button class="search__button search__button--type--submit" type="submit">
@@ -197,9 +198,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="site-header__phone">
-                        <div class="site-header__phone-title">Toll-Free</div>
-                        <div class="site-header__phone-number">800-23622</div>
+                    <div class="site-header__phone" style="display: flex;">
+                        <div><button class="topbar-dropdown__btn" type="button">
+                                <span class="topbar__item-value" style="color:#000000;">AED</span>
+                            </button></div>
+                        <div>
+                            <button class="topbar-dropdown__btn" type="button">
+                                <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color:#000000;">
+                                    Login
+                                </a>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="site-header__nav-panel">
@@ -325,41 +334,96 @@
             <div class="site-footer">
                 <div class="container">
                     <div class="site-footer__widgets">
-                        <div class="row">
-                            <div class="col-12 col-md-6 col-lg-4">
+                        <div class="row" style="padding-bottom: 10px;">
+                            <div class="col-12 col-md-12 col-lg-6">
+                                <div class="site-footer__widget footer-links">
+                                    <h5 class="footer-links__title">We're Always Here To Help</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <span style=" display: block;
+    font-size: 0.83333rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #B3BDC6;">Email</span>
+                                <span style=" font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 1.4;
+    white-space: nowrap;">sales@800benaa.com</span>
+                            </div>
+
+
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <span style=" display: block;
+    font-size: 0.83333rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #B3BDC6;">Phone</span>
+                                <span style=" font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 1.4;
+    white-space: nowrap;">800-23622</span>
+                            </div>
+                        </div>
+                        <div class="row" style="border-top: 1px solid #ebebeb;padding-top: 10px;">
+                           <!-- <div class="col-12 col-md-6 col-lg-4">
                                 <div class="site-footer__widget footer-contacts">
-                                    <h5 class="footer-contacts__title">Contact Us</h5>
+                                    <h5 class="footer-contacts__title">Get to Know Us</h5>
                                     <div class="footer-contacts__text">
                                         Please contact us for more information about our products.
                                     </div>
                                     <ul class="footer-contacts__contacts text-info">
-                                        <!-- <li><i class="footer-contacts__icon fas fa-globe-americas"></i>Plot 2125 - Nadd Al Hamar</li> -->
                                         <li><i class="footer-contacts__icon far fa-envelope"></i><a href="mailto:sales@800benaa.com">sales@800benaa.com</a></li>
                                         <li><i class="footer-contacts__icon fas fa-mobile-alt"></i><a href="tel:80023622"> 800-23622</a></li>
-                                        <!-- <li><i class="footer-contacts__icon far fa-clock"></i> Sat-Thur 7.00am - 4:00pm</li> -->
+
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="col-12 col-md-3 col-lg-3">
+                            </div> -->
+                            <div class="col-12 col-md-4 col-lg-3">
                                 <div class="site-footer__widget footer-links">
-                                    <h5 class="footer-links__title">Information</h5>
+                                    <h5 class="footer-links__title">Get to Know Us</h5>
                                     <ul class="footer-links__list">
-                                        <li class="footer-links__item"><a href="{{URL::to('/about-us')}}" class="footer-links__link">About Us</a></li>
-                                        <li class="footer-links__item"><a href="" class="footer-links__link">Privacy Policy</a></li>
-                                        <li class="footer-links__item"><a href="{{URL::to('/contact-us')}}" class="footer-links__link">Get in touch</a></li>
+                                        <li class="footer-links__item"><a href="{{URL::to('/about-us')}}" class="footer-links__link">About 800Benaa</a></li>
+                                        {{--<li class="footer-links__item"><a href="" class="footer-links__link">Privacy Policy</a></li>
+                                        <li class="footer-links__item"><a href="{{URL::to('/contact-us')}}" class="footer-links__link">Get in touch</a></li>--}}
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-12 col-lg-4">
+                            <div class="col-12 col-md-4 col-lg-3">
+                                <div class="site-footer__widget footer-links">
+                                    <h5 class="footer-links__title">Shop with Us</h5>
+                                    <ul class="footer-links__list">
+                                        <li class="footer-links__item"><a href="{{URL::to('/about-us')}}" class="footer-links__link">Your Account</a></li>
+                                        {{--<li class="footer-links__item"><a href="" class="footer-links__link">Privacy Policy</a></li>
+                                        <li class="footer-links__item"><a href="{{URL::to('/contact-us')}}" class="footer-links__link">Get in touch</a></li>--}}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4 col-lg-3">
+                                <div class="site-footer__widget footer-links">
+                                    <h5 class="footer-links__title">Let Us Help You</h5>
+                                    <ul class="footer-links__list">
+                                        <li class="footer-links__item"><a href="{{URL::to('/about-us')}}" class="footer-links__link">Help</a></li>
+                                        <li class="footer-links__item"><a href="" class="footer-links__link">FAQs</a></li>
+                                        {{--<li class="footer-links__item"><a href="{{URL::to('/contact-us')}}" class="footer-links__link">Get in touch</a></li>--}}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="col-12 col-md-12 col-lg-3">
                                 <div class="site-footer__widget footer-newsletter">
-                                    <h5 class="footer-newsletter__title">Newsletter</h5>
+                                    <h5 class="footer-newsletter__title">First to Know</h5>
                                     <div class="footer-newsletter__text">
-                                        Join our newsletter
+                                        Join 800Benaa and get the latest news, offers and products delivered to your inbox.
                                     </div>
                                     <form action="" class="footer-newsletter__form">
                                         <label class="sr-only" for="footer-newsletter-address">Email Address</label>
                                         <input type="text" class="footer-newsletter__form-input form-control" id="footer-newsletter-address" placeholder="Email Address..." required />
-                                        <button class="footer-newsletter__form-button btn btn-primary">Subscribe</button>
+                                        <button class="footer-newsletter__form-button btn btn-primary" style="padding: 0 2px 0 2px;">Subscribe</button>
                                     </form>
                                     <div class="footer-newsletter__text footer-newsletter__text--social">
                                         Follow us on social networks
@@ -367,28 +431,40 @@
                                     <!-- social-links -->
                                     <div class="social-links footer-newsletter__social-links social-links--shape--circle">
                                         <ul class="social-links__list">
-                                            <!-- <li class="social-links__item">
+                                         <!--   <li class="social-links__item">
+                                                <a class="social-links__link social-links__link--type--rss" href="" target="_blank">
+                                                    <i class="fas fa-rss"></i>
+                                                </a>
+                                            </li>
+                                            <li class="social-links__item">
                                                 <a class="social-links__link social-links__link--type--youtube" href="" target="_blank">
                                                     <i class="fab fa-youtube"></i>
                                                 </a>
-                                            </li>    -->
+                                            </li>  -->
                                             <li class="social-links__item">
-                                                <a class="social-links__link social-links__link--type--facebook" href="https://www.facebook.com/800benaa" target="_blank">
+                                                <a class="social-links__link social-links__link--type--twitter" href="https://twitter.com/DuconIndustries" target="_blank">
+                                                    <i class="fab fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li class="social-links__item">
+                                                <a class="social-links__link social-links__link--type--facebook" href="https://www.facebook.com/duconind/" target="_blank">
                                                     <i class="fab fa-facebook-f"></i>
                                                 </a>
                                             </li>
-                                            <!-- <li class="social-links__item">
-                                                <a class="social-links__link social-links__link--type--twitter" href="" target="_blank">
-                                                    <i class="fab fa-twitter"></i>
-                                                </a>
-                                            </li> -->
+
                                             <li class="social-links__item">
-                                                <a class="social-links__link social-links__link--type--instagram" href="https://www.instagram.com/800benaa" target="_blank">
+                                                <a class="social-links__link social-links__link--type--instagram" href="https://www.instagram.com/duconind" target="_blank">
                                                     <i class="fab fa-instagram"></i>
+                                                </a>
+                                            </li>
+                                            <li class="social-links__item">
+                                                <a class="social-links__link social-links__link--type--linkedin" href="https://ae.linkedin.com/in/ducon-industries-b39a01a0" target="_blank">
+                                                    <i class="fab fa-linkedin"></i>
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
+
                                     <!-- social-links / end -->
                                 </div>
                             </div>
@@ -397,11 +473,13 @@
                     <div class="site-footer__bottom">
                         <div class="site-footer__copyright">
                             <!-- copyright -->
-                            <p>© Copyright <script type="text/javascript">document.write(new Date().getFullYear())</script> <a class="topbar__item-value" href="#">800Benaa</a>. All Rights Reserved.</p>
+                            <p>© Copyright <script type="text/javascript">document.write(new Date().getFullYear())</script> <a class="topbar__item-value" href="#">800Benaa</a>. All Rights Reserved. &nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Refund Policy</a>  &nbsp;&nbsp;&nbsp;&nbsp;<a href="">Privacy Policy</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Consumer Right</a></p>
                             <!-- copyright / end -->
+
                         </div>
                         <div class="site-footer__payments">
-                            <img src="images/payments.png" alt="">
+                            <img src="{{asset('public/images/payments.png')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -540,7 +618,7 @@
     <script src="{{ asset('public/js/number.js') }}"></script>
     <script src="{{ asset('public/js/main.js') }}"></script>
     <script src="{{ asset('public/vendor/svg4everybody/svg4everybody.min.js') }}"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" rel="stylesheet" /> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" rel="stylesheet" />
     <script src="{{ asset('public/js/pagination.js') }}"></script>
     <script>
         svg4everybody();

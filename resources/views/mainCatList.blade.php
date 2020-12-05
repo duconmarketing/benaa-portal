@@ -8,9 +8,10 @@
             </span>
         </a>
     </li>
+    @php($catshow= array(2,4,5,6,9,11))
     @php($i = 0)
     @foreach($categories as $cat)
-        @if($i < 12)
+        @if(in_array($i,$catshow))
             <li class="nav-links__item  nav-links__item--has-submenu ">
                 <a class="nav-links__item-link" href="{{URL::to('/')}}/product/{{$cat['Id']}}">
                     <div class="nav-links__item-body">

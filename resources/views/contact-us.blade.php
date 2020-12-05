@@ -10,7 +10,7 @@
     </div> -->
 </div>
 <div class="page-header">
-    <div class="page-header__container container">
+    <div class="page-header__container container" style="background-color: #fff;">
         <div class="page-header__breadcrumb">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
@@ -30,7 +30,7 @@
     </div>
 </div>
 <div class="block">
-    <div class="container">
+    <div class="container" style="background-color: #fff;">
         <div class="card mb-0">
             <div class="card-body contact-us">
                 <div class="contact-us__container">

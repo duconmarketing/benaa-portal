@@ -4044,7 +4044,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 // .select2
 */
 .form-control + .select2-container {
-  width: 100%;
+  /*width: 100%;*/
 }
 
 .form-control + .select2-container .select2-selection__arrow {
@@ -4351,23 +4351,26 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 }
 
 .social-links__link--type--facebook {
-  background: #3c5a99;
+  background: #ec6e05;
 }
 
 .social-links__link--type--twitter {
-  background: #00a2e8;
+    background: #ec6e05;
 }
 
 .social-links__link--type--youtube {
-  background: #e52e2e;
+    background: #ec6e05;
 }
 
 .social-links__link--type--instagram {
-  background: #815dc7;
+    background: #ec6e05;
+}
+.social-links__link--type--linkedin {
+    background: #ec6e05;
 }
 
 .social-links__link--type--rss {
-  background: #ffc338;
+    background: #ec6e05;
 }
 
 .social-links__link--type--rss, .social-links__link--type--rss:hover {
@@ -12349,8 +12352,8 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 .quickview__close {
   position: absolute;
   top: 0;
-  width: 50px;
-  height: 50px;
+  /*width: 50px;
+  height: 50px;*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

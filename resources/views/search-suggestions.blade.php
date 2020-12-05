@@ -23,30 +23,30 @@ ul.suggestion li a{
                 @if(count($result) > 0)
                     <div class="row" style="min-width:100%;">
                         <div class="col-md-3 d-none d-sm-block">
-                            <p style="background-color: #ec6e05;" class="text-center mt-3 font-weight-bold text-light">Suggestions</p>  
+                            <p style="background-color: #3d464d;" class="text-center mt-3 font-weight-bold text-light">Suggestions</p>
                             <ul class="suggestion">
                                 @foreach(array_slice($suggestion['products'], 0, 4) as $row)
                                     <li><a href="" class="suggestionKey">{{ucfirst(strtolower($row))}}</a></li>
                                 @endforeach
-                            </ul>     
-                            
-                            <p style="background-color: #ec6e05;" class="text-center mt-3 font-weight-bold text-light">Categories</p>  
+                            </ul>
+
+                            <p style="background-color: #3d464d;" class="text-center mt-3 font-weight-bold text-light">Categories</p>
                             <ul class="suggestion">
                                 @foreach(array_slice($suggestion['categories'], 0, 4) as $row)
                                     <li><a class="" href="{{URL::to('/')}}/product/{{$row['Id']}}">{{ucfirst(strtolower($row['Name']))}}</a></li>
                                 @endforeach
-                            </ul>  
+                            </ul>
 
-                            <p style="background-color: #ec6e05;" class="text-center mt-3 font-weight-bold text-light">Brands</p>  
+                            <p style="background-color: #3d464d;" class="text-center mt-3 font-weight-bold text-light">Brands</p>
                             <ul class="suggestion">
                                 @foreach(array_slice($suggestion['brands'], 0, 4) as $row)
                                     <li><a class="suggestionKey">{{ucfirst(strtolower($row))}}</a></li>
                                 @endforeach
-                            </ul>  
+                            </ul>
                         </div>
                         <div class="col-md-9">
                             <div class="row">
-                                @foreach($result as $row)            
+                                @foreach($result as $row)
                                     <div class="products-list__item">
                                         <div class="product-card">
                                             <div class="product-card__image product-image" style="padding:5px 18px 5px;">
@@ -57,7 +57,7 @@ ul.suggestion li a{
                                             <div class="product-card__info">
                                                 <div class="product-card__name">
                                                     <a href="{{URL::to('/')}}/product/{{strtolower(str_replace(' ', '-', $category))}}/{{strtolower(str_replace(' ', '-', $subCategory))}}/{{$row['Id']}}" class="a_title_ajx">{{$row['Name']}}</a>
-                                                </div>                                 
+                                                </div>
                                             </div>
                                             <div class="product-card__actions" style="padding: 0 24px 10px;">
                                                 <div class="product-card__availability">
@@ -77,18 +77,18 @@ ul.suggestion li a{
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>                   
-                                @endforeach 
+                                    </div>
+                                @endforeach
                             </div>
                             <div class="row">
                                 <div class="col-md-12 text-center">
                                     <div class="badge">
                                     <a class="viewAllResults" href="">View All Results</a>
-                                    </div>                                    
+                                    </div>
                                 </div>
                             </div>
-                        </div>                        
-                    </div>      
+                        </div>
+                    </div>
                 @else
                     <div class="row w-100">
                         <div class="col-md-12 text-center">
