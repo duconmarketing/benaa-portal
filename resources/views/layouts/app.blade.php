@@ -200,6 +200,7 @@
                     </div>
                     <div class="site-header__phone" style="display: flex;">
                         <div><button class="topbar-dropdown__btn" type="button">
+                                <img src="{{asset('public/images/ae.svg')}}">
                                 <span class="topbar__item-value" style="color:#000000;">AED</span>
                             </button></div>
                         <div>
@@ -432,20 +433,10 @@
                                     <div class="social-links footer-newsletter__social-links social-links--shape--circle">
                                         <ul class="social-links__list">
                                          <!--   <li class="social-links__item">
-                                                <a class="social-links__link social-links__link--type--rss" href="" target="_blank">
-                                                    <i class="fas fa-rss"></i>
-                                                </a>
-                                            </li>
-                                            <li class="social-links__item">
-                                                <a class="social-links__link social-links__link--type--youtube" href="" target="_blank">
-                                                    <i class="fab fa-youtube"></i>
-                                                </a>
-                                            </li>  -->
-                                            <li class="social-links__item">
                                                 <a class="social-links__link social-links__link--type--twitter" href="https://twitter.com/DuconIndustries" target="_blank">
                                                     <i class="fab fa-twitter"></i>
                                                 </a>
-                                            </li>
+                                            </li>  -->
                                             <li class="social-links__item">
                                                 <a class="social-links__link social-links__link--type--facebook" href="https://www.facebook.com/duconind/" target="_blank">
                                                     <i class="fab fa-facebook-f"></i>
@@ -457,11 +448,12 @@
                                                     <i class="fab fa-instagram"></i>
                                                 </a>
                                             </li>
+                                            <!--
                                             <li class="social-links__item">
                                                 <a class="social-links__link social-links__link--type--linkedin" href="https://ae.linkedin.com/in/ducon-industries-b39a01a0" target="_blank">
                                                     <i class="fab fa-linkedin"></i>
                                                 </a>
-                                            </li>
+                                            </li>  -->
                                         </ul>
                                     </div>
 
