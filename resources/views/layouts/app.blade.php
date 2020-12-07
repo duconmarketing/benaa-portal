@@ -172,7 +172,7 @@
                     </div>
                 </div>
                 <!-- .topbar / end -->
-                <div class="site-header__middle container">
+                <div class="site-header__middle container h-auto p-2">
                     <div class="site-header__logo mr-0">
                         <a href="<?= URL::to('/') ?>">
                             <!-- logo -->
@@ -199,17 +199,20 @@
                         </div>
                     </div>
                     <div class="site-header__phone" style="display: flex;">
-                        <div><button class="topbar-dropdown__btn" type="button">
+                        <!-- <div>
+                            <button class="topbar-dropdown__btn" type="button">
                                 <img src="{{asset('public/images/ae.svg')}}">
                                 <span class="topbar__item-value" style="color:#000000;">AED</span>
-                            </button></div>
-                        <div>
+                            </button>
+                        </div> -->
+                            <svg width="20px" height="20px">
+                                <use xlink:href="{{asset('public/images/sprite.svg#person-20')}}"></use>
+                            </svg>
                             <button class="topbar-dropdown__btn" type="button">
                                 <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color:#000000;">
                                     Login
                                 </a>
                             </button>
-                        </div>
                     </div>
                 </div>
                 <div class="site-header__nav-panel">
