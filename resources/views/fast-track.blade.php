@@ -12,7 +12,7 @@
                 </div>
 
                 <p style="color:white;"><br>Drop us your Number and our Team will call you for the Order <br/>
-                    ... ضع رقمك وسنتواصل معك في أقرب وقت</p>
+                    ... ضع رقمك وسنتواصل معك في أقرب وقت<br/></p>
                 <form method="post" class="widget-newsletter__form" id="fast-track-form" action="{{URL('/fast-track-submit')}}">
                     @csrf
                     <input type=hidden name="oid" value="00D0O000000Z7K2">
