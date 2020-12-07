@@ -276,13 +276,13 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>git
     </div>
 </div>
 
 <div class="block block-features block-features--layout--classic">
     <div class="container">
-        <div class="block-features__list" style="background-color:#ec7613;">
+        <div class="block-features__list" style="background: linear-gradient(45deg, #000, transparent); border: none;">
 
             <div class="block-features__item">
 
@@ -298,7 +298,9 @@
                     </svg>
                 </div>
                 <div class="block-features__content">
+                    <a style="color:inherit;" href="mailto:sales@800benaa.com">
                     <div class="block-features__title" style="padding-top: 10px;">sales@800benaa.com</div>
+                    </a>
                 </div>
             </div>
 
@@ -309,7 +311,7 @@
                     </svg>
                 </div>
                 <div class="block-features__content">
-                    <a style="color:inherit;" href="{{URL('/catalog')}}">
+                    <a style="color:inherit;" href="tel:80023622">
                         <div class="block-features__title" style="padding-top: 10px;">800-23622</div>
 
                     </a>
