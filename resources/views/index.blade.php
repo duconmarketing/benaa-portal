@@ -279,6 +279,46 @@
         </div>
     </div>
 </div>
+
+<div class="block block-features block-features--layout--classic">
+    <div class="container">
+        <div class="block-features__list" style="background-color:#ec7613;">
+
+            <div class="block-features__item">
+
+                <div class="block-features__content"  style="cursor: pointer;">
+                    <div class="block-features__title" style="padding-top: 10px;">We're Always Here To Help</div>
+                </div>
+            </div>
+
+            <div class="block-features__item">
+                <div class="block-features__icon">
+                    <svg width="48px" height="48px">
+                        <use xlink:href="{{asset('public/images/sprite.svg#icon-email')}}"></use>
+                    </svg>
+                </div>
+                <div class="block-features__content">
+                    <div class="block-features__title" style="padding-top: 10px;">sales@800benaa.com</div>
+                </div>
+            </div>
+
+            <div class="block-features__item">
+                <div class="block-features__icon">
+                    <svg width="48px" height="48px">
+                        <use xlink:href="{{asset('public/images/sprite.svg#icon-phone')}}"></use>
+                    </svg>
+                </div>
+                <div class="block-features__content">
+                    <a style="color:inherit;" href="{{URL('/catalog')}}">
+                        <div class="block-features__title" style="padding-top: 10px;">800-23622</div>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- .block-categories / end -->
 <script>
     // to show fast track form popup in the home page
