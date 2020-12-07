@@ -335,7 +335,7 @@
             <div class="site-footer">
                 <div class="container">
                     <div class="site-footer__widgets">
-                     <!--   <div class="row" style="padding-bottom: 10px;">
+                        <div class="row" style="padding-bottom: 10px;">
                             <div class="col-12 col-md-12 col-lg-6">
                                 <div class="site-footer__widget footer-links">
                                     <h5 class="footer-links__title">We're Always Here To Help</h5>
@@ -370,8 +370,20 @@
     white-space: nowrap;">800-23622</span>
                             </div>
                         </div>
-                        -->
-                        <div class="row" style="padding-top: 10px;">
+                        <div class="row" style="border-top: 1px solid #ebebeb;padding-top: 10px;">
+                           <!-- <div class="col-12 col-md-6 col-lg-4">
+                                <div class="site-footer__widget footer-contacts">
+                                    <h5 class="footer-contacts__title">Get to Know Us</h5>
+                                    <div class="footer-contacts__text">
+                                        Please contact us for more information about our products.
+                                    </div>
+                                    <ul class="footer-contacts__contacts text-info">
+                                        <li><i class="footer-contacts__icon far fa-envelope"></i><a href="mailto:sales@800benaa.com">sales@800benaa.com</a></li>
+                                        <li><i class="footer-contacts__icon fas fa-mobile-alt"></i><a href="tel:80023622"> 800-23622</a></li>
+
+                                    </ul>
+                                </div>
+                            </div> -->
                             <div class="col-12 col-md-4 col-lg-3">
                                 <div class="site-footer__widget footer-links">
                                     <h5 class="footer-links__title">Get to Know Us</h5>
@@ -387,6 +399,8 @@
                                     <h5 class="footer-links__title">Shop with Us</h5>
                                     <ul class="footer-links__list">
                                         <li class="footer-links__item"><a href="{{URL::to('/about-us')}}" class="footer-links__link">Your Account</a></li>
+                                        {{--<li class="footer-links__item"><a href="" class="footer-links__link">Privacy Policy</a></li>
+                                        <li class="footer-links__item"><a href="{{URL::to('/contact-us')}}" class="footer-links__link">Get in touch</a></li>--}}
                                     </ul>
                                 </div>
                             </div>
@@ -396,6 +410,7 @@
                                     <ul class="footer-links__list">
                                         <li class="footer-links__item"><a href="{{URL::to('/about-us')}}" class="footer-links__link">Help</a></li>
                                         <li class="footer-links__item"><a href="" class="footer-links__link">FAQs</a></li>
+                                        {{--<li class="footer-links__item"><a href="{{URL::to('/contact-us')}}" class="footer-links__link">Get in touch</a></li>--}}
                                     </ul>
                                 </div>
                             </div>
@@ -423,13 +438,13 @@
                                                 </a>
                                             </li>  -->
                                             <li class="social-links__item">
-                                                <a class="social-links__link social-links__link--type--facebook" href="https://www.facebook.com/800benaa" target="_blank">
+                                                <a class="social-links__link social-links__link--type--facebook" href="https://www.facebook.com/duconind/" target="_blank">
                                                     <i class="fab fa-facebook-f"></i>
                                                 </a>
                                             </li>
 
                                             <li class="social-links__item">
-                                                <a class="social-links__link social-links__link--type--instagram" href="https://www.instagram.com/800benaa/" target="_blank">
+                                                <a class="social-links__link social-links__link--type--instagram" href="https://www.instagram.com/duconind" target="_blank">
                                                     <i class="fab fa-instagram"></i>
                                                 </a>
                                             </li>
