@@ -42,9 +42,13 @@
             .footer-links__item, .footer-contacts__text, .footer-newsletter__text, .site-footer__copyright{color: #b3bdc6;}
             .footer-contacts__title, .footer-links__title, .footer-newsletter__title{color: #e8e0e0;}
             </style>
+
             <style>
                 body{color:aqua;}
             </style>
+
+        <style> .nnfooter{ background: transparent;} </style>
+
     </head>
     <body>
     <!-- site -->
