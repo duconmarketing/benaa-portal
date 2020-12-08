@@ -43,12 +43,6 @@
             .footer-contacts__title, .footer-links__title, .footer-newsletter__title{color: #e8e0e0;}
             </style>
 
-            <style>
-                body{color:aqua;}
-            </style>
-
-        <style> .nnfooter{ background: transparent;} </style>
-
     </head>
     <body>
     <!-- site -->
