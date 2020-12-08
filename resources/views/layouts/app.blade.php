@@ -186,7 +186,7 @@
                                 <form class="search__form" action="{{ url('search')}}" method="GET">
                                     <select class="search__categories" aria-label="Category" id="categorySearchList" style="text-transform: capitalize; display: none;">
                                     </select>
-                                    <input class="search__input" name="searchKey" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
+                                    <input class="search__input" name="searchKey" placeholder="Search for your products" aria-label="Site search" type="text" autocomplete="off">
                                     <button class="search__button search__button--type--submit" type="submit">
                                         <svg width="20px" height="20px">
                                             <use xlink:href="{{asset('public/images/sprite.svg#search-20')}}"></use>
@@ -198,7 +198,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="site-header__phone" style="display: flex;">
+                    <div class="site-header__phone ml-3" style="display: flex;">
                         <!-- <div>
                             <button class="topbar-dropdown__btn" type="button">
                                 <img src="{{asset('public/images/ae.svg')}}">
@@ -208,7 +208,7 @@
                             <svg width="20px" height="20px">
                                 <use xlink:href="{{asset('public/images/sprite.svg#person-20')}}"></use>
                             </svg>
-                            <button class="topbar-dropdown__btn" type="button">
+                            <button class="topbar-dropdown__btn pl-0" type="button">
                                 <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color:#000000;">
                                     Login
                                 </a>
