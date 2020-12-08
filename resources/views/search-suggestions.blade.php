@@ -26,21 +26,21 @@ ul.suggestion li a{
                             <p style="background-color: #3d464d;" class="text-center mt-3 font-weight-bold text-light">Suggestions</p>
                             <ul class="suggestion">
                                 @foreach(array_slice($suggestion['products'], 0, 4) as $row)
-                                    <li><a href="" class="suggestionKey">{{ucfirst(strtolower($row))}}</a></li>
+                                    <li><a href="" class="suggestionKey">{{ucwords(strtolower($row))}}</a></li>
                                 @endforeach
                             </ul>
 
                             <p style="background-color: #3d464d;" class="text-center mt-3 font-weight-bold text-light">Categories</p>
                             <ul class="suggestion">
                                 @foreach(array_slice($suggestion['categories'], 0, 4) as $row)
-                                    <li><a class="" href="{{URL::to('/')}}/product/{{$row['Id']}}">{{ucfirst(strtolower($row['Name']))}}</a></li>
+                                    <li><a class="" href="{{URL::to('/')}}/product/{{$row['Id']}}">{{ucwords(strtolower($row['Name']))}}</a></li>
                                 @endforeach
                             </ul>
 
                             <p style="background-color: #3d464d;" class="text-center mt-3 font-weight-bold text-light">Brands</p>
                             <ul class="suggestion">
                                 @foreach(array_slice($suggestion['brands'], 0, 4) as $row)
-                                    <li><a class="suggestionKey">{{ucfirst(strtolower($row))}}</a></li>
+                                    <li><a class="suggestionKey">{{ucwords(strtolower($row))}}</a></li>
                                 @endforeach
                             </ul>
                         </div>

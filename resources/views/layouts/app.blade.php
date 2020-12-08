@@ -150,7 +150,7 @@
                             <div class="topbar__item">
                                 <div class="topbar-dropdown">
                                     <button class="topbar-dropdown__btn" type="button">
-                                    <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color:#ffffff;">
+                                    <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color: white; font-weight: 600;">
                                         Login
                                     </a>
                                         <svg width="7px" height="5px">
@@ -210,7 +210,7 @@
                                 <use xlink:href="{{asset('public/images/sprite.svg#person-20')}}"></use>
                             </svg>
                             <button class="topbar-dropdown__btn pl-0" type="button">
-                                <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color:#000000;">
+                                <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color: white; font-weight: 600;">
                                     Login
                                 </a>
                             </button>
