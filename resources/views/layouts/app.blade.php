@@ -42,6 +42,9 @@
             .footer-links__item, .footer-contacts__text, .footer-newsletter__text, .site-footer__copyright{color: #b3bdc6;}
             .footer-contacts__title, .footer-links__title, .footer-newsletter__title{color: #e8e0e0;}
             </style>
+            <style>
+                body{color:aqua;}
+            </style>
     </head>
     <body>
     <!-- site -->
@@ -338,9 +341,44 @@
             <div class="site-footer">
                 <div class="container">
                     <div class="site-footer__widgets">
-                        <div class="row" style="padding-top: 10px;">
+                        <div class="row" style="padding-bottom: 10px;">
+                            <div class="col-12 col-md-12 col-lg-6">
+                                <div class="site-footer__widget footer-links">
+                                    <h5 class="footer-links__title">We're Always Here To Help</h5>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <span style=" display: block;
+    font-size: 0.83333rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #B3BDC6;">Email</span>
+                                <span style=" font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 1.4;
+    white-space: nowrap;">sales@800benaa.com</span>
+                            </div>
+
+
+                            <div class="col-12 col-md-6 col-lg-3">
+                                <span style=" display: block;
+    font-size: 0.83333rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: #B3BDC6;">Phone</span>
+                                <span style=" font-weight: 600;
+    font-size: 18px;
+    color: #ffffff;
+    line-height: 1.4;
+    white-space: nowrap;">800-23622</span>
+                            </div>
+                        </div>
+                        <div class="row" style="border-top: 1px solid #ebebeb;padding-top: 10px;">
                            <!-- <div class="col-12 col-md-6 col-lg-4">
-                                <div class="site-footer__widget footer-git contacts">
+                                <div class="site-footer__widget footer-contacts">
                                     <h5 class="footer-contacts__title">Get to Know Us</h5>
                                     <div class="footer-contacts__text">
                                         Please contact us for more information about our products.
