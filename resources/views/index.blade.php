@@ -17,7 +17,7 @@
             <div class="col-12">
                 <div class="block-slideshow__body">
                     <div class="owl-carousel">
-                        <a class="block-slideshow__slide" href="product/a1d1x000000Nq2tAAC">
+                        <a class="block-slideshow__slide" href="product/a1g6900000m370YAAQ">
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1.jpg')}}')"></div>
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner1-mob.jpg')}}')"></div>
                             <div class="block-slideshow__slide-content">
@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a class="block-slideshow__slide" href="product/a1d1x000000Nq2tAAC">
+                        <a class="block-slideshow__slide" href="product/a1g6900000m370YAAQ">
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner3.jpg')}}')"></div>
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner2-mob.jpg')}}')"></div>
                             <div class="block-slideshow__slide-content">
@@ -39,7 +39,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a class="block-slideshow__slide" href="product/a1d1x000000Nq2nAAC">
+                        <a class="block-slideshow__slide" href="product/a1g6900000m370SAAQ">
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--desktop" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner2.jpg')}}')"></div>
                             <div class="block-slideshow__slide-image block-slideshow__slide-image--mobile" style="background-image: url('{{asset('public/images/slides/Benaa-Web-Banner3-mob.jpg')}}')"></div>
                             <div class="block-slideshow__slide-content">
@@ -68,7 +68,7 @@
                     </svg>
                 </div>
                 <div class="block-features__content">
-                    <div class="block-features__title">Delivery</div>
+                    <div class="block-features__title">Delivery Across UAE</div>
                     <div class="block-features__subtitle">Within 3 working days</div>
                 </div>
             </div>
@@ -82,8 +82,8 @@
                     </a>
                 </div>
                 <div class="block-features__content" onclick="showFastTrack();" style="cursor: pointer;">
-                    <div class="block-features__title">Fast Track Order</div>
-                    <div class="block-features__subtitle">Drop us your Number</div>
+                    <div class="block-features__title">Order Instantly</div>
+                    <div class="block-features__subtitle">FAST TRACK ORDER</div>
                 </div>
             </div>
             <div class="block-features__divider"></div>
@@ -94,8 +94,8 @@
                     </svg>
                 </div>
                 <div class="block-features__content">
-                    <div class="block-features__title">100% Safety</div>
-                    <div class="block-features__subtitle">Only secure payments</div>
+                    <div class="block-features__title">High Quality</div>
+                    <div class="block-features__subtitle">Top Brands</div>
                 </div>
             </div>
             <div class="block-features__divider"></div>
@@ -107,8 +107,8 @@
                 </div>
                 <div class="block-features__content">
                     <a style="color:inherit;" href="{{URL('/catalog')}}">
-                        <div class="block-features__title">Our Catalog</div>
-                        <div class="block-features__subtitle">Download the Catalog</div>
+                        <div class="block-features__title">Download Catalog</div>
+                        <div class="block-features__subtitle">Complete product-list</div>
                     </a>
                 </div>
             </div>
