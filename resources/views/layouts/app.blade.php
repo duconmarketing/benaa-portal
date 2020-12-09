@@ -436,7 +436,7 @@
                         <div class="site-footer__copyright">
                             <!-- copyright -->
                             <p>© Copyright <script type="text/javascript">document.write(new Date().getFullYear())</script> <a class="topbar__item-value" href="#">800Benaa</a>. All Rights Reserved. &nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!-- <a href="">Refund Policy</a>  &nbsp;&nbsp;&nbsp;&nbsp; --><a href="">Privacy Policy</a> <!-- &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Consumer Right</a> --></p>
+                                <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Refund Policy</a>  &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Privacy Policy</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="">Consumer Right</a> --></p>
                             <!-- copyright / end -->
 
                         </div>
