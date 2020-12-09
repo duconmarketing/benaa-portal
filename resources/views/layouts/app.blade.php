@@ -408,13 +408,13 @@
                                                 </a>
                                             </li>  -->
                                             <li class="social-links__item">
-                                                <a class="social-links__link social-links__link--type--facebook" href="https://www.facebook.com/duconind/" target="_blank">
+                                                <a class="social-links__link social-links__link--type--facebook" href="https://www.facebook.com/800benaa" target="_blank">
                                                     <i class="fab fa-facebook-f"></i>
                                                 </a>
                                             </li>
 
                                             <li class="social-links__item">
-                                                <a class="social-links__link social-links__link--type--instagram" href="https://www.instagram.com/duconind" target="_blank">
+                                                <a class="social-links__link social-links__link--type--instagram" href="https://www.instagram.com/800benaa/" target="_blank">
                                                     <i class="fab fa-instagram"></i>
                                                 </a>
                                             </li>
