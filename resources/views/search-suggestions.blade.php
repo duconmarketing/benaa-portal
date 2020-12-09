@@ -26,7 +26,7 @@ ul.suggestion li a{
                             <p style="background-color: #3d464d;" class="text-center mt-3 font-weight-bold text-light">Suggestions</p>
                             <ul class="suggestion">
                                 @foreach(array_slice($suggestion['products'], 0, 4) as $row)
-                                    <li><a href="" class="suggestionKey">{{ucwords(strtolower($row))}}</a></li>
+                                    <li><a href="{{URL::to('/')}}/search?searchKey={{$row}}" class="">{{ucwords(strtolower($row))}}</a></li>
                                 @endforeach
                             </ul>
 
@@ -40,7 +40,7 @@ ul.suggestion li a{
                             <p style="background-color: #3d464d;" class="text-center mt-3 font-weight-bold text-light">Brands</p>
                             <ul class="suggestion">
                                 @foreach(array_slice($suggestion['brands'], 0, 4) as $row)
-                                    <li><a class="suggestionKey">{{ucwords(strtolower($row))}}</a></li>
+                                    <li><a href="{{URL::to('/')}}/search?brandKey={{$row}}" class="suggestionKey">{{ucwords(strtolower($row))}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -101,11 +101,6 @@ ul.suggestion li a{
     </div>
 </div>
 <script>
-    $('.suggestionKey').click(function(){
-        event.preventDefault();
-        console.log($(this).html());
-        window.location.replace("{{URL::to('/')}}/search?searchKey=" + $(this).html());
-    });
     $(".viewAllResults").click(function(){
         event.preventDefault();
         $(".search__form").submit();

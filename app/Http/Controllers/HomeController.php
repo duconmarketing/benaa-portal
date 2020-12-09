@@ -14,9 +14,17 @@ class HomeController extends Controller {
 
     public function search(Request $request, $page = 1) {
         $key = $request->input('searchKey');
-        $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/search', [
-            'key' => $key,
-        ]);
+        $brand = $request->input('brandKey');
+        if($brand != ''){
+            $key = $brand;
+            $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/smartsearch', [
+                'brand' => $brand,
+            ]);
+        }else{
+            $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/search', [
+                'key' => $key,
+            ]);
+        }        
         $result = $response->json();
         if(count($result['data'])){
             $currentPage = $request->input("page") ?? 1;
