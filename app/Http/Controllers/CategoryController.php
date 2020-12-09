@@ -79,6 +79,7 @@ class CategoryController extends Controller {
             $filterMin = $result['data'][0]['UnitPrice'];
             $filterMax = end($result['data'])['UnitPrice'];   
             $brands = array_count_values(array_map(function ($i) { return $i['Product2']['Brand_Name__c']; }, $result['data']));
+            $filterMin == $filterMax ? $filterMin = 0 : '';
         }
 
         return view('sub-category', ['results' => $paginator, 'category' => $CategoryName, 'subCategory' => $subCategoryName, 'parentId' => $parentId, 'filterMin' => $filterMin, 'filterMax' => $filterMax, 'brands' => $brands]);
@@ -145,7 +146,7 @@ class CategoryController extends Controller {
     public function filterProduct(Request $request){
         $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/smartsearch', [
             'categoryId' => $request->category,
-            'subcategoryId' => $request->subCategory,
+            'subcategoryId' => $request->subCategory ?? '',
             'minPrice' => $request->minPrice,
             'maxPrice' => $request->maxPrice,
             'brand' => implode(',', json_decode($request->brands)),
@@ -159,12 +160,14 @@ class CategoryController extends Controller {
         if(count($result['data'])){
             $subCategoryName = $paginator[0]['Product2']['Portal_Subcategory__r']['Name'] ?? $paginator[0]['Product2']['Portal_Category__r']['Name'];
             $CategoryName = $paginator[0]['Product2']['Portal_Category__r']['Name'];
-        }        
 
-        $filter_result['data'] = array();
-        foreach($result['data'] as $product){
-            $filter_result['data'][] = view('filter-result-products', ['product' => $product, 'category' => $CategoryName, 'subCategory' => $subCategoryName])->render();
-        }
+            $filter_result['data'] = array();
+            foreach($result['data'] as $product){
+                $filter_result['data'][] = view('filter-result-products', ['product' => $product, 'category' => $CategoryName, 'subCategory' => $subCategoryName])->render();
+            }
+        }else{
+            $filter_result['data'][] = '<h2>No results... </h2>';
+        }         
 
         return response()->json($filter_result);
     }
