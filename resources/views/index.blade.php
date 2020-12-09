@@ -307,7 +307,7 @@
             <div class="block-features__item">
                 <div class="block-features__icon">
                     <svg width="48px" height="48px">
-                        <use xlink:href="{{asset('public/images/sprite.svg#icon-phone')}}"></use>
+                        <use xlink:href="{{asset('public/images/sprite.svg#icon-phone2')}}"></use>
                     </svg>
                 </div>
                 <div class="block-features__content">
