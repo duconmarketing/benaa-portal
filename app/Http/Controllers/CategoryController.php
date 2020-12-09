@@ -145,7 +145,7 @@ class CategoryController extends Controller {
     public function filterProduct(Request $request){
         $response = Http::post(config('benaa.sf_url').'/services/apexrest/DuconSiteFactory/smartsearch', [
             'categoryId' => $request->category,
-            'subCategoryId' => $request->subCategory,
+            'subcategoryId' => $request->subCategory,
             'minPrice' => $request->minPrice,
             'maxPrice' => $request->maxPrice,
             'brand' => implode(',', json_decode($request->brands)),
