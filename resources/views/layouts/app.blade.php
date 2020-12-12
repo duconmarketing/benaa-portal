@@ -131,7 +131,7 @@
         <!-- mobile site__header / end -->
         <!-- desktop site__header -->
         <header class="site__header d-lg-block d-none">
-            <div class="site-header" style="background-image: url({{asset('public/images/new_hd.jpg')}}); background-size: cover;">
+            <div class="site-header" style="background-color: #ec761352;">
                 <!-- Toast -->
                 <div class="toast" id="cart-added">
                     Product Added to the cart
@@ -402,7 +402,7 @@
                                         <span id="email-info" class="invalid-feedback"></span>
                                     </div>
                                     <div class="footer-newsletter__text footer-newsletter__text--social">
-                                        Follow us on social networks
+                                        Connect with us
                                     </div>
                                     <!-- social-links -->
                                     <div class="social-links footer-newsletter__social-links social-links--shape--circle">
