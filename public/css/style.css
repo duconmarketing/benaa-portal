@@ -6243,7 +6243,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 [dir=ltr] .menu__item-link {
   text-align: left;
   padding-right: 38px;
-  padding-left: 16px;
+  padding-left: 5px;
 }
 
 [dir=rtl] .menu__item-link {

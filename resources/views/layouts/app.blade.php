@@ -205,10 +205,10 @@
                                 <img src="{{asset('public/images/ae.svg')}}">
                                 <span class="topbar__item-value" style="color:#000000;">AED</span>
                             </button>
-                        </div>
-                            <svg width="20px" height="20px" style="color: #3d464d;">
-                                <use xlink:href="{{asset('public/images/sprite.svg#person-20')}}"></use>
-                            </svg> -->
+                        </div>  -->
+                            <svg width="20px" height="20px" style="margin-top: 3px;">
+                                <use xlink:href="{{asset('public/images/sprite.svg#user-thin')}}"></use>
+                            </svg>
                             <button class="topbar-dropdown__btn pl-0" type="button">
                                 <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color: #3d464d; font-weight: 600;">
                                     Sign In
