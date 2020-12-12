@@ -76,7 +76,7 @@
                             <div class="search search--location--mobile-header mobile-header__search">
                                 <div class="search__body">
                                     <form class="search__form" action="{{ url('search')}}" method="GET">
-                                        <input class="search__input" name="searchKey" placeholder="Search over 10,000 products" aria-label="Site search" type="text" autocomplete="off">
+                                        <input class="search__input" name="searchKey" placeholder="What are you looking for?" aria-label="Site search" type="text" autocomplete="off">
                                         <button class="search__button search__button--type--submit" type="submit">
                                             <svg width="20px" height="20px">
                                                 <use xlink:href="{{asset('public/images/sprite.svg#search-20')}}"></use>
@@ -187,7 +187,7 @@
                                 <form class="search__form" action="{{ url('search')}}" method="GET">
                                     <select class="search__categories" aria-label="Category" id="categorySearchList" style="text-transform: capitalize; display: none;">
                                     </select>
-                                    <input class="search__input" name="searchKey" placeholder="Search for your products" aria-label="Site search" type="text" autocomplete="off">
+                                    <input class="search__input" name="searchKey" placeholder="What are you looking for?" aria-label="Site search" type="text" autocomplete="off">
                                     <button class="search__button search__button--type--submit" type="submit">
                                         <svg width="20px" height="20px">
                                             <use xlink:href="{{asset('public/images/sprite.svg#search-20')}}"></use>
@@ -391,11 +391,16 @@
                                     <div class="footer-newsletter__text">
                                         Join 800Benaa and get the latest news, offers and products delivered to your inbox.
                                     </div>
-                                    <form action="" class="footer-newsletter__form">
+                                        <form action="https://www.createsend.com/t/subscribeerror?description=" id="subForm" data-id="A61C50BEC994754B1D79C5819EC1255C0A07DC04AFC6EEEE7E892521FE370A2BE784BDD990CB6A22545DCF7D932BC9116F94D363A3A70A1DDFDE9A623DFC607D"  class="footer-newsletter__form" method="POST">
+
                                         <label class="sr-only" for="footer-newsletter-address">Email Address</label>
-                                        <input type="text" class="footer-newsletter__form-input form-control" id="footer-newsletter-address" placeholder="Email Address..." required />
-                                        <button class="footer-newsletter__form-button btn btn-primary" style="padding: 0 2px 0 2px;">Subscribe</button>
+                                        <input class="footer-newsletter__form-input form-control" id="fieldEmail" name="cm-jilthjr-jilthjr" required type="email" placeholder="Email Address..."/>
+
+                                        <button class="footer-newsletter__form-button btn btn-primary" type="submit" style="padding: 0 2px 0 2px;">Subscribe</button>
                                     </form>
+                                    <div class="footer-newsletter__text">
+                                        <span id="email-info" class="invalid-feedback"></span>
+                                    </div>
                                     <div class="footer-newsletter__text footer-newsletter__text--social">
                                         Follow us on social networks
                                     </div>
@@ -627,10 +632,33 @@
         })();
     </script>
     <script>
-        $('.footer-newsletter__form').submit(function(){
+        // footer newsletter form submission
+        $(document).on('submit', "#subForm", function(){
             event.preventDefault();
-            $(this).find("input[type=text]").val("");
+            var em=$('#fieldEmail').val();
+            if(!(em)) {
+                $("#email-info").html("Please enter email address").show();
+                return false;
+            } else if(IsEmail(em)==false) {
+                $("#email-info").html("Invalid email address").show();
+                return false;
+            } else {
+                $("#email-info").html("");
+                $.post($(this).attr('action'), $(this).serialize(), function (res) {
+                    console.log(res);
+                });
+            }
         });
+
+        function IsEmail(email) {
+            var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if(!regex.test(email)) {
+                return false;
+            }else{
+                return true;
+            }
+        }
+
     </script>
 
 </body>
