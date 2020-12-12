@@ -13,7 +13,7 @@
             <div class="nav-links__item-body">
                 <b>All CATEGORIES</b>
                 <svg class="nav-links__item-arrow" width="9px" height="6px">
-                    <use xlink:href="images/sprite.svg#arrow-rounded-down-9x6"></use>
+                    <use xlink:href="{{asset('public/images/sprite.svg#arrow-rounded-down-9x6')}}"></use>
                 </svg>
             </div>
         </a>

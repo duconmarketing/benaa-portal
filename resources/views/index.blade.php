@@ -5,8 +5,7 @@
 @section('content')
 
 <style>
-.block-features__icon{fill:#fff;}
-.block-features__content{color: #fff;}
+    .block-features__divider{background : #f8c9a2 !important;}
 </style>
 
 <!-- .block-slideshow -->
@@ -60,7 +59,7 @@
 <!-- .block-features -->
 <div class="block block-features block-features--layout--classic">
     <div class="container">
-        <div class="block-features__list" style="background-color:#ec7613;">
+        <div class="block-features__list">
             <div class="block-features__item">
                 <div class="block-features__icon">
                     <svg width="48px" height="48px">
@@ -131,7 +130,7 @@
 
 <div class="block block-features block-features--layout--classic">
     <div class="container">
-        <div class="block-features__list" style="background: linear-gradient(45deg, #000, transparent); border: none;">
+        <div class="block-features__list" style="background: linear-gradient(45deg, #000, transparent); border: none; color: white;">
 
             <div class="block-features__item">
 

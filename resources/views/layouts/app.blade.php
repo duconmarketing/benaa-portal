@@ -131,7 +131,7 @@
         <!-- mobile site__header / end -->
         <!-- desktop site__header -->
         <header class="site__header d-lg-block d-none">
-            <div class="site-header" style="background-color: #ec761352;">
+            <div class="site-header" style="background-color: #e9e9f0;">
                 <!-- Toast -->
                 <div class="toast" id="cart-added">
                     Product Added to the cart
@@ -150,8 +150,8 @@
                             <div class="topbar__item">
                                 <div class="topbar-dropdown">
                                     <button class="topbar-dropdown__btn" type="button">
-                                    <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color: white; font-weight: 600;">
-                                        Login
+                                    <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color: #3d464d; font-weight: 600;">
+                                        Sign In
                                     </a>
                                         <svg width="7px" height="5px">
                                             <use xlink:href="images/sprite.svg#arrow-rounded-down-7x5"></use>
@@ -205,13 +205,13 @@
                                 <img src="{{asset('public/images/ae.svg')}}">
                                 <span class="topbar__item-value" style="color:#000000;">AED</span>
                             </button>
-                        </div> -->
-                            <svg width="20px" height="20px">
+                        </div>
+                            <svg width="20px" height="20px" style="color: #3d464d;">
                                 <use xlink:href="{{asset('public/images/sprite.svg#person-20')}}"></use>
-                            </svg>
+                            </svg> -->
                             <button class="topbar-dropdown__btn pl-0" type="button">
-                                <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color: white; font-weight: 600;">
-                                    Login
+                                <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color: #3d464d; font-weight: 600;">
+                                    Sign In
                                 </a>
                             </button>
                     </div>
@@ -224,7 +224,7 @@
                                 <!-- .nav-links -->
                                 <div class="nav-panel__nav-links nav-links" id="main-menu-div"  style="margin-left: -10px;"></div>
                                 <!-- .nav-links / end -->
-                                <div class="nav-panel__indicators">
+                                <div class="nav-panel__indicators" style="color: #3d464d;">
                                     <div class="indicator indicator--trigger--click">
                                         <a href="{{URL::to('/cart')}}" class="indicator__button">
                                             <span class="indicator__area">
@@ -359,8 +359,8 @@
                                     <h5 class="footer-links__title">Get to Know Us</h5>
                                     <ul class="footer-links__list">
                                         <li class="footer-links__item"><a href="{{URL::to('/about-us')}}" class="footer-links__link">About 800Benaa</a></li>
-                                        {{--<li class="footer-links__item"><a href="" class="footer-links__link">Privacy Policy</a></li>
-                                        <li class="footer-links__item"><a href="{{URL::to('/contact-us')}}" class="footer-links__link">Get in touch</a></li>--}}
+                                        {{--<li class="footer-links__item"><a href="" class="footer-links__link">Privacy Policy</a></li> --}}
+                                        <li class="footer-links__item"><a href="{{URL::to('/contact-us')}}" class="footer-links__link">Get in touch</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -368,7 +368,7 @@
                                 <div class="site-footer__widget footer-links">
                                     <h5 class="footer-links__title">Shop with Us</h5>
                                     <ul class="footer-links__list">
-                                        <li class="footer-links__item"><a href="{{URL::to('/about-us')}}" class="footer-links__link">Your Account</a></li>
+                                        <li class="footer-links__item"><a href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" class="footer-links__link">Your Account</a></li>
                                         {{--<li class="footer-links__item"><a href="" class="footer-links__link">Privacy Policy</a></li>
                                         <li class="footer-links__item"><a href="{{URL::to('/contact-us')}}" class="footer-links__link">Get in touch</a></li>--}}
                                     </ul>

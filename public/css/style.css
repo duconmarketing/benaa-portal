@@ -423,7 +423,7 @@ h6 {
 .site__footer {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-    background-color: #191818;
+    background-color: #29292b;
 }
 
 /* ----------------------------------------
@@ -5971,8 +5971,8 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
   border-radius: 1000px;
   position: relative;
   top: -11px;
-  background: #fff;
-  color: #3d464d;
+  background: #3d464d;
+  color: #fff;
   font-weight: 700;
 }
 
@@ -6041,8 +6041,8 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 
 .indicator--open .indicator__value,
 .indicator--hover .indicator__value {
-  background: #fff;
-  color: #3d464d;
+  background: #3d464d;
+  color: #fff;
 }
 
 .indicator--open .indicator__dropdown {
@@ -6242,7 +6242,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 
 [dir=ltr] .menu__item-link {
   text-align: left;
-  padding-right: 24px;
+  padding-right: 38px;
   padding-left: 16px;
 }
 
@@ -7088,7 +7088,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 */
 .nav-panel {
   height: 55px;
-    background: #191818;
+    background: #ec7613;
   -webkit-box-shadow: 0 1px rgba(0, 0, 0, 0.04), inset 0 -1px rgba(0, 0, 0, 0.04);
           box-shadow: 0 1px rgba(0, 0, 0, 0.04), inset 0 -1px rgba(0, 0, 0, 0.04);
   color: #fff;
@@ -7166,6 +7166,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
 
 [dir=ltr] .nav-panel__indicators {
   margin-left: auto;
+    padding-bottom: 135px;
 }
 
 [dir=rtl] .nav-panel__indicators {
