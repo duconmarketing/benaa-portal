@@ -40,7 +40,7 @@ ul.suggestion li a{
                             <p style="background-color: #3d464d;" class="text-center mt-3 font-weight-bold text-light">Brands</p>
                             <ul class="suggestion">
                                 @foreach(array_slice($suggestion['brands'], 0, 4) as $row)
-                                    <li><a href="{{URL::to('/')}}/search?brandKey={{$row}}" class="suggestionKey">{{ucwords(strtolower($row))}}</a></li>
+                                    <li><a href="{{URL::to('/')}}/search?brandKey={{$row}}" class="suggestionKey">{{ucwords(strtolower($row == '0' ? 'No Brands' : $row))}}</a></li>
                                 @endforeach
                             </ul>
                         </div>

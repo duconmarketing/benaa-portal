@@ -21,6 +21,7 @@ Route::get('product/{category}/{sub_category}/{product}', 'CategoryController@sh
 Route::post('addtocart', 'ShopController@addToCart');
 Route::post('updatecart', 'ShopController@updateCart');
 Route::view('cart', 'cart');
+Route::view('cart-ajax', 'cartAjax');
 Route::post('deleteitem', 'ShopController@deleteItem');
 Route::get('checkout', 'ShopController@checkout');
 Route::post('submitcheckout', 'ShopController@checkoutSubmit');

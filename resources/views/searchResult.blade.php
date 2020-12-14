@@ -20,7 +20,7 @@
         </div>
         <div class="page-header__title">
             @if(count($results) > 0)
-            <h3 class="title">Search Results for '{{$key}}'</h3>
+            <h3 class="title">Search Results for '{{$key == '0' ? 'No Brands' : $key}}'</h3>
             @endif
         </div>
     </div>

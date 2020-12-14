@@ -1,8 +1,3 @@
-@extends('layouts.app')
-
-@section('title', '800Benaa | Cart')
-
-@section('content')
 <div class="page-header">
     <div class="page-header__container container" style="background-color: #fff;">
         <div class="page-header__breadcrumb">
@@ -123,5 +118,3 @@
         @endif
     </div>
 </div>
-
-@endsection

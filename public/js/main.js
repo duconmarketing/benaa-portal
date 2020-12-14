@@ -920,6 +920,20 @@
         });
     });
 
+    $(document).on("click", '.clearItemCartPage', function(){
+        event.preventDefault();
+        var data = $(this).data();
+        $.post(BaseUrl + '/clear-item', data, function(response){
+            $('.dropcart').html(response.cartHtml);
+            res = $.ajax({
+                url: BaseUrl + '/cart-ajax',
+                success: function(data) {
+                    $('.site__body').html(data);
+                }
+            });
+        });
+    });
+
     $(document).on("change", '.updateItemPopup', function(){
         event.preventDefault();
         var data = $(this).data();
