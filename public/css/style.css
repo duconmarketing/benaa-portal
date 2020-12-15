@@ -6955,6 +6955,7 @@ html:not([dir="rtl"]) .noUi-horizontal .noUi-origin {
   padding: 0 4px;
     text-align: center;
   height: 42px;
+    text-shadow: 2px 2px 4px #0000007d;
   border-radius: 2px;
   background: transparent;
   -webkit-box-shadow: none;

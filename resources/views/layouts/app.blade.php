@@ -210,7 +210,7 @@
                                 <use xlink:href="{{asset('public/images/sprite.svg#user-thin')}}"></use>
                             </svg>
                             <button class="topbar-dropdown__btn pl-0" type="button">
-                                <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color: #3d464d; font-weight: 600;">
+                                <a class="menu__item-link" href="https://dev-800ducon.cs100.force.com/800Benaa/" target="_blank" style="color: #3d464d; font-weight: 500;">
                                     Sign In
                                 </a>
                             </button>
