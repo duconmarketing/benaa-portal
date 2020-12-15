@@ -130,7 +130,7 @@
 
 <div class="block block-features block-features--layout--classic">
     <div class="container">
-        <div class="block-features__list" style="background: linear-gradient(45deg, #000, transparent); border: none; color: white;">
+        <div class="block-features__list" style="background: linear-gradient(45deg, #29292b, transparent); border: none; color: white;">
 
             <div class="block-features__item">
 
@@ -146,8 +146,9 @@
                     </svg>
                 </div>
                 <div class="block-features__content">
+                    <div class="block-features__subtitle" >Email for enquiry</div>
                     <a style="color:inherit;" href="mailto:sales@800benaa.com">
-                    <div class="block-features__title" style="padding-top: 10px;">sales@800benaa.com</div>
+                    <div class="block-features__title" >sales@800benaa.com</div>
                     </a>
                 </div>
             </div>
@@ -159,9 +160,9 @@
                     </svg>
                 </div>
                 <div class="block-features__content">
+                    <div class="block-features__subtitle">Call Us at</div>
                     <a style="color:inherit;" href="tel:80023622">
-                        <div class="block-features__title" style="padding-top: 10px;">800-23622</div>
-
+                        <div class="block-features__title">800-23622</div>
                     </a>
                 </div>
             </div>
