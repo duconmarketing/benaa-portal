@@ -130,16 +130,16 @@
 
 <div class="block block-features block-features--layout--classic">
     <div class="container">
-        <div class="block-features__list" style="background: linear-gradient(45deg, #29292b, transparent); border: none; color: white;">
+        <div class="block-features__list" style="background: linear-gradient(45deg, #525254, transparent); border: none; color: #ffffff;">
 
-            <div class="block-features__item">
+            <div class="block-features__item col-md-4 col-lg-4">
 
                 <div class="block-features__content"  style="cursor: pointer;">
                     <div class="block-features__title" style="padding-top: 10px;">We're Always Here To Help</div>
                 </div>
             </div>
 
-            <div class="block-features__item">
+            <div class="block-features__item col-md-4 col-lg-4">
                 <div class="block-features__icon">
                     <svg width="48px" height="48px">
                         <use xlink:href="{{asset('public/images/sprite.svg#icon-email')}}"></use>
@@ -153,7 +153,7 @@
                 </div>
             </div>
 
-            <div class="block-features__item">
+            <div class="block-features__item col-md-4 col-lg-4">
                 <div class="block-features__icon">
                     <svg width="48px" height="48px">
                         <use xlink:href="{{asset('public/images/sprite.svg#icon-phone2')}}"></use>
